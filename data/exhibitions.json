@@ -1,0 +1,37 @@
+{
+  "exhibitions": [
+    {
+      "id": 1,
+      "title": "한국 현대 미술의 흐름",
+      "description": "한국 현대 미술의 다양한 흐름과 변화를 보여주는 전시",
+      "image": "assets/images/exhibitions/exh-thumb-01.jpg",
+      "date": "2025.01.15 - 2025.03.15",
+      "location": "정음 1층 전시실",
+      "status": "current",
+      "artist": "다양한 작가",
+      "category": "현대미술"
+    },
+    {
+      "id": 2,
+      "title": "디지털 아트의 새로운 지평",
+      "description": "디지털 기술과 예술의 만남을 탐구하는 전시",
+      "image": "assets/images/exhibitions/exh-thumb-02.jpg",
+      "date": "2025.03.20 - 2025.05.20",
+      "location": "정음 2층 전시실",
+      "status": "upcoming",
+      "artist": "디지털 아티스트들",
+      "category": "디지털아트"
+    },
+    {
+      "id": 3,
+      "title": "전통과 현대의 대화",
+      "description": "한국 전통 예술과 현대 예술의 만남",
+      "image": "assets/images/exhibitions/exh-thumb-03.jpg",
+      "date": "2025.05.25 - 2025.07.25",
+      "location": "정음 3층 전시실",
+      "status": "upcoming",
+      "artist": "전통 예술가들",
+      "category": "전통예술"
+    }
+  ]
+}

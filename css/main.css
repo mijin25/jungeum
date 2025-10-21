@@ -1,0 +1,173 @@
+/* 정음 웹사이트 메인 스타일시트 */
+/* 모듈화된 CSS 아키텍처 */
+
+/* =================================================================
+   Design Tokens (디자인 토큰)
+   ================================================================= */
+@import url('./tokens/colors.css');
+@import url('./tokens/typography.css');
+@import url('./tokens/spacing.css');
+
+/* =================================================================
+   Base Styles (기본 스타일)
+   ================================================================= */
+@import url('./base/reset.css');
+@import url('./base/typography.css');
+
+/* =================================================================
+   Component Styles (컴포넌트 스타일)
+   ================================================================= */
+@import url('./components/button.css');
+@import url('./components/card.css');
+@import url('./components/navigation.css');
+@import url('./components/form.css');
+
+/* =================================================================
+   Utilities (유틸리티)
+   ================================================================= */
+@import url('./utilities/layout.css');
+@import url('./utilities/spacing.css');
+
+
+/* =================================================================
+   페이지별 스타일 (필요시 추가)
+   ================================================================= */
+
+/* 메인 페이지 전용 스타일 */
+.main-content {
+    min-height: 100vh;
+}
+
+/* 현재 전시 섹션 */
+.current-exhibition-section {
+    padding: var(--spacing-4xl) 0;
+    background-color: var(--bg-secondary);
+}
+
+.exhibition-highlight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+}
+
+.exhibition-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+}
+
+.exhibition-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.exhibition-info {
+    padding: var(--spacing-lg);
+}
+
+.exhibition-title {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.exhibition-description {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    line-height: var(--line-height-loose);
+}
+
+.exhibition-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.exhibition-date,
+.exhibition-location {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+}
+
+/* 다가오는 이벤트 섹션 */
+.upcoming-events-section {
+    padding: var(--spacing-4xl) 0;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+/* 공간 소개 섹션 */
+.space-intro-section {
+    padding: var(--spacing-4xl) 0;
+    background-color: var(--bg-secondary);
+}
+
+.space-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+/* 보도 섹션 */
+.press-section {
+    padding: var(--spacing-4xl) 0;
+}
+
+.press-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .exhibition-highlight {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .exhibition-image {
+        aspect-ratio: 16/9;
+    }
+    
+    .exhibition-title {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .exhibition-description {
+        font-size: var(--font-size-base);
+    }
+    
+    .events-grid,
+    .space-grid,
+    .press-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .exhibition-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .exhibition-description {
+        font-size: var(--font-size-sm);
+    }
+}

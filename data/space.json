@@ -1,0 +1,46 @@
+{
+  "spaces": [
+    {
+      "id": 1,
+      "name": "1-2층 전시실",
+      "description": "대형 전시를 위한 넓은 공간",
+      "images": [
+        "assets/images/space/space-1f2f-01.jpg",
+        "assets/images/space/space-1f2f-02.jpg",
+        "assets/images/space/space-1f2f-03.jpg"
+      ],
+      "floor": "1-2층",
+      "capacity": 200,
+      "features": ["대형 전시", "자연 채광", "고성능 조명"],
+      "rental": true
+    },
+    {
+      "id": 2,
+      "name": "3층 세미나실",
+      "description": "강연과 토크 세션을 위한 공간",
+      "images": [
+        "assets/images/space/space-3f-01.jpg",
+        "assets/images/space/space-3f-02.jpg",
+        "assets/images/space/space-3f-03.jpg"
+      ],
+      "floor": "3층",
+      "capacity": 50,
+      "features": ["프로젝터", "음향시설", "회의용 테이블"],
+      "rental": true
+    },
+    {
+      "id": 3,
+      "name": "아카이브 라운지",
+      "description": "휴식과 독서를 위한 편안한 공간",
+      "images": [
+        "assets/images/space/space-ach-01.jpg",
+        "assets/images/space/space-ach-02.jpg",
+        "assets/images/space/space-ach-03.jpg"
+      ],
+      "floor": "지하 1층",
+      "capacity": 30,
+      "features": ["도서관", "카페", "휴식 공간"],
+      "rental": false
+    }
+  ]
+}

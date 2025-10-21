@@ -1,0 +1,46 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3867246, 2020-12-16T11:57:38-0500
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: JASO Sans Regular by StudioJASO
+ * URL: https://www.myfonts.com/collections/studio-jaso-foundry
+
+ * Webfont: JASO Sans Bold by StudioJASO
+ * URL: https://www.myfonts.com/collections/studio-jaso-foundry
+ 
+ * © 2025 MyFonts Inc. */
+
+  
+@font-face {
+  font-family: "JASOSansBold";
+  src: url('../assets/fonts/JASOSansBold/font.woff2') format('woff2'), url('../assets/fonts/JASOSansBold/font.woff') format('woff');
+  font-display: swap;
+}
+@font-face {
+  font-family: "JASOSansRegular";
+  src: url('../assets/fonts/JASOSansRegular/font.woff2') format('woff2'), url('../assets/fonts/JASOSansRegular/font.woff') format('woff');
+  font-display: swap;
+}
+
+/*
+Copyright (c) 2021 Kil Hyung-jin, with Reserved Font Name Pretendard.
+https://github.com/orioncactus/pretendard
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+*/
+
+@font-face {
+	font-family: 'Pretendard Variable';
+	font-weight: 45 920;
+	font-style: normal;
+	font-display: swap;
+	src: url('../assets/fonts/PretendardVariable.woff2') format('woff2-variations');
+}

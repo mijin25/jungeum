@@ -1,0 +1,45 @@
+/* 정음 웹사이트 컬러 토큰 */
+/* Design Tokens - Colors */
+
+:root {
+    /* 기본 컬러 */
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-transparent: #ffffff00;
+    
+    /* 정음 브랜드 컬러 */
+    --color-jungeum-warm-white: #F7F5F0;
+    --color-jungeum-yellow: #F2A32A;
+    --color-jungeum-orange: #FF624C;
+    --color-jungeum-blue: #272A6D;
+    --color-jungeum-brick: #742D29;
+    
+    /* 웜 그레이 컬러 */
+    --color-warm-grey-10: #F7F3F2;
+    --color-warm-grey-20: #E5E0DF;
+    --color-warm-grey-40: #ADA8A8;
+    --color-warm-grey-60: #726E6E;
+    --color-warm-grey-70: #565151;
+    --color-warm-grey-100: #171414;
+    
+    /* 시맨틱 컬러 */
+    --text-primary: var(--color-warm-grey-100);
+    --text-secondary: var(--color-warm-grey-70);
+    --text-tertiary: var(--color-warm-grey-60);
+    --text-inverse: var(--color-white);
+    
+    /* 배경 컬러 */
+    --bg-primary: var(--color-jungeum-warm-white);
+    --bg-secondary: var(--color-white);
+    --bg-dark: var(--color-warm-grey-100);
+    
+    /* 액센트 컬러 */
+    --accent-primary: var(--color-jungeum-orange);
+    --accent-secondary: var(--color-jungeum-yellow);
+    --accent-tertiary: var(--color-jungeum-blue);
+    
+    /* 보더 컬러 */
+    --border-light: var(--color-warm-grey-20);
+    --border-medium: var(--color-warm-grey-40);
+    --border-dark: var(--color-warm-grey-60);
+}

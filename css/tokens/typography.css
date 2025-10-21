@@ -1,0 +1,39 @@
+/* 정음 웹사이트 타이포그래피 토큰 */
+/* Design Tokens - Typography */
+
+:root {
+    /* 폰트 패밀리 */
+    --font-family-regular: "JASOSansRegular", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-family-bold: "JASOSansBold", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    
+    /* 폰트 사이즈 */
+    --font-size-xs: 0.75rem;   /* 12px */
+    --font-size-sm: 0.875rem;  /* 14px */
+    --font-size-base: 1rem;   /* 16px */
+    --font-size-lg: 1.125rem; /* 18px */
+    --font-size-xl: 1.25rem;  /* 20px */
+    --font-size-2xl: 1.5rem;  /* 24px */
+    --font-size-3xl: 1.75rem; /* 28px */
+    --font-size-4xl: 2rem;   /* 32px */
+    --font-size-5xl: 3rem;   /* 48px */
+    --font-size-6xl: 4rem;   /* 64px */
+    --font-size-7xl: 5rem;   /* 80px */
+    --font-size-8xl: 6.25rem; /* 100px */
+    --font-size-9xl: 20rem;  /* 320px */
+    
+    /* Letter Spacing */
+    --letter-spacing-tight: -0.28px;
+    --letter-spacing-normal: -0.32px;
+    --letter-spacing-wide: -0.36px;
+    --letter-spacing-wider: -0.48px;
+    --letter-spacing-widest: -0.56px;
+    --letter-spacing-xl: -0.64px;
+    --letter-spacing-2xl: -1.28px;
+    
+    /* Line Height */
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.4;
+    --line-height-relaxed: 1.5;
+    --line-height-loose: 1.6;
+    --line-height-extra-loose: 1.8;
+}

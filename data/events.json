@@ -1,0 +1,40 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "정음 오픈 기념 전시",
+      "description": "정음의 개관을 기념하는 특별 전시회",
+      "image": "assets/images/events/event-thumb-01.jpg",
+      "date": "2025.01.20",
+      "time": "14:00 - 18:00",
+      "location": "정음 전체",
+      "status": "upcoming",
+      "type": "전시",
+      "capacity": 100
+    },
+    {
+      "id": 2,
+      "title": "아티스트 토크 세션",
+      "description": "전시 작가들과의 만남과 대화",
+      "image": "assets/images/events/event-thumb-02.jpg",
+      "date": "2025.02.15",
+      "time": "19:00 - 21:00",
+      "location": "정음 2층 세미나실",
+      "status": "upcoming",
+      "type": "토크",
+      "capacity": 50
+    },
+    {
+      "id": 3,
+      "title": "문화 예술 워크샵",
+      "description": "일반인을 위한 문화 예술 체험 워크샵",
+      "image": "assets/images/events/event-thumb-03.jpg",
+      "date": "2025.03.10",
+      "time": "10:00 - 16:00",
+      "location": "정음 1층 워크샵실",
+      "status": "upcoming",
+      "type": "워크샵",
+      "capacity": 30
+    }
+  ]
+}

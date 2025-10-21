@@ -1,0 +1,174 @@
+/* 정음 웹사이트 타이포그래피 기본 스타일 */
+/* Base Styles - Typography */
+
+/* 헤딩 스타일 */
+.heading-h1 {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-7xl);
+    font-weight: 400;
+    line-height: var(--line-height-tight);
+    letter-spacing: -0.02em;
+}
+
+.heading-h2 {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-6xl);
+    font-weight: 400;
+    line-height: var(--line-height-relaxed);
+    letter-spacing: -0.01em;
+}
+
+.heading-h3 {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-5xl);
+    font-weight: 400;
+    line-height: var(--line-height-tight);
+}
+
+.heading-h4 {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-4xl);
+    font-weight: 400;
+    line-height: var(--line-height-tight);
+}
+
+.heading-h5 {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-3xl);
+    font-weight: 400;
+    line-height: var(--line-height-normal);
+}
+
+.heading-h6 {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-2xl);
+    font-weight: 400;
+    line-height: var(--line-height-extra-loose);
+}
+
+/* 강조 헤딩 스타일 */
+.heading-h1-emphasized {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-7xl);
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+    letter-spacing: -0.02em;
+}
+
+.heading-h2-emphasized {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-6xl);
+    font-weight: 700;
+    line-height: var(--line-height-relaxed);
+    letter-spacing: -0.01em;
+}
+
+.heading-h3-emphasized {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-5xl);
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+}
+
+.heading-h4-emphasized {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+}
+
+.heading-h5-emphasized {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    line-height: var(--line-height-normal);
+}
+
+.heading-h6-emphasized {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    line-height: var(--line-height-extra-loose);
+}
+
+/* 바디 텍스트 스타일 */
+.body-xl {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-xl);
+    font-weight: 400;
+    line-height: var(--line-height-loose);
+}
+
+.body-xl-emphasized {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    line-height: var(--line-height-loose);
+}
+
+.body-lg {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-lg);
+    font-weight: 400;
+    line-height: var(--line-height-loose);
+}
+
+.body-md {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    line-height: var(--line-height-loose);
+}
+
+.body-md-emphasized {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    line-height: var(--line-height-loose);
+}
+
+.body-md-article {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    line-height: var(--line-height-extra-loose);
+}
+
+.body-sm {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    line-height: var(--line-height-loose);
+}
+
+.body-sm-emphasized {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    line-height: var(--line-height-loose);
+}
+
+/* 라벨 스타일 */
+.label-lb1 {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    line-height: var(--line-height-tight);
+}
+
+/* 디스플레이 스타일 */
+.display-1 {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-8xl);
+    font-weight: 400;
+    line-height: var(--line-height-tight);
+    letter-spacing: -0.02em;
+}
+
+.display-2 {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-9xl);
+    font-weight: 400;
+    line-height: var(--line-height-tight);
+    letter-spacing: -0.02em;
+}

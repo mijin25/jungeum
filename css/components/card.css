@@ -1,0 +1,314 @@
+/* 정음 웹사이트 카드 컴포넌트 */
+/* Component Styles - Card */
+
+/* 전시 카드 */
+.exhibition-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.exhibition-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.exhibition-card__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.exhibition-card__image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+}
+
+.exhibition-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.exhibition-card:hover .exhibition-card__image img {
+    transform: scale(1.05);
+}
+
+.exhibition-card__tag {
+    position: absolute;
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    z-index: 1;
+}
+
+.exhibition-card__tag-text {
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+    padding: 6px 8px;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: pre-line;
+    text-align: center;
+}
+
+.exhibition-card__content {
+    padding: var(--spacing-lg);
+}
+
+.exhibition-card__title {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    line-height: var(--line-height-normal);
+    letter-spacing: var(--letter-spacing-widest);
+    color: var(--text-primary);
+    margin: 0;
+    white-space: pre-line;
+}
+
+.exhibition-card__date {
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-lg);
+    font-weight: 400;
+    line-height: var(--line-height-loose);
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--text-primary);
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* 이벤트 카드 */
+.event-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.event-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.event-card__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.event-card__image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+.event-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover .event-card__image img {
+    transform: scale(1.05);
+}
+
+.event-card__badge {
+    position: absolute;
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    z-index: 1;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 0;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.event-card__badge--upcoming {
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+}
+
+.event-card__badge--past {
+    background-color: var(--color-warm-grey-40);
+    color: var(--text-inverse);
+}
+
+.event-card__content {
+    padding: var(--spacing-lg);
+}
+
+.event-card__title {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.event-card__description {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    line-height: var(--line-height-relaxed);
+}
+
+.event-card__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+/* 공간 카드 */
+.space-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.space-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.space-card__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.space-card__image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+}
+
+.space-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.space-card:hover .space-card__image img {
+    transform: scale(1.05);
+}
+
+.space-card__content {
+    padding: var(--spacing-lg);
+}
+
+.space-card__title {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.space-card__description {
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+}
+
+/* 보도 카드 */
+.press-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.press-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.press-card__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.press-card__image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+.press-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.press-card:hover .press-card__image img {
+    transform: scale(1.05);
+}
+
+.press-card__content {
+    padding: var(--spacing-lg);
+}
+
+.press-card__title {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.press-card__description {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    line-height: var(--line-height-relaxed);
+}
+
+.press-card__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+/* 반응형 카드 스타일 */
+@media (max-width: 768px) {
+    .exhibition-card__image,
+    .event-card__image,
+    .space-card__image,
+    .press-card__image {
+        height: 180px;
+    }
+    
+    .exhibition-card__content,
+    .event-card__content,
+    .space-card__content,
+    .press-card__content {
+        padding: var(--spacing-md);
+    }
+    
+    .exhibition-card__title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .event-card__title,
+    .space-card__title,
+    .press-card__title {
+        font-size: var(--font-size-lg);
+    }
+}
