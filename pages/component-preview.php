@@ -126,18 +126,43 @@ require_once __DIR__ . '/../lib/helpers.php';
             <h2>카드 (Cards)</h2>
             
             <h3>전시 카드</h3>
-            <div class="component-showcase" style="display: flex; justify-content: center; max-width: 500px; margin: 0 auto;">
+            <div class="component-showcase">
                 <?php
-                $exhibition_card = [
-                    'title' => '대화: 김중업 × 르 코르뷔지에' . "\n" . '두 건축가의 운명적 만남',
-                    'date' => '2025.09.30 — 2025.10.26',
-                    'image' => '../assets/images/exhibitions/exh-thumb-01.jpg',
-                    'status' => 'current',
-                    'link' => '#'
+                $exhibition_cards = [
+                    [
+                        'title' => '대화: 김중업 × 르 코르뷔지에' . "\n" . '두 건축가의 운명적 만남',
+                        'date' => '2025.09.30 — 2025.10.26',
+                        'image' => '../assets/images/exhibitions/exh-thumb-01.jpg',
+                        'status' => 'current',
+                        'link' => '#'
+                    ],
+                    [
+                        'title' => '미래의 건축' . "\n" . '디지털 시대의 공간',
+                        'date' => '2025.11.15 — 2025.12.30',
+                        'image' => '../assets/images/exhibitions/exh-thumb-02.jpg',
+                        'status' => 'upcoming',
+                        'link' => '#'
+                    ],
+                    [
+                        'title' => '도시의 기억' . "\n" . '서울 건축사',
+                        'date' => '2025.01.15 — 2025.03.20',
+                        'image' => '../assets/images/exhibitions/exh-thumb-03.jpg',
+                        'status' => 'current',
+                        'link' => '#'
+                    ],
+                    [
+                        'title' => '재생의 미학' . "\n" . '옛 건물의 새로운 삶',
+                        'date' => '2025.04.01 — 2025.06.30',
+                        'image' => '../assets/images/exhibitions/exh-thumb-04.jpg',
+                        'status' => 'upcoming',
+                        'link' => '#'
+                    ]
                 ];
                 
-                $data = $exhibition_card;
-                include __DIR__ . '/../components/cards/exhibition-card.php';
+                foreach ($exhibition_cards as $card_data) {
+                    $data = $card_data;
+                    include __DIR__ . '/../components/cards/exhibition-card.php';
+                }
                 ?>
             </div>
             
@@ -150,6 +175,27 @@ require_once __DIR__ . '/../lib/helpers.php';
                         'date' => '2025.10.15 — 2025.12.21',
                         'image' => '../assets/images/events/event-thumb-01.jpg',
                         'status' => 'current',
+                        'link' => '#'
+                    ],
+                    [
+                        'title' => '아티스트 토크 : 건축가와의 대화',
+                        'date' => '2025.12.01 — 2025.12.15',
+                        'image' => '../assets/images/events/event-thumb-02.jpg',
+                        'status' => 'upcoming',
+                        'link' => '#'
+                    ],
+                    [
+                        'title' => '워크샵 : 나만의 건축 모형 만들기',
+                        'date' => '2025.11.20 — 2025.11.30',
+                        'image' => '../assets/images/events/event-thumb-03.jpg',
+                        'status' => 'current',
+                        'link' => '#'
+                    ],
+                    [
+                        'title' => '세미나 : 지속가능한 건축의 미래',
+                        'date' => '2025.12.10 — 2025.12.20',
+                        'image' => '../assets/images/events/event-thumb-04.jpg',
+                        'status' => 'upcoming',
                         'link' => '#'
                     ]
                 ];

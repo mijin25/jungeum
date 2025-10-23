@@ -6,7 +6,8 @@
 */
 
 #preview { 
-    padding: var(--spacing-xl); 
+    padding: var(--spacing-xl);
+    min-width: 100%; /* 전체 너비 사용 */
 }
 
 #preview .preview-header {
@@ -71,15 +72,35 @@
 /* 카드 컴포넌트 전용 그리드 */
 #preview .component-showcase {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* 데스크탑 기준 1행에 4개 카드 */
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
     padding: 0;
     background-color: transparent;
     border-radius: 0;
-    max-width: 1200px;
+    /* max-width 제거 - 전체 너비 사용 */
     margin-left: auto;
     margin-right: auto;
+    min-width: 0; /* min-width 제거 */
+}
+
+/* 반응형 그리드 */
+@media (max-width: 1200px) {
+    #preview .component-showcase {
+        grid-template-columns: repeat(3, 1fr); /* 태블릿: 3개 */
+    }
+}
+
+@media (max-width: 768px) {
+    #preview .component-showcase {
+        grid-template-columns: repeat(2, 1fr); /* 모바일: 2개 */
+    }
+}
+
+@media (max-width: 480px) {
+    #preview .component-showcase {
+        grid-template-columns: 1fr; /* 소형 모바일: 1개 */
+    }
 }
 
 #preview .preview-note {
@@ -90,39 +111,15 @@
 
 /* 기존 인라인 스타일들 추가 */
 #preview .preview-container {
-    max-width: 1200px;
+    /* max-width 제거 - 전체 너비 사용 */
     margin: 0 auto;
     padding: var(--spacing-xl);
 }
 
-#preview .preview-header {
-    text-align: center;
-    margin-bottom: var(--spacing-2xl);
-    padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid var(--border-light);
-}
-
-#preview .preview-header h1 {
-    margin-bottom: var(--spacing-sm);
-}
-
-#preview .preview-header p {
-    color: var(--text-secondary);
-    margin: 0;
-}
+/* 중복 제거됨 - 위에서 이미 정의됨 */
 
 /* 섹션 스타일 제거 - 깔끔한 레이아웃 */
 
 /* h3 스타일은 위에서 정의됨 */
 
-#preview .component-showcase {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
-}
-
-#preview .component-showcase > * {
-    margin-right: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-}
+/* 중복 제거됨 - 위에서 그리드 스타일로 정의됨 */

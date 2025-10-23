@@ -7,7 +7,7 @@ $title = $data['title'] ?? '팝업 스토어 : 간결한 선과 결을 통해 �
 $date = $data['date'] ?? '2025.10.15 — 2025.12.21';
 $image = $data['image'] ?? '../assets/images/events/event-thumb-01.jpg';
 $link = $data['link'] ?? '#';
-$status = $data['status'] ?? 'current'; // current, upcoming, ended
+$status = $data['status'] ?? 'current'; // current, upcoming
 ?>
 
 <div class="event-card">
@@ -15,9 +15,14 @@ $status = $data['status'] ?? 'current'; // current, upcoming, ended
         <div class="event-card__image">
             <img src="<?php echo htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($title); ?>" loading="lazy">
             <div class="event-card__status">
-                <div class="status-badge status-badge--current">
-                    <p>현재</p>
-                </div>
+                <?php
+                $data = [
+                    'type' => 'event',
+                    'state' => $status,
+                    'position' => 'image-over'
+                ];
+                include __DIR__ . '/../ui/tag.php';
+                ?>
             </div>
         </div>
         
