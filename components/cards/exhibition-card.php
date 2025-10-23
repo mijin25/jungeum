@@ -1,13 +1,13 @@
 <?php
 // components/cards/exhibition-card.php
-// 피그마 디자인에 맞는 전시 카드 컴포넌트
+// 피그마 디자인에 맞는 전시 카드 컴포넌트 (데이터 중심)
 
-// 필요한 변수: $title, $date, $image, $tag_text, $link
-$title = $title ?? '대화: 김중업 × 르 코르뷔지에\n두 건축가의 운명적 만남';
-$date = $date ?? '2025.09.30 — 2025.10.26';
-$image = $image ?? 'assets/images/exhibitions/exh-thumb-01.jpg';
-$tag_text = $tag_text ?? '현재\n전시';
-$link = $link ?? '#';
+// 데이터 중심 접근: $data 배열에서 모든 값 추출
+$title = $data['title'] ?? '대화: 김중업 × 르 코르뷔지에\n두 건축가의 운명적 만남';
+$date = $data['date'] ?? '2025.09.30 — 2025.10.26';
+$image = $data['image'] ?? '../assets/images/exhibitions/exh-thumb-01.jpg';
+$tag_text = $data['tag_text'] ?? '현재\n전시';
+$link = $data['link'] ?? '#';
 ?>
 
 <div class="exhibition-card">

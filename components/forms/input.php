@@ -4,18 +4,18 @@
  * 다양한 타입의 재사용 가능한 입력 필드
  */
 
-// 매개변수 설정 (기본값)
-$name = $name ?? '';
-$type = $type ?? 'text'; // text, email, tel, password, number, textarea
-$label = $label ?? '';
-$placeholder = $placeholder ?? '';
-$value = $value ?? '';
-$required = $required ?? false;
-$disabled = $disabled ?? false;
-$error = $error ?? '';
-$help = $help ?? '';
-$class = $class ?? '';
-$id = $id ?? $name;
+// 데이터 중심 접근: $data 배열에서 모든 값 추출
+$name = $data['name'] ?? '';
+$type = $data['type'] ?? 'text'; // text, email, tel, password, number, textarea
+$label = $data['label'] ?? '';
+$placeholder = $data['placeholder'] ?? '';
+$value = $data['value'] ?? '';
+$required = $data['required'] ?? false;
+$disabled = $data['disabled'] ?? false;
+$error = $data['error'] ?? '';
+$help = $data['help'] ?? '';
+$class = $data['class'] ?? '';
+$id = $data['id'] ?? $name;
 ?>
 
 <div class="form-field <?php echo $error ? 'form-field--error' : ''; ?> <?php echo htmlspecialchars($class); ?>">

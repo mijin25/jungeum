@@ -4,13 +4,13 @@
  * 성공, 경고, 오류, 정보 메시지를 표시하는 알림
  */
 
-// 매개변수 설정 (기본값)
-$type = $type ?? 'info'; // success, warning, error, info
-$title = $title ?? '';
-$message = $message ?? '';
-$dismissible = $dismissible ?? true;
-$icon = $icon ?? true;
-$class = $class ?? '';
+// 데이터 중심 접근: $data 배열에서 모든 값 추출
+$type = $data['type'] ?? 'info'; // success, warning, error, info
+$title = $data['title'] ?? '';
+$message = $data['message'] ?? '';
+$dismissible = $data['dismissible'] ?? true;
+$icon = $data['icon'] ?? true;
+$class = $data['class'] ?? '';
 ?>
 
 <div class="alert alert--<?php echo htmlspecialchars($type); ?> <?php echo $dismissible ? 'alert--dismissible' : ''; ?> <?php echo htmlspecialchars($class); ?>" role="alert">

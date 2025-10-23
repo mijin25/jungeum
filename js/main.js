@@ -108,16 +108,32 @@ function initScrollEffects() {
  * JSON 데이터 로딩 초기화
  */
 function initDataLoading() {
-    // 병렬 로딩으로 성능 개선
-    Promise.all([
-        loadExhibitions(),
-        loadEvents(),
-        loadPress()
-    ]).then(() => {
-        console.log('모든 데이터 로딩 완료');
-    }).catch(error => {
-        console.error('데이터 로딩 오류:', error);
-    });
+    // DOM 요소 존재 여부 확인 후 로딩
+    const hasExhibitions = document.querySelector('.exhibitions-container');
+    const hasEvents = document.querySelector('#events-container');
+    const hasPress = document.querySelector('#press-container');
+    
+    const loadPromises = [];
+    
+    if (hasExhibitions) {
+        loadPromises.push(loadExhibitions());
+    }
+    if (hasEvents) {
+        loadPromises.push(loadEvents());
+    }
+    if (hasPress) {
+        loadPromises.push(loadPress());
+    }
+    
+    if (loadPromises.length > 0) {
+        Promise.all(loadPromises).then(() => {
+            console.log('데이터 로딩 완료');
+        }).catch(error => {
+            console.error('데이터 로딩 오류:', error);
+        });
+    } else {
+        console.log('로딩할 데이터 컨테이너가 없습니다.');
+    }
 }
 
 /**

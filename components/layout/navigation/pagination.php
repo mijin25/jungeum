@@ -2,10 +2,10 @@
 // components/navigation/pagination.php
 // 피그마 디자인에 맞는 페이지네이션 컴포넌트
 
-// 필요한 변수: $current_page, $total_pages, $base_url
-$current_page = $current_page ?? 1;
-$total_pages = $total_pages ?? 1;
-$base_url = $base_url ?? '?page='; // 예: 'exhibitions.php?page='
+// 데이터 중심 접근: $data 배열에서 모든 값 추출
+$current_page = $data['current_page'] ?? 1;
+$total_pages = $data['total_pages'] ?? 1;
+$base_url = $data['base_url'] ?? '?page='; // 예: 'exhibitions.php?page='
 
 if ($total_pages <= 1) {
     return; // 페이지가 1개 이하면 페이지네이션을 표시하지 않음

@@ -3,9 +3,9 @@
 // 정음 웹사이트 메인 페이지
 
 // 서버 환경 설정 로드
-require_once '../config/server.php';
+require_once __DIR__ . '/../config/server.php';
 // 컴포넌트 헬퍼 함수들 로드
-require_once '../lib/helpers.php';
+require_once __DIR__ . '/../lib/helpers.php';
 ?>
 <!DOCTYPE html>
 <html lang="ko">

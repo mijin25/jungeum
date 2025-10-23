@@ -8,6 +8,25 @@
     box-sizing: border-box;
 }
 
+/* Typography reset - HTML 태그 스타일 최소화 */
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    font: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+}
+
+/* Links */
+a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: var(--text-secondary);
+}
+
 html {
     font-size: 16px;
     scroll-behavior: smooth;
