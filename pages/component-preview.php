@@ -125,41 +125,80 @@ require_once __DIR__ . '/../lib/helpers.php';
         <section class="preview-section">
             <h2>카드 (Cards)</h2>
             
-            <h3>전시 카드</h3>
-            <div class="component-showcase">
+            <h3>전시 카드 (4가지 경우의 수)</h3>
+            <div class="component-showcase" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 100%;">
                 <?php
-                $exhibition_cards = [
+                $exhibition_cards_variants = [
+                    // 1. 현재 전시 (현재일 기준 포함되는 날짜)
                     [
-                        'title' => '대화: 김중업 × 르 코르뷔지에' . "\n" . '두 건축가의 운명적 만남',
-                        'date' => '2025.09.30 — 2025.10.26',
+                        'title' => '현재 진행 중인 전시',
+                        'date' => '2025.01.15 — 2025.03.20',
                         'image' => '../assets/images/exhibitions/exh-thumb-01.jpg',
                         'status' => 'current',
+                        'variant' => 'with-tag',
                         'link' => '#'
                     ],
+                    // 2. 예정 전시 (현재일 기준 미래)
                     [
-                        'title' => '미래의 건축' . "\n" . '디지털 시대의 공간',
+                        'title' => '미래의 건축 디지털 시대의 공간',
                         'date' => '2025.11.15 — 2025.12.30',
                         'image' => '../assets/images/exhibitions/exh-thumb-02.jpg',
                         'status' => 'upcoming',
+                        'variant' => 'with-tag',
                         'link' => '#'
                     ],
+                    // 3. 과거 전시 (과거 탭에 노출, 태그 없음)
                     [
-                        'title' => '도시의 기억' . "\n" . '서울 건축사',
-                        'date' => '2025.01.15 — 2025.03.20',
+                        'title' => '김중업 × 르 코르뷔지에 건축사진전',
+                        'date' => '2024.09.30 — 2024.10.26',
                         'image' => '../assets/images/exhibitions/exh-thumb-03.jpg',
-                        'status' => 'current',
+                        'status' => 'past',
+                        'variant' => 'default',
                         'link' => '#'
                     ],
+                    // 4. 빈 카드 (전시 1개만 있을 때 나머지 자리)
                     [
-                        'title' => '재생의 미학' . "\n" . '옛 건물의 새로운 삶',
-                        'date' => '2025.04.01 — 2025.06.30',
-                        'image' => '../assets/images/exhibitions/exh-thumb-04.jpg',
-                        'status' => 'upcoming',
-                        'link' => '#'
+                        'is_empty' => true,
+                        'variant' => 'empty'
                     ]
                 ];
                 
-                foreach ($exhibition_cards as $card_data) {
+                foreach ($exhibition_cards_variants as $card_data) {
+                    $data = $card_data;
+                    include __DIR__ . '/../components/cards/exhibition-card.php';
+                }
+                ?>
+            </div>
+            
+            <h3>전시 1개만 있을 때 (빈 카드로 채움)</h3>
+            <div class="component-showcase" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 100%;">
+                <?php
+                $exhibition_single = [
+                    // 실제 전시 1개
+                    [
+                        'title' => '현재 진행 중인 전시',
+                        'date' => '2025.01.15 — 2025.03.20',
+                        'image' => '../assets/images/exhibitions/exh-thumb-08.jpg',
+                        'status' => 'current',
+                        'variant' => 'with-tag',
+                        'link' => '#'
+                    ],
+                    // 빈 카드 3개
+                    [
+                        'is_empty' => true,
+                        'variant' => 'empty'
+                    ],
+                    [
+                        'is_empty' => true,
+                        'variant' => 'empty'
+                    ],
+                    [
+                        'is_empty' => true,
+                        'variant' => 'empty'
+                    ]
+                ];
+                
+                foreach ($exhibition_single as $card_data) {
                     $data = $card_data;
                     include __DIR__ . '/../components/cards/exhibition-card.php';
                 }
@@ -442,10 +481,10 @@ require_once __DIR__ . '/../lib/helpers.php';
             <div class="component-showcase">
                 <?php
                 $tags = [
-                    ['text' => '현재 전시', 'type' => 'current'],
-                    ['text' => '예정 전시', 'type' => 'upcoming'],
-                    ['text' => '과거 전시', 'type' => 'past'],
-                    ['text' => '특별 전시', 'type' => 'special']
+                    ['type' => 'exhibition', 'state' => 'current', 'position' => 'default'],
+                    ['type' => 'exhibition', 'state' => 'upcoming', 'position' => 'default'],
+                    ['type' => 'event', 'state' => 'current', 'position' => 'default'],
+                    ['type' => 'event', 'state' => 'upcoming', 'position' => 'default']
                 ];
                 
                 foreach ($tags as $tag_data) {

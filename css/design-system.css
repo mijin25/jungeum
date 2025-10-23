@@ -1057,6 +1057,7 @@ a:hover {
     letter-spacing: var(--letter-spacing-normal); /* 디자인 시스템: -0.32px */
     transition: all 0.3s ease;
     cursor: pointer;
+    width: auto; /* 내용에 맞게 크기 조정 - hug 스타일 */
     white-space: nowrap;
     height: 4rem; /* 피그마 디자인: 기본 높이 64px (4rem) */
     padding: 0 1.5rem; /* 기본 패딩 (24px) */
@@ -1097,7 +1098,9 @@ a:hover {
 .btn--primary {
     background-color: var(--text-primary); /* 디자인 시스템: 검은색 */
     color: var(--text-inverse); /* 디자인 시스템: 흰색 */
-    padding: 0 4.25rem; /* 피그마 디자인: 좌우 68px 패딩 (4.25rem) */
+    padding: 0 4.25rem; /* 피그마 디자인: 좌우 68px 패딩 (4.25rem) - hug 스타일 */
+    width: auto; /* 내용에 맞게 크기 조정 */
+    display: inline-flex; /* hug 스타일을 위한 inline-flex */
 }
 
 .btn--primary:hover:not(:disabled) {
@@ -1109,7 +1112,9 @@ a:hover {
     background-color: var(--color-white); /* 디자인 시스템: 흰색 */
     border: 1px solid var(--text-primary); /* 디자인 시스템: 검은색 테두리 */
     color: var(--text-primary); /* 디자인 시스템: 검은색 텍스트 */
-    padding: 0 4.25rem; /* 피그마 디자인: 좌우 68px 패딩 (4.25rem) */
+    padding: 0 4.25rem; /* 피그마 디자인: 좌우 68px 패딩 (4.25rem) - hug 스타일 */
+    width: auto; /* 내용에 맞게 크기 조정 */
+    display: inline-flex; /* hug 스타일을 위한 inline-flex */
 }
 
 .btn--secondary:hover:not(:disabled) {
@@ -1121,6 +1126,12 @@ a:hover {
 /* Secondary 버튼 아이콘 간격 */
 .btn--secondary.btn--medium {
     gap: 0.5rem; /* 피그마 디자인: 8px 간격 (0.5rem) */
+}
+
+/* 문의하기 페이지에서 Primary Large 버튼이 Fill로 바뀌는 경우 */
+.btn--primary.btn--large.btn--fill {
+    width: 100%; /* 전체 너비 사용 */
+    display: flex; /* flex로 변경하여 전체 너비 사용 */
 }
 
 .btn--large {
@@ -1829,6 +1840,14 @@ a:hover {
 }
 
 /* 컴포넌트 쇼케이스 스타일 */
+.component-showcase {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
 .button-showcase {
     display: flex;
     flex-direction: column;
@@ -2723,5 +2742,270 @@ a:hover {
         height: 48px;
         padding: 0 24px;
         font-size: 13px;
+    }
+}
+
+/* ========================================
+   전시 카드 컴포넌트
+   ======================================== */
+
+/* 전시 카드 컴포넌트 스타일 - 피그마 디자인 기반 */
+.exhibition-card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 442px;
+    transition: border-radius 0.3s ease;
+}
+
+/* 카드 링크 */
+.exhibition-card__link {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+/* 이미지 영역 - 기본 상태 */
+.exhibition-card__image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 597.333 / 845.78;
+    overflow: hidden;
+    border-radius: 0;
+    transition: border-radius 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 호버 시 아치형 처리 - 탄력 있는 전환 */
+.exhibition-card:hover .exhibition-card__image {
+    border-radius: 999px 999px 0 0;
+    transition: border-radius 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 이미지 기본 스타일 - 탄력 있는 줌 효과 */
+.exhibition-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transform: scale(1);
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    outline: none;
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* 호버 시 이미지 줌 효과 - 탄력 있는 확대 */
+.exhibition-card:hover .exhibition-card__image img {
+    transform: scale(1.05);
+    transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 이미지 확대 효과 제거 - 아웃라인 문제 해결 */
+/* .exhibition-card:hover .exhibition-card__image img {
+    transform: scale(1.05);
+} */
+
+/* 전시 없음 상태 이미지 - 다른 전시 카드와 동일한 간격 */
+.exhibition-card__image--empty {
+    background-color: #edebe6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exhibition-card__empty-content {
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 빈 카드 내부 콘텐츠 호버 시 줌 효과 - 점프 인터랙션 제거 */
+.exhibition-card:hover .exhibition-card__empty-content {
+    transform: scale(1.05);
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 빈 카드 전체 호버 효과 - 다른 전시 카드와 동일한 translateY 효과 제거 */
+
+/* 빈 카드는 일반 전시 카드와 완전히 동일한 스타일 사용 */
+
+.exhibition-card__empty-text {
+    font-family: "JASOSansRegular", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.64px;
+    color: #ada8a8;
+    margin: 0;
+}
+
+/* 콘텐츠 영역 */
+.exhibition-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 4px;
+}
+
+/* 헤더 영역 (제목 + 태그) */
+.exhibition-card__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+/* 제목 */
+.exhibition-card__title {
+    font-family: "JASOSansBold", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.56px;
+    color: #171414;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+    flex: 1;
+}
+
+/* 전시 카드 태그 스타일 (콘텐츠 영역에 배치) */
+.exhibition-card__tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    font-family: "JASOSansRegular", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.56px;
+    color: #FFFFFF;
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    padding: 1rem;
+}
+
+.exhibition-card__tag--current {
+    background-color: #FF624C; /* jungeum/orange */
+}
+
+.exhibition-card__tag--upcoming {
+    background-color: #F2A32A; /* jungeum/yellow */
+}
+
+.exhibition-card__tag-text {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.56px;
+    color: inherit;
+    text-align: center;
+    word-break: keep-all;
+    hyphens: auto;
+}
+
+/* 날짜 */
+.exhibition-card__date {
+    font-family: "JASOSansRegular", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.36px;
+    color: #171414;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .exhibition-card {
+        max-width: 100%;
+        gap: 20px;
+    }
+    
+    .exhibition-card__content {
+        gap: 12px;
+    }
+    
+    .exhibition-card__header {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .exhibition-card__title {
+        font-size: 24px;
+        line-height: 1.3;
+        letter-spacing: -0.48px;
+    }
+    
+    .exhibition-card__date {
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: -0.32px;
+    }
+    
+    .exhibition-card__tag {
+        width: 56px;
+        height: 56px;
+        font-size: 12px;
+        align-self: flex-start;
+    }
+    
+    .exhibition-card__empty-text {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .exhibition-card {
+        gap: 16px;
+    }
+    
+    .exhibition-card__content {
+        gap: 10px;
+    }
+    
+    .exhibition-card__header {
+        gap: 10px;
+    }
+    
+    .exhibition-card__title {
+        font-size: 20px;
+        line-height: 1.3;
+        letter-spacing: -0.4px;
+    }
+    
+    .exhibition-card__date {
+        font-size: 14px;
+        line-height: 1.4;
+        letter-spacing: -0.28px;
+    }
+    
+    .exhibition-card__tag {
+        width: 48px;
+        height: 48px;
+        font-size: 11px;
+    }
+    
+    .exhibition-card__empty-text {
+        font-size: 24px;
     }
 }
