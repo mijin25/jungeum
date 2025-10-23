@@ -787,8 +787,9 @@ a:hover {
     transition: all 0.3s ease;
 }
 
+/* 전시 카드 호버 효과 - 피그마 디자인에 맞게 이미지만 둥글게 */
 .exhibition-card:hover {
-    transform: translateY(-2px);
+    /* transform 제거 - 피그마 디자인에 없음 */
 }
 
 .exhibition-card__link {
@@ -812,9 +813,7 @@ a:hover {
     transition: transform 0.3s ease;
 }
 
-.exhibition-card:hover .exhibition-card__image img {
-    transform: scale(1.02);
-}
+/* 전시 카드 이미지 호버 효과 제거 - 피그마 디자인에 없음 */
 
 .exhibition-card__content {
     display: flex;
@@ -936,28 +935,7 @@ a:hover {
     gap: var(--spacing-xs);
 }
 
-/* 이모지 아이콘 스타일 */
-.exhibition-card__date::before,
-.event-card__date::before {
-    content: '📅';
-    margin-right: var(--spacing-xs);
-}
-
-.event-card__time::before {
-    content: '🕐';
-    margin-right: var(--spacing-xs);
-}
-
-.exhibition-card__location::before,
-.event-card__location::before {
-    content: '📍';
-    margin-right: var(--spacing-xs);
-}
-
-.press-card__source::before {
-    content: '📰';
-    margin-right: var(--spacing-xs);
-}
+/* 이모지 아이콘 스타일 제거됨 - 피그마 디자인에 없음 */
 
 /* 카드 배지 스타일 */
 .exhibition-card__badge,
@@ -1015,7 +993,7 @@ a:hover {
     transition: color 0.3s ease;
 }
 
-.exhibition-card:hover .exhibition-card__title,
+/* 전시 카드는 호버 시 텍스트 색상 변경 없음 - 피그마 디자인 준수 */
 .event-card:hover .event-card__title,
 .space-card:hover .space-card__title,
 .press-card:hover .press-card__title {
@@ -1038,14 +1016,7 @@ a:hover {
     /* 그림자 제거 - 사이트에서 사용하지 않음 */
 }
 
-.exhibition-card--featured::before {
-    content: '✨';
-    position: absolute;
-    top: var(--spacing-md);
-    left: var(--spacing-md);
-    font-size: 1.25rem;
-    z-index: 1;
-}
+/* 이모지 제거됨 - 피그마 디자인에 없음 */
 
 /* 반응형 카드 스타일 */
 @media (max-width: 768px) {
@@ -1500,10 +1471,7 @@ a:hover {
     gap: var(--spacing-xs);
 }
 
-.form-help-text::before {
-    content: '💡';
-    font-size: 0.75rem;
-}
+/* 이모지 제거됨 - 피그마 디자인에 없음 */
 
 /* 폼 행 스타일 */
 .form-row {
@@ -2366,6 +2334,411 @@ a:hover {
     opacity: 0.4;
     cursor: not-allowed;
     pointer-events: none;
+}
+
+/* =================================================================
+   카드 컴포넌트 스타일
+   ================================================================= */
+
+/* 전시 카드 - 피그마 디자인 정확 구현 */
+.exhibition-card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 442px;
+}
+
+.exhibition-card__link {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.exhibition-card__image {
+    position: relative;
+    aspect-ratio: 597.333 / 845.78;
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+    transition: border-radius 0.3s ease;
+}
+
+.exhibition-card__link:hover .exhibition-card__image {
+    border-radius: 999px 999px 0 0;
+}
+
+.exhibition-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.exhibition-card__content {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding-left: 4px;
+}
+
+.exhibition-card__text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.exhibition-card__title {
+    font-family: 'JASO Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #171414;
+    letter-spacing: -0.56px;
+    margin: 0;
+    white-space: pre-line; /* 줄바꿈 지원 */
+}
+
+.exhibition-card__date {
+    font-family: 'JASO Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #171414;
+    letter-spacing: -0.36px;
+    margin: 0;
+}
+
+.exhibition-card__tag {
+    flex-shrink: 0;
+}
+
+.status-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 8px;
+    border-radius: 9999px;
+    background-color: #FF624C;
+    width: 64px;
+    height: 64px;
+}
+
+.status-badge p {
+    font-family: 'JASO Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #FFFFFF;
+    text-align: center;
+    letter-spacing: -0.56px;
+    margin: 0;
+}
+
+/* 이벤트 카드 상태 배지 (노란색) */
+.event-card .status-badge {
+    background-color: #F2A32A; /* 피그마 디자인: 노란색 */
+    width: 100px;
+    height: 100px;
+}
+
+.event-card .status-badge p {
+    font-size: 18px;
+    letter-spacing: -0.36px;
+}
+
+.status-badge--upcoming {
+    background-color: var(--accent-secondary);
+}
+
+.status-badge--ended {
+    background-color: var(--color-warm-grey-3);
+}
+
+/* 이벤트 카드 */
+.event-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 442px;
+}
+
+.event-card__link {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.event-card__image {
+    position: relative;
+    aspect-ratio: 442/276;
+    overflow: hidden;
+}
+
+.event-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.event-card__status {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.event-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 4px;
+}
+
+.event-card__title {
+    font-family: 'JASO Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #171414;
+    letter-spacing: -0.48px;
+    margin: 0;
+}
+
+.event-card__date {
+    font-family: 'JASO Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #171414;
+    letter-spacing: -0.32px;
+    margin: 0;
+}
+
+.event-card__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.event-card__datetime,
+.event-card__location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 이모지 제거됨 - 피그마 디자인에 없음 */
+
+.meta-text {
+    font-family: var(--font-family-regular);
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.event-card__actions {
+    margin-top: auto;
+}
+
+/* 보도 카드 */
+.press-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 442px;
+}
+
+.press-card__link {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.press-card__image {
+    position: relative;
+    aspect-ratio: 442/276;
+    overflow: hidden;
+}
+
+.press-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.press-card__category {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+}
+
+.category-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: var(--color-warm-grey-2);
+    color: var(--text-primary);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-family-regular);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.press-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 4px;
+}
+
+.press-card__text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.press-card__title {
+    font-family: 'JASO Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #171414;
+    letter-spacing: -0.48px;
+    margin: 0;
+}
+
+.press-card__description {
+    font-family: 'JASO Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #171414;
+    letter-spacing: -0.32px;
+    margin: 0;
+}
+
+.press-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.press-card__source,
+.press-card__date {
+    font-family: 'JASO Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #171414;
+    letter-spacing: -0.32px;
+    margin: 0;
+}
+
+.press-card__separator {
+    display: flex;
+    align-items: center;
+}
+
+.separator-dot {
+    width: 2px;
+    height: 2px;
+    background-color: #171414;
+    border-radius: 50%;
+}
+
+.press-card__actions {
+    margin-top: auto;
+}
+
+/* 공간 카드 */
+.space-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 442px;
+}
+
+.space-card__image {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+}
+
+.space-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.space-card__overlay {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+}
+
+.space-card__floor {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--color-white);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-family-regular);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.space-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 4px;
+}
+
+.space-card__title {
+    font-family: var(--font-family-bold);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.space-card__description {
+    font-family: var(--font-family-regular);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.space-card__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.space-card__capacity,
+.space-card__features {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.space-card__actions {
+    margin-top: auto;
 }
 
 /* 반응형 버튼 스타일 */

@@ -8,6 +8,7 @@ $date = $data['date'] ?? '2025.09.30 — 2025.10.26';
 $image = $data['image'] ?? '../assets/images/exhibitions/exh-thumb-01.jpg';
 $tag_text = $data['tag_text'] ?? '현재\n전시';
 $link = $data['link'] ?? '#';
+$status = $data['status'] ?? 'current'; // current, upcoming, ended
 ?>
 
 <div class="exhibition-card">
@@ -17,11 +18,18 @@ $link = $data['link'] ?? '#';
         </div>
         <div class="exhibition-card__content">
             <div class="exhibition-card__text">
-                <h3 class="exhibition-card__title"><?php echo nl2br(htmlspecialchars($title)); ?></h3>
-                <p class="exhibition-card__date"><?php echo htmlspecialchars($date); ?></p>
+                <div class="exhibition-card__title">
+                    <?php echo nl2br(htmlspecialchars($title)); ?>
+                </div>
+                <div class="exhibition-card__date">
+                    <?php echo htmlspecialchars($date); ?>
+                </div>
             </div>
             <div class="exhibition-card__tag">
-                <span class="exhibition-card__tag-text"><?php echo nl2br(htmlspecialchars($tag_text)); ?></span>
+                <div class="status-badge status-badge--current">
+                    <p>현재</p>
+                    <p>전시</p>
+                </div>
             </div>
         </div>
     </a>

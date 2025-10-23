@@ -1,18 +1,16 @@
 <?php
-/**
- * 공간 카드 컴포넌트
- * 공간 정보를 표시하는 재사용 가능한 카드
- */
+// components/cards/space-card.php
+// 피그마 디자인에 맞는 공간 카드 컴포넌트 (데이터 중심)
 
-// 매개변수 설정 (기본값)
-$space_id = $space_id ?? '';
-$title = $title ?? '공간 제목';
-$description = $description ?? '공간 설명';
-$image = $image ?? 'assets/images/space/space-1f2f-01.jpg';
-$floor = $floor ?? '1-2층';
-$capacity = $capacity ?? '50명';
-$features = $features ?? ['전시', '강연', '워크샵'];
-$link = $link ?? 'space.php';
+// 데이터 중심 접근: $data 배열에서 모든 값 추출
+$space_id = $data['id'] ?? '';
+$title = $data['title'] ?? '공간 제목';
+$description = $data['description'] ?? '공간 설명';
+$image = $data['image'] ?? '../assets/images/space/space-1f2f-01.jpg';
+$floor = $data['floor'] ?? '1-2층';
+$capacity = $data['capacity'] ?? '50명';
+$features = $data['features'] ?? ['전시', '강연', '워크샵'];
+$link = $data['link'] ?? '#';
 ?>
 
 <div class="space-card" data-space-id="<?php echo htmlspecialchars($space_id); ?>">
@@ -29,17 +27,15 @@ $link = $link ?? 'space.php';
         
         <div class="space-card__meta">
             <div class="space-card__capacity">
-                <span class="meta-icon">👥</span>
                 <span class="meta-text"><?php echo htmlspecialchars($capacity); ?></span>
             </div>
             <div class="space-card__features">
-                <span class="meta-icon">✨</span>
                 <span class="meta-text"><?php echo implode(', ', $features); ?></span>
             </div>
         </div>
         
         <div class="space-card__actions">
-            <a href="<?php echo htmlspecialchars($link); ?>" class="btn btn--outline">공간 둘러보기</a>
+            <a href="<?php echo htmlspecialchars($link); ?>" class="btn btn--secondary btn--medium">공간 둘러보기</a>
         </div>
     </div>
 </div>

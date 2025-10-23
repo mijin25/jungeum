@@ -30,8 +30,8 @@ require_once __DIR__ . '/../lib/helpers.php';
 <body>
     <div id="preview" class="preview-container">
         <header class="preview-header">
-            <h1 class="heading-h1">정음 컴포넌트 디자인 시스템</h1>
-            <p class="body-lg">재사용 가능한 컴포넌트들의 모음입니다.</p>
+            <h1 class="heading-h2">정음 컴포넌트 디자인 시스템</h1>
+            <p class="body-md">재사용 가능한 컴포넌트들의 모음입니다.</p>
         </header>
 
         <!-- 버튼 컴포넌트 -->
@@ -126,35 +126,91 @@ require_once __DIR__ . '/../lib/helpers.php';
             <h2>카드 (Cards)</h2>
             
             <h3>전시 카드</h3>
+            <div class="component-showcase" style="display: flex; justify-content: center; max-width: 500px; margin: 0 auto;">
+                <?php
+                $exhibition_card = [
+                    'title' => '대화: 김중업 × 르 코르뷔지에' . "\n" . '두 건축가의 운명적 만남',
+                    'date' => '2025.09.30 — 2025.10.26',
+                    'image' => '../assets/images/exhibitions/exh-thumb-01.jpg',
+                    'status' => 'current',
+                    'link' => '#'
+                ];
+                
+                $data = $exhibition_card;
+                include __DIR__ . '/../components/cards/exhibition-card.php';
+                ?>
+            </div>
+            
+            <h3>이벤트 카드</h3>
             <div class="component-showcase">
                 <?php
-                $exhibition_cards = [
+                $event_cards = [
                     [
-                        'title' => '대화: 김중업 × 르 코르뷔지에\n두 건축가의 운명적 만남',
-                        'date' => '2025.09.30 — 2025.10.26',
-                        'image' => '../assets/images/exhibitions/exh-thumb-01.jpg',
-                        'tag_text' => '현재\n전시',
-                        'link' => '#'
-                    ],
-                    [
-                        'title' => '디지털 아트의 새로운 지평',
-                        'date' => '2025.03.20 — 2025.05.20',
-                        'image' => '../assets/images/exhibitions/exh-thumb-02.jpg',
-                        'tag_text' => '예정\n전시',
-                        'link' => '#'
-                    ],
-                    [
-                        'title' => '전통과 현대의 대화',
-                        'date' => '2025.05.25 — 2025.07.25',
-                        'image' => '../assets/images/exhibitions/exh-thumb-03.jpg',
-                        'tag_text' => '예정\n전시',
+                        'title' => '팝업 스토어 : 간결한 선과 결을 통해 미니멀 디자인의 주얼리 올레프트',
+                        'date' => '2025.10.15 — 2025.12.21',
+                        'image' => '../assets/images/events/event-thumb-01.jpg',
+                        'status' => 'current',
                         'link' => '#'
                     ]
                 ];
                 
-                foreach ($exhibition_cards as $card_data) {
+                foreach ($event_cards as $card_data) {
                     $data = $card_data;
-                    include __DIR__ . '/../components/cards/exhibition-card.php';
+                    include __DIR__ . '/../components/cards/event-card.php';
+                }
+                ?>
+            </div>
+            
+            <h3>보도 카드</h3>
+            <div class="component-showcase">
+                <?php
+                $press_cards = [
+                    [
+                        'title' => '연희동의 시간이 쌓인 공간, \'정음\'에서 발견한 건축의 미학',
+                        'description' => '1세대 건축가 김중업의 숨결이 깃든 건물이 새로운 문화 공간으로 태어났다. 단순한 재생을 넘어, \'정음전자\'의 역사와 연희동의 감성을 담아낸 \'정음\'은 방문객들에게 영감을 주는 도시의 새로운 사랑방이 될 것이다...',
+                        'image' => '../assets/images/press/press-thumb-01.jpg',
+                        'source' => '조선일보 땅집고',
+                        'date' => '2024.10.30',
+                        'link' => '#'
+                    ]
+                ];
+                
+                foreach ($press_cards as $card_data) {
+                    $data = $card_data;
+                    include __DIR__ . '/../components/cards/press-card.php';
+                }
+                ?>
+            </div>
+            
+            <h3>공간 카드</h3>
+            <div class="component-showcase">
+                <?php
+                $space_cards = [
+                    [
+                        'id' => '1',
+                        'title' => '1-2층 전시실',
+                        'description' => '다양한 전시를 위한 넓은 공간',
+                        'image' => '../assets/images/space/space-1f2f-01.jpg',
+                        'floor' => '1-2층',
+                        'capacity' => '100명',
+                        'features' => ['전시', '강연', '워크샵'],
+                        'link' => '#'
+                    ],
+                    [
+                        'id' => '2',
+                        'title' => '3층 세미나실',
+                        'description' => '소규모 강연과 토론을 위한 공간',
+                        'image' => '../assets/images/space/space-3f-01.jpg',
+                        'floor' => '3층',
+                        'capacity' => '30명',
+                        'features' => ['강연', '토론', '세미나'],
+                        'link' => '#'
+                    ]
+                ];
+                
+                foreach ($space_cards as $card_data) {
+                    $data = $card_data;
+                    include __DIR__ . '/../components/cards/space-card.php';
                 }
                 ?>
             </div>

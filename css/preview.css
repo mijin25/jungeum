@@ -33,19 +33,53 @@
 }
 
 #preview .preview-section {
-    margin: var(--spacing-xl) 0;
+    margin: var(--spacing-lg) 0;
 }
 
 #preview .preview-section + .preview-section {
-    margin-top: var(--spacing-3xl);
-    padding-top: var(--spacing-xl);
-    border-top: 1px dashed var(--border-light);
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-light);
+}
+
+#preview .preview-section h2 {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    margin-top: 0;
+}
+
+#preview .preview-section h3 {
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    line-height: var(--line-height-tight);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
 }
 
 #preview .preview-grid {
     display: grid;
     gap: var(--spacing-md);
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+/* 카드 컴포넌트 전용 그리드 */
+#preview .component-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #preview .preview-note {
@@ -61,25 +95,25 @@
     padding: var(--spacing-xl);
 }
 
-#preview .preview-section {
-    margin-bottom: var(--spacing-3xl);
-    padding: var(--spacing-xl);
-    border: 1px solid var(--border-light);
-    border-radius: var(--border-radius-md);
-    background-color: var(--bg-primary);
+#preview .preview-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-light);
 }
 
-#preview .preview-section h2 {
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-lg);
-    padding-bottom: var(--spacing-sm);
-    border-bottom: 2px solid var(--accent-primary);
+#preview .preview-header h1 {
+    margin-bottom: var(--spacing-sm);
 }
 
-#preview .preview-section h3 {
+#preview .preview-header p {
     color: var(--text-secondary);
-    margin-bottom: var(--spacing-md);
+    margin: 0;
 }
+
+/* 섹션 스타일 제거 - 깔끔한 레이아웃 */
+
+/* h3 스타일은 위에서 정의됨 */
 
 #preview .component-showcase {
     display: flex;
