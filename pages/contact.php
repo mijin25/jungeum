@@ -90,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     <!-- 디자인 시스템 -->
     <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/components.css">
     
     <!-- 파비콘 -->
     <link rel="icon" type="image/svg+xml" href="assets/images/common/logo-jungeum.svg">

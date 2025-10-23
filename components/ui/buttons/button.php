@@ -17,6 +17,22 @@ $icon_position = $data['icon_position'] ?? 'left';
 
 // 간단한 버튼 클래스 구성
 $button_classes = ['btn', 'btn--' . $type, 'btn--' . $size];
+
+// 피그마 디자인에 맞는 텍스트 스타일 클래스 적용
+if ($type === 'primary') {
+    $button_classes[] = 'body-md-emphasized';
+} elseif ($type === 'secondary') {
+    $button_classes[] = 'body-sm-emphasized';
+} elseif ($type === 'text') {
+    $button_classes[] = 'body-lg';
+} elseif ($size === 'xl') {
+    $button_classes[] = 'display-1';
+} elseif ($size === 'small') {
+    $button_classes[] = 'body-sm';
+} else {
+    $button_classes[] = 'body-md';
+}
+
 if ($disabled) {
     $button_classes[] = 'btn--disabled';
 }

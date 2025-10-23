@@ -67,6 +67,14 @@
     --letter-spacing-tight: -0.28px;
     --letter-spacing-normal: -0.32px;
     --letter-spacing-wide: -0.36px;
+    
+    /* 피그마 디자인 기반 Letter Spacing */
+    --letter-spacing-display: -3%; /* Display 텍스트용 */
+    --letter-spacing-text: -2%; /* 헤딩, 바디, 라벨용 */
+    
+    /* Font Weight 변수 */
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
     --letter-spacing-wider: -0.48px;
     --letter-spacing-widest: -0.56px;
     --letter-spacing-xl: -0.64px;
@@ -83,6 +91,14 @@
     --spacing-2xl: 3rem;     /* 48px */
     --spacing-3xl: 4rem;     /* 64px */
     --spacing-4xl: 6rem;     /* 96px */
+    
+    /* 버튼 시스템 */
+    --btn-height-large: 64px;
+    --btn-height-medium: 52px;
+    --btn-height-small: 40px;
+    --btn-padding-medium: 32px;
+    --btn-padding-small: 16px;
+    --btn-gap-small: 6px;
     
     /* 둥근 모서리 */
     --radius-sm: 0.25rem;    /* 4px */
@@ -137,91 +153,103 @@ body {
 /* 헤딩 스타일 */
 .heading-h1 {
     font-family: var(--font-family-regular);
-    font-size: 5rem; /* 80px */
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    font-size: var(--font-size-5xl); /* 80px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
+    letter-spacing: var(--letter-spacing-text); /* -2% - 피그마 디자인 변수 */
 }
 
 .heading-h2 {
     font-family: var(--font-family-regular);
-    font-size: 4rem; /* 64px */
-    font-weight: 400;
-    line-height: 1.5;
-    letter-spacing: -0.01em;
+    font-size: var(--font-size-4xl); /* 64px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-normal); /* 1.5 - 디자인 시스템 변수 */
+    letter-spacing: var(--letter-spacing-text); /* -2% - 피그마 디자인 변수 */
 }
 
 .heading-h3 {
     font-family: var(--font-family-regular);
-    font-size: 3rem; /* 48px */
-    font-weight: 400;
-    line-height: 1.2;
+    font-size: var(--font-size-3xl); /* 48px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
 }
 
 .heading-h4 {
     font-family: var(--font-family-regular);
-    font-size: 2rem; /* 32px */
-    font-weight: 400;
-    line-height: 1.2;
+    font-size: var(--font-size-2xl); /* 32px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
 }
 
 .heading-h5 {
     font-family: var(--font-family-regular);
-    font-size: 1.75rem; /* 28px */
-    font-weight: 400;
-    line-height: 1.4;
+    font-size: var(--font-size-2xl); /* 24px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-tight); /* 1.4 - 디자인 시스템 변수 */
 }
 
 .heading-h6 {
     font-family: var(--font-family-regular);
-    font-size: 1.5rem; /* 24px */
-    font-weight: 400;
-    line-height: 1.8;
+    font-size: var(--font-size-2xl); /* 24px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-relaxed); /* 1.8 - 디자인 시스템 변수 */
 }
 
 /* 강조 헤딩 스타일 */
 .heading-h1-emphasized {
     font-family: var(--font-family-bold);
-    font-size: 5rem; /* 80px */
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    font-size: var(--font-size-5xl); /* 80px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
+    line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
+    letter-spacing: var(--letter-spacing-text); /* -2% - 피그마 디자인 변수 */
 }
 
 .heading-h2-emphasized {
     font-family: var(--font-family-bold);
-    font-size: 4rem; /* 64px */
-    font-weight: 700;
-    line-height: 1.5;
-    letter-spacing: -0.01em;
+    font-size: var(--font-size-4xl); /* 64px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
+    line-height: var(--line-height-normal); /* 1.5 - 디자인 시스템 변수 */
+    letter-spacing: var(--letter-spacing-text); /* -2% - 피그마 디자인 변수 */
 }
 
 .heading-h3-emphasized {
     font-family: var(--font-family-bold);
-    font-size: 3rem; /* 48px */
-    font-weight: 700;
-    line-height: 1.2;
+    font-size: var(--font-size-3xl); /* 48px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
+    line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
 }
 
 .heading-h4-emphasized {
     font-family: var(--font-family-bold);
-    font-size: 2rem; /* 32px */
-    font-weight: 700;
-    line-height: 1.2;
+    font-size: var(--font-size-2xl); /* 32px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
+    line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
 }
 
 .heading-h5-emphasized {
     font-family: var(--font-family-bold);
-    font-size: 1.75rem; /* 28px */
-    font-weight: 700;
-    line-height: 1.4;
+    font-size: var(--font-size-2xl); /* 24px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
+    line-height: var(--line-height-tight); /* 1.4 - 디자인 시스템 변수 */
+}
+
+/* h3 태그에 적용된 텍스트 스타일 우선순위 높이기 */
+h3.heading-h5-emphasized {
+    font-size: var(--font-size-2xl) !important; /* 24px - 디자인 시스템 변수 */
+    margin: 0 !important; /* 중복 마진 제거 */
 }
 
 .heading-h6-emphasized {
     font-family: var(--font-family-bold);
-    font-size: 1.5rem; /* 24px */
-    font-weight: 700;
-    line-height: 1.8;
+    font-size: var(--font-size-2xl); /* 24px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
+    line-height: var(--line-height-relaxed); /* 1.8 - 디자인 시스템 변수 */
+}
+
+/* h3 태그에 적용된 텍스트 스타일 우선순위 높이기 */
+h3.heading-h6-emphasized {
+    font-size: var(--font-size-2xl) !important; /* 24px - 디자인 시스템 변수 */
+    margin: 0 !important; /* 중복 마진 제거 */
 }
 
 /* ──────────────────────────────
@@ -229,56 +257,56 @@ body {
    ────────────────────────────── */
 .body-xl {
     font-family: var(--font-family-regular);
-    font-size: 1.25rem;  /* 20px */
-    font-weight: 400;
-    line-height: 1.6;
+    font-size: var(--font-size-xl); /* 20px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-loose); /* 1.6 - 디자인 시스템 변수 */
 }
 .body-xl-emphasized {
     font-family: var(--font-family-bold);
-    font-size: 1.25rem;  /* 20px */
-    font-weight: 700;
-    line-height: 1.6;
+    font-size: var(--font-size-xl); /* 20px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
+    line-height: var(--line-height-loose); /* 1.6 - 디자인 시스템 변수 */
 }
 
 .body-lg {
     font-family: var(--font-family-regular);
-    font-size: 1.125rem; /* 18px */
-    font-weight: 400;
-    line-height: 1.6;
+    font-size: var(--font-size-lg); /* 18px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-loose); /* 1.6 - 디자인 시스템 변수 */
 }
 
 .body-md {
     font-family: var(--font-family-regular);
-    font-size: 1rem;     /* 16px */
-    font-weight: 400;
-    line-height: 1.6;
+    font-size: var(--font-size-base); /* 16px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-loose); /* 1.6 - 디자인 시스템 변수 */
 }
 .body-md-emphasized {
     font-family: var(--font-family-bold);
-    font-size: 1rem;     /* 16px */
-    font-weight: 700;
-    line-height: 1.6;
+    font-size: var(--font-size-base); /* 16px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
+    line-height: var(--line-height-loose); /* 1.6 - 디자인 시스템 변수 */
 }
 
 /* article용 조금 더 넉넉한 줄간격 */
 .body-md-article {
     font-family: var(--font-family-regular);
-    font-size: 1rem;     /* 16px */
-    font-weight: 400;
-    line-height: 1.8;
+    font-size: var(--font-size-base); /* 16px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-relaxed); /* 1.8 - 디자인 시스템 변수 */
 }
 
 .body-sm {
     font-family: var(--font-family-regular);
-    font-size: 0.875rem; /* 14px */
-    font-weight: 400;
-    line-height: 1.6;
+    font-size: var(--font-size-sm); /* 14px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-loose); /* 1.6 - 디자인 시스템 변수 */
 }
 .body-sm-emphasized {
     font-family: var(--font-family-bold);
-    font-size: 0.875rem; /* 14px */
-    font-weight: 700;
-    line-height: 1.6;
+    font-size: var(--font-size-sm); /* 14px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
+    line-height: var(--line-height-loose); /* 1.6 - 디자인 시스템 변수 */
 }
 
 /* ──────────────────────────────
@@ -286,9 +314,9 @@ body {
    ────────────────────────────── */
 .label-lb1 {
     font-family: var(--font-family-regular);
-    font-size: 0.875rem; /* 14px */
-    font-weight: 400;
-    line-height: 1.2;
+    font-size: var(--font-size-sm); /* 14px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
 }
 
 /* ──────────────────────────────
@@ -296,101 +324,101 @@ body {
    ────────────────────────────── */
 .display-1 {
     font-family: var(--font-family-regular);
-    font-size: 6.25rem;  /* 100px */
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    font-size: var(--font-size-8xl); /* 100px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
+    letter-spacing: var(--letter-spacing-display); /* -3% - 피그마 디자인 변수 */
 }
 
 /* NOTE: 20rem(320px)은 매우 큽니다. 실제 사용이 드문 경우 주석 처리 고려 */
 .display-2 {
     font-family: var(--font-family-regular);
-    font-size: 20rem;    /* 320px */
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    font-size: var(--font-size-9xl); /* 320px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
+    letter-spacing: var(--letter-spacing-display); /* -3% - 피그마 디자인 변수 */
 }
 
 /* 바디 텍스트 스타일 */
 .body-xl {
     font-family: var(--font-family-regular);
-    font-size: 1.25rem; /* 20px */
-    font-weight: 400;
-    line-height: 1.6;
+    font-size: var(--font-size-xl); /* 20px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-loose); /* 1.6 - 디자인 시스템 변수 */
 }
 
 .body-xl-emphasized {
     font-family: var(--font-family-bold);
-    font-size: 1.25rem; /* 20px */
-    font-weight: 700;
-    line-height: 1.6;
+    font-size: var(--font-size-xl); /* 20px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
+    line-height: var(--line-height-loose); /* 1.6 - 디자인 시스템 변수 */
 }
 
 .body-lg {
     font-family: var(--font-family-regular);
-    font-size: 1.125rem; /* 18px */
-    font-weight: 400;
-    line-height: 1.6;
+    font-size: var(--font-size-lg); /* 18px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-loose); /* 1.6 - 디자인 시스템 변수 */
 }
 
 .body-md {
     font-family: var(--font-family-regular);
-    font-size: 1rem; /* 16px */
-    font-weight: 400;
-    line-height: 1.6;
+    font-size: var(--font-size-base); /* 16px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-loose); /* 1.6 - 디자인 시스템 변수 */
 }
 
 .body-md-emphasized {
     font-family: var(--font-family-bold);
-    font-size: 1rem; /* 16px */
-    font-weight: 700;
-    line-height: 1.6;
+    font-size: var(--font-size-base); /* 16px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
+    line-height: var(--line-height-loose); /* 1.6 - 디자인 시스템 변수 */
 }
 
 .body-md-article {
     font-family: var(--font-family-regular);
-    font-size: 1rem; /* 16px */
-    font-weight: 400;
-    line-height: 1.8;
+    font-size: var(--font-size-base); /* 16px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-relaxed); /* 1.8 - 디자인 시스템 변수 */
 }
 
 .body-sm {
     font-family: var(--font-family-regular);
-    font-size: 0.875rem; /* 14px */
-    font-weight: 400;
-    line-height: 1.6;
+    font-size: var(--font-size-sm); /* 14px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-loose); /* 1.6 - 디자인 시스템 변수 */
 }
 
 .body-sm-emphasized {
     font-family: var(--font-family-bold);
-    font-size: 0.875rem; /* 14px */
-    font-weight: 700;
-    line-height: 1.6;
+    font-size: var(--font-size-sm); /* 14px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
+    line-height: var(--line-height-loose); /* 1.6 - 디자인 시스템 변수 */
 }
 
 /* 라벨 스타일 */
 .label-lb1 {
     font-family: var(--font-family-regular);
-    font-size: 0.875rem; /* 14px */
-    font-weight: 400;
-    line-height: 1.2;
+    font-size: var(--font-size-sm); /* 14px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
 }
 
 /* 디스플레이 스타일 */
 .display-1 {
     font-family: var(--font-family-regular);
-    font-size: 6.25rem; /* 100px */
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    font-size: var(--font-size-8xl); /* 100px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
+    letter-spacing: var(--letter-spacing-display); /* -3% - 피그마 디자인 변수 */
 }
 
 .display-2 {
     font-family: var(--font-family-regular);
-    font-size: 20rem; /* 320px */
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    font-size: var(--font-size-9xl); /* 320px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
+    letter-spacing: var(--letter-spacing-display); /* -3% - 피그마 디자인 변수 */
 }
 
 /* 기존 HTML 태그 스타일 (하위 호환성) */
@@ -421,7 +449,7 @@ a:hover {
     color: var(--text-primary);
     text-decoration: none;
     font-family: var(--font-family-bold);
-    font-weight: 700;
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
     transition: all 0.3s ease;
     cursor: pointer;
 }
@@ -463,14 +491,14 @@ a:hover {
     margin-bottom: 1rem;
     color: var(--text-primary);
     font-family: var(--font-family-bold);
-    font-weight: 700;
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
     line-height: 1.2;
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
     color: var(--text-secondary);
-    font-weight: 400;
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
 }
 
 /* 섹션 공통 스타일 */
@@ -480,7 +508,7 @@ a:hover {
     font-size: 2.5rem;
     color: var(--text-primary);
     font-family: var(--font-family-bold);
-    font-weight: 700;
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
     line-height: 1.2;
 }
 
@@ -742,6 +770,15 @@ a:hover {
     h3 {
         font-size: 1.5rem;
     }
+    
+    /* 카드 컴포넌트의 h3는 텍스트 스타일 클래스 우선 */
+    .exhibition-card__title,
+    .event-card__title,
+    .space-card__title,
+    .press-card__title {
+        font-size: unset;
+    }
+    
 }
 
 @media (max-width: 480px) {
@@ -774,134 +811,7 @@ a:hover {
     }
 }
 
-/* =================================================================
-   카드 컴포넌트 스타일 (피그마 디자인 기반)
-   ================================================================= */
-
-/* 전시 카드 - 피그마 디자인 기반 */
-.exhibition-card {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem; /* 피그마 디자인: 이미지와 콘텐츠 사이 24px 간격 */
-    color: var(--text-primary);
-    text-decoration: none;
-}
-
-/* 전시 카드 이미지 (3:4 비율) */
-.exhibition-card__image {
-    position: relative;
-    aspect-ratio: 3 / 4; /* 피그마 디자인: 3:4 비율 */
-    overflow: hidden;
-    /* border-radius 제거 - 피그마 디자인에 라운드 없음 */
-    background: #000;
-}
-
-.exhibition-card__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-.exhibition-card:hover .exhibition-card__image img {
-    transform: scale(1.03);
-}
-
-/* 전시 카드 콘텐츠 영역 */
-.exhibition-card__content {
-    position: relative;
-    padding-left: 0.25rem; /* 피그마 디자인: 4px 좌측 패딩 */
-}
-
-/* 전시 카드 텍스트 영역 */
-.exhibition-card__text {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem; /* 피그마 디자인: 제목과 날짜 사이 24px 간격 */
-}
-
-.exhibition-card .exhibition-card__content h3.exhibition-card__title {
-    /* h5-emphasized 스타일 적용 */
-    font-family: var(--font-family-bold);
-    font-size: 1.75rem; /* 28px - h5-emphasized 스타일 */
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: var(--letter-spacing-widest);
-    color: var(--text-primary);
-    margin: 0;
-    white-space: pre-line;
-}
-
-.exhibition-card__date {
-    font-family: var(--font-family-regular);
-    font-size: var(--font-size-lg); /* 피그마 디자인: 18px */
-    font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: var(--letter-spacing-wide);
-    color: var(--text-primary);
-    margin: 0;
-    white-space: nowrap;
-}
-
-/* 원형 태그 (이미지 밖에 위치) */
-.exhibition-card__tag {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 4rem; /* 피그마 디자인: 64px */
-    height: 4rem; /* 피그마 디자인: 64px */
-    background-color: var(--accent-primary); /* 피그마 디자인: 주황색 */
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-.tag-text {
-    font-family: var(--font-family-regular);
-    font-size: 14px; /* 피그마 디자인: 14px */
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: var(--letter-spacing-widest);
-    color: var(--text-inverse); /* 흰색 */
-    text-align: center;
-    /* white-space: pre-line 제거 - 단일 라인 텍스트 */
-}
-
-/* 기존 복잡한 태그 스타일 제거 - 새로운 배지 스타일 사용 */
-
-/* 전시 카드 반응형 스타일 */
-@media (max-width: 768px) {
-    .exhibition-card {
-        gap: 1rem; /* 모바일에서 16px 간격 */
-    }
-    
-    .exhibition-content {
-        gap: 0.75rem; /* 모바일에서 12px 간격 */
-    }
-    
-    .exhibition-text {
-        gap: 0.75rem; /* 모바일에서 12px 간격 */
-    }
-    
-    .exhibition-title {
-        font-size: 1.5rem; /* 모바일에서 24px */
-    }
-    
-    .exhibition-date {
-        font-size: 1rem; /* 모바일에서 16px */
-    }
-    
-    .exhibition-tag {
-        width: 3.5rem; /* 모바일에서 56px */
-        height: 3.5rem; /* 모바일에서 56px */
-    }
-    
-    .tag-text {
-        font-size: 12px; /* 모바일에서 12px */
-    }
-}
+/* 카드 컴포넌트 스타일은 components.css로 이동됨 */
 
 /* 카드 콘텐츠 스타일 - 전시 카드는 별도 패딩 적용 */
 .event-card__content,
@@ -917,8 +827,6 @@ a:hover {
 .press-card__meta {
     display: flex;
     gap: var(--spacing-sm);
-    margin-top: var(--spacing-sm);
-    font-size: 0.875rem;
     color: var(--text-secondary);
     flex-wrap: wrap;
 }
@@ -944,10 +852,10 @@ a:hover {
     color: var(--text-inverse);
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: 0; /* 라운드 제거 - 깔끔한 모던 디자인 */
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: var(--font-size-xs); /* 12px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: var(--letter-spacing-wide); /* 0.5px - 디자인 시스템 변수 */
 }
 
 .event-card__badge--upcoming {
@@ -1038,30 +946,7 @@ a:hover {
     }
 }
 
-/* =================================================================
-   버튼 컴포넌트 스타일 (피그마 디자인 기반)
-   ================================================================= */
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.375rem; /* 피그마 디자인: 6px 간격 (0.375rem) */
-    border: none;
-    border-radius: 0; /* 피그마 디자인: 직사각형 */
-    text-decoration: none;
-    font-family: var(--font-family-bold);
-    font-size: var(--font-size-base); /* 디자인 시스템: 16px */
-    font-weight: 700; /* Bold */
-    line-height: 1.6; /* 피그마 디자인: 1.6 */
-    letter-spacing: var(--letter-spacing-normal); /* 디자인 시스템: -0.32px */
-    transition: all 0.3s ease;
-    cursor: pointer;
-    width: auto; /* 내용에 맞게 크기 조정 - hug 스타일 */
-    white-space: nowrap;
-    height: 4rem; /* 피그마 디자인: 기본 높이 64px (4rem) */
-    padding: 0 1.5rem; /* 기본 패딩 (24px) */
-}
+/* 버튼 컴포넌트 스타일은 components.css로 이동됨 */
 
 /* 반응형 버튼 스타일 */
 @media (max-width: 768px) {
@@ -1150,7 +1035,7 @@ a:hover {
     padding: 0.5rem 0; /* 피그마 디자인: 상하 8px 패딩 (0.5rem) */
     font-size: var(--font-size-6xl); /* 디자인 시스템: 64px */
     font-family: var(--font-family-regular); /* 피그마 디자인: Regular */
-    font-weight: 400; /* Regular */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
     line-height: 1.5; /* 피그마 디자인: 1.5 */
     letter-spacing: var(--letter-spacing-2xl); /* 디자인 시스템: -1.28px */
     gap: 0.75rem; /* XL 텍스트 버튼에 적절한 간격 (12px) */
@@ -1169,7 +1054,7 @@ a:hover {
     padding: 0.5rem 0; /* 피그마 디자인: 상하 8px 패딩 (0.5rem) */
     font-family: var(--font-family-regular); /* 피그마 디자인: Regular */
     font-size: var(--font-size-lg); /* 디자인 시스템: 18px */
-    font-weight: 400; /* Regular */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
     line-height: 1.6; /* 피그마 디자인: 1.6 */
     letter-spacing: var(--letter-spacing-wide); /* 디자인 시스템: -0.36px */
     gap: 0.5rem; /* 텍스트 버튼에 적절한 간격 (8px) */
@@ -1196,7 +1081,7 @@ a:hover {
     padding: 0.5rem 0; /* 피그마 디자인: 상하 8px 패딩 (0.5rem) */
     font-size: var(--font-size-6xl); /* 디자인 시스템: 64px */
     font-family: var(--font-family-regular); /* 피그마 디자인: Regular */
-    font-weight: 400; /* Regular */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
     line-height: 1.2; /* h2 스타일: 1.2 */
     letter-spacing: var(--letter-spacing-2xl); /* 디자인 시스템: -1.28px */
     gap: 1rem; /* XL 텍스트와 아이콘 간격 (16px) */
@@ -1209,7 +1094,7 @@ a:hover {
     padding: 0.5rem 0; /* 피그마 디자인: 상하 8px 패딩 (0.5rem) */
     font-size: var(--font-size-sm); /* 디자인 시스템: 14px */
     font-family: var(--font-family-regular); /* 피그마 디자인: Regular */
-    font-weight: 400; /* Regular */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
     line-height: 1.6; /* 피그마 디자인: 1.6 */
     letter-spacing: var(--letter-spacing-tight); /* 디자인 시스템: -0.28px */
     gap: 0.375rem; /* Small 텍스트 버튼 간격 (6px) */
@@ -1374,185 +1259,7 @@ a:hover {
 
 /* 반응형 버튼 스타일 - 메인 .btn 스타일과 통합됨 */
 
-/* =================================================================
-   폼 컴포넌트 스타일
-   ================================================================= */
-
-/* 폼 그룹 기본 스타일 */
-.form-group {
-    margin-bottom: var(--spacing-lg);
-}
-
-.form-group--error {
-    margin-bottom: var(--spacing-sm);
-}
-
-/* 폼 라벨 스타일 */
-.form-label {
-    display: block;
-    margin-bottom: var(--spacing-xs);
-    color: var(--text-primary);
-    font-weight: 600;
-    line-height: 1.5;
-}
-
-.form-required {
-    color: var(--accent-secondary);
-    margin-left: var(--spacing-xs);
-}
-
-/* 폼 입력 필드 스타일 */
-.form-input {
-    width: 100%;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border: 2px solid var(--border-light);
-    border-radius: 0; /* 라운드 제거 - 깔끔한 모던 디자인 */
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    font-family: var(--font-family-regular);
-    font-size: 1rem;
-    line-height: 1.5;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-}
-
-.form-input:focus {
-    outline: none !important;
-    border-color: var(--border-light) !important;
-    box-shadow: none !important;
-}
-
-.form-input:hover {
-    border-color: var(--border-medium);
-}
-
-.form-input--textarea {
-    min-height: 120px;
-    resize: vertical;
-    font-family: var(--font-family-regular);
-}
-
-/* 폼 입력 필드 에러 상태 */
-.form-group--error .form-input {
-    border-color: var(--accent-secondary);
-    background-color: rgba(255, 98, 76, 0.05);
-}
-
-.form-group--error .form-input:focus {
-    outline: none !important;
-    border-color: var(--border-light) !important;
-    box-shadow: none !important;
-}
-
-/* 폼 입력 필드 비활성화 상태 */
-.form-group--disabled .form-input {
-    background-color: var(--color-warm-grey-10);
-    border-color: var(--border-light);
-    color: var(--text-tertiary);
-    cursor: not-allowed;
-}
-
-/* 폼 메시지 스타일 */
-.form-error-message {
-    color: var(--accent-secondary);
-    font-size: 0.875rem;
-    margin-top: var(--spacing-xs);
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-}
-
-.form-error-message::before {
-    content: '⚠️';
-    font-size: 0.75rem;
-}
-
-.form-help-text {
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-    margin-top: var(--spacing-xs);
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-}
-
-/* 이모지 제거됨 - 피그마 디자인에 없음 */
-
-/* 폼 행 스타일 */
-.form-row {
-    display: flex;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
-}
-
-.form-row--half .form-group {
-    flex: 1;
-}
-
-/* 폼 액션 스타일 */
-.form-actions {
-    display: flex;
-    gap: var(--spacing-md);
-    justify-content: flex-end;
-    margin-top: var(--spacing-xl);
-    padding-top: var(--spacing-lg);
-    border-top: 1px solid var(--border-light);
-}
-
-/* 문의 폼 특별 스타일 */
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: var(--spacing-xl);
-    background-color: var(--bg-secondary);
-    border-radius: 0; /* 라운드 제거 - 깔끔한 모던 디자인 */
-    /* 그림자 제거 - 사이트에서 사용하지 않음 */
-}
-
-.contact-form-wrapper {
-    padding: var(--spacing-xl) 0;
-}
-
-/* 폼 제출 상태 */
-.form-submitting {
-    opacity: 0.7;
-    pointer-events: none;
-}
-
-.form-submitting .btn {
-    position: relative;
-}
-
-.form-submitting .btn::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 1rem;
-    height: 1rem;
-    margin: -0.5rem 0 0 -0.5rem;
-    border: 2px solid transparent;
-    border-top: 2px solid currentColor;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-/* 반응형 폼 스타일 */
-@media (max-width: 768px) {
-    .form-row {
-        flex-direction: column;
-        gap: 0;
-    }
-    
-    .form-actions {
-        flex-direction: column;
-    }
-    
-    .contact-form {
-        padding: var(--spacing-lg);
-        margin: 0 var(--spacing-md);
-    }
-}
+/* 폼 컴포넌트 스타일은 components.css로 이동됨 */
 
 /* =================================================================
    탭 메뉴 컴포넌트 스타일 (피그마 디자인 기반)
@@ -1576,7 +1283,7 @@ a:hover {
     text-decoration: none;
     font-family: var(--font-family-regular);
     font-size: 24px; /* 피그마 디자인: 24px */
-    font-weight: 400; /* Regular */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
     line-height: 1.8; /* 피그마 디자인: 1.8 */
     letter-spacing: var(--letter-spacing-wider); /* 디자인 시스템: -0.48px */
     transition: opacity 0.3s ease;
@@ -1589,7 +1296,7 @@ a:hover {
 
 .tab-menu__item--active {
     font-family: var(--font-family-bold);
-    font-weight: 700; /* Bold */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */ /* Bold */
     line-height: 1.4; /* 피그마 디자인: 1.4 */
     opacity: 1;
 }
@@ -1661,7 +1368,7 @@ a:hover {
     text-decoration: none;
     font-family: var(--font-family-regular);
     font-size: 32px; /* 피그마 디자인: 32px */
-    font-weight: 400; /* Regular */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
     line-height: 1.2; /* 피그마 디자인: 1.2 */
     letter-spacing: var(--letter-spacing-xl); /* 디자인 시스템: -0.64px */
     transition: opacity 0.3s ease;
@@ -1674,7 +1381,7 @@ a:hover {
 
 .pagination__number--current {
     font-family: var(--font-family-bold);
-    font-weight: 700; /* Bold */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */ /* Bold */
     opacity: 1;
 }
 
@@ -1698,7 +1405,7 @@ a:hover {
     gap: 6px; /* 피그마 디자인: 6px 간격 */
     font-family: var(--font-family-regular);
     font-size: 28px; /* 피그마 디자인: 28px */
-    font-weight: 400; /* Regular */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
     line-height: 1.4; /* 피그마 디자인: 1.4 */
     letter-spacing: var(--letter-spacing-widest); /* 디자인 시스템: -0.56px */
     color: var(--text-inverse); /* 디자인 시스템: 흰색 */
@@ -1756,7 +1463,7 @@ a:hover {
 .scroll-indicator__text {
     font-family: var(--font-family-regular);
     font-size: 18px; /* 피그마 디자인: 18px */
-    font-weight: 400; /* Regular */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
     line-height: 1.6; /* 피그마 디자인: 1.6 */
     letter-spacing: var(--letter-spacing-wide); /* 디자인 시스템: -0.36px */
     color: var(--text-inverse);
@@ -1832,21 +1539,16 @@ a:hover {
 .tag__text {
     font-family: var(--font-family-regular);
     font-size: 14px; /* 피그마 디자인: 14px */
-    font-weight: 400; /* Regular */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
     line-height: 1.2; /* 피그마 디자인: 1.2 */
     letter-spacing: var(--letter-spacing-widest); /* 디자인 시스템: -0.56px */
     text-align: center;
     white-space: pre-line; /* 줄바꿈 지원 */
 }
 
-/* 컴포넌트 쇼케이스 스타일 */
-.component-showcase {
-    display: flex;
-    flex-direction: row;
-    gap: var(--spacing-md);
-    flex-wrap: wrap;
-    align-items: flex-start;
-}
+/* 컴포넌트 쇼케이스 스타일 - preview.css로 이동됨 */
+
+/* 대형 해상도 스타일 - preview.css로 이동됨 */
 
 .button-showcase {
     display: flex;
@@ -2037,317 +1739,15 @@ a:hover {
     }
 }
 
-/* =================================================================
-   컴포넌트 프리뷰 레이아웃
-   ================================================================= */
+/* 컴포넌트 프리뷰 레이아웃 - preview.css로 이동됨 */
 
-.preview-layout {
-    display: flex;
-    min-height: 100vh; /* 전체 화면 높이 사용 */
-}
-
-.preview-nav {
-    width: 250px;
-    background-color: var(--bg-secondary);
-    border-right: 1px solid var(--border-light);
-    padding: var(--spacing-lg);
-    flex-shrink: 0;
-    position: sticky; /* LNB 고정 */
-    top: 0;
-    height: 100vh; /* 전체 화면 높이 */
-    overflow-y: auto; /* LNB 내부 스크롤만 허용 */
-}
-
-.preview-nav__title {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-md);
-    /* 구분선 제거 - 깔끔한 디자인 */
-}
-
-.preview-nav__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.preview-nav__item {
-    margin-bottom: var(--spacing-xs);
-}
-
-.preview-nav__link {
-    display: block;
-    padding: var(--spacing-sm) var(--spacing-md);
-    color: var(--text-secondary);
-    text-decoration: none;
-    border-radius: 0; /* 라운드 제거 - 깔끔한 모던 디자인 */
-    transition: all 0.2s ease;
-}
-
-.preview-nav__link:hover {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-}
-
-.preview-nav__link--active {
-    background-color: transparent; /* 박스 제거 */
-    color: var(--accent-primary); /* 주황색 텍스트 */
-    font-weight: 500; /* 약간 굵게 */
-}
-
-.preview-nav__link--active:hover {
-    background-color: transparent; /* 호버 시에도 박스 없음 */
-    color: var(--accent-primary); /* 호버 시에도 주황색 유지 */
-}
-
-.preview-content {
-    flex: 1;
-    padding: var(--spacing-lg) var(--spacing-xl); /* 좌우 패딩만 크게 */
-    overflow-y: auto;
-    min-width: 0; /* min-width 제거 */
-    width: 100%; /* 전체 너비 사용 */
-}
-
-/* 반응형 */
-@media (max-width: 768px) {
-    .preview-layout {
-        flex-direction: column;
-    }
-    
-    .preview-nav {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid var(--border-light);
-    }
-    
-    .preview-nav__list {
-        display: flex;
-        overflow-x: auto;
-        gap: var(--spacing-sm);
-    }
-    
-    .preview-nav__item {
-        margin-bottom: 0;
-        flex-shrink: 0;
-    }
-}
+/* 컴포넌트 프리뷰 스타일들은 preview.css에서 관리됨 */
 
 /* ========================================== */
 /* 컴포넌트 스타일 - 버튼 */
 /* ========================================== */
 
-/* 기본 버튼 스타일 */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    border: none;
-    border-radius: 0;
-    text-decoration: none;
-    font-family: var(--font-family-bold);
-    font-size: var(--font-size-base);
-    font-weight: 700;
-    line-height: var(--line-height-loose);
-    letter-spacing: var(--letter-spacing-normal);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    text-align: center;
-    white-space: nowrap;
-    user-select: none;
-    height: 64px;
-    padding: 0 24px;
-    outline: none;
-}
-
-.btn:focus {
-    outline: none;
-}
-
-/* 버튼 타입별 스타일 */
-.btn--primary {
-    background-color: var(--text-primary);
-    color: var(--text-inverse);
-    padding: 0 68px;
-}
-
-.btn--primary:hover {
-    background-color: var(--accent-primary);
-}
-
-.btn--secondary {
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--text-primary);
-    color: var(--text-primary);
-    padding: 0 68px;
-}
-
-.btn--secondary:hover {
-    background-color: var(--color-warm-grey-10);
-}
-
-.btn--text {
-    background-color: transparent;
-    border: none;
-    color: var(--text-primary);
-    padding: 8px 0;
-    font-family: var(--font-family-regular);
-    font-size: var(--font-size-lg);
-    font-weight: 400;
-    line-height: var(--line-height-loose);
-    letter-spacing: var(--letter-spacing-wide);
-    gap: 8px;
-    height: auto;
-}
-
-.btn--text:hover {
-    color: var(--accent-primary);
-}
-
-.btn--control {
-    background-color: transparent;
-    border: 1px solid var(--color-white);
-    color: var(--color-white);
-    padding: 0;
-    font-family: var(--font-family-regular);
-    font-size: var(--font-size-lg);
-    font-weight: 400;
-    line-height: var(--line-height-loose);
-    gap: 0;
-    height: auto;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.btn--control:hover {
-    color: var(--accent-primary);
-    border-color: var(--accent-primary);
-    background-color: transparent;
-}
-
-/* Control 버튼 크기별 스타일 */
-.btn--control.btn--large {
-    width: 80px;
-    height: 80px;
-}
-
-.btn--control.btn--medium {
-    width: 64px;
-    height: 64px;
-}
-
-/* 버튼 크기별 스타일 */
-.btn--large {
-    height: 64px;
-}
-
-.btn--medium {
-    height: 52px;
-    padding: 0 32px;
-    font-size: var(--font-size-sm);
-    letter-spacing: var(--letter-spacing-tight);
-}
-
-.btn--small {
-    height: 40px;
-    padding: 0 16px;
-    font-size: var(--font-size-sm);
-    letter-spacing: var(--letter-spacing-tight);
-    gap: 6px;
-}
-
-.btn--xl {
-    height: auto;
-    padding: 8px 0;
-    font-size: var(--font-size-6xl);
-    font-family: var(--font-family-regular);
-    font-weight: 400;
-    line-height: var(--line-height-relaxed);
-    letter-spacing: var(--letter-spacing-2xl);
-    gap: 12px;
-    color: var(--text-primary);
-}
-
-.btn--xl:hover {
-    color: var(--accent-primary);
-}
-
-/* XL 텍스트 버튼 */
-/* 중복 제거 - 위에서 이미 정의됨 */
-
-/* Small 텍스트 버튼 */
-.btn--small.btn--text {
-    height: auto;
-    padding: 8px 0;
-    font-size: var(--font-size-sm);
-    font-family: var(--font-family-regular);
-    font-weight: 400;
-    line-height: var(--line-height-loose);
-    letter-spacing: var(--letter-spacing-tight);
-    gap: 6px;
-    color: var(--text-primary);
-}
-
-.btn--small.btn--text:hover {
-    color: var(--accent-primary);
-}
-
-/* 버튼 아이콘 스타일 */
-.btn__icon {
-    display: block;
-    flex-shrink: 0;
-}
-
-.btn__icon svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    fill: currentColor;
-    stroke: currentColor;
-}
-
-/* 버튼 아이콘 크기 */
-.btn--xl .btn__icon {
-    width: 64px;
-    height: 64px;
-}
-
-.btn--medium .btn__icon {
-    width: 16px;
-    height: 16px;
-}
-
-.btn--text:not(.btn--xl) .btn__icon {
-    width: 24px;
-    height: 24px;
-}
-
-.btn--small .btn__icon {
-    width: 16px;
-    height: 16px;
-}
-
-/* Control 버튼 아이콘 사이즈 */
-.btn--control.btn--large .btn__icon {
-    width: 32px; /* Control Large 버튼용 */
-    height: 32px;
-}
-
-.btn--control.btn--medium .btn__icon {
-    width: 24px; /* Control Medium 버튼용 */
-    height: 24px;
-}
-
-/* 버튼 비활성화 */
-.btn--disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    pointer-events: none;
-}
+/* 버튼 컴포넌트 스타일은 components.css로 이동됨 */
 
 /* =================================================================
    카드 컴포넌트 스타일
@@ -2370,7 +1770,7 @@ a:hover {
 .status-badge p {
     font-family: 'JASO Sans', sans-serif;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
     line-height: 1.2;
     color: #FFFFFF;
     text-align: center;
@@ -2385,7 +1785,7 @@ a:hover {
     justify-content: center;
     border-radius: 9999px;
     font-family: var(--font-family-regular);
-    font-weight: 400;
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
     line-height: 1.2;
     color: var(--text-inverse);
     text-align: center;
@@ -2440,13 +1840,7 @@ a:hover {
     background-color: var(--color-jungeum-yellow); /* 노란색 */
 }
 
-.status-tag--event.status-tag--current {
-    background-color: var(--color-jungeum-yellow); /* 노란색 */
-}
-
-.status-tag--event.status-tag--upcoming {
-    background-color: var(--color-jungeum-blue); /* 파란색 */
-}
+/* 기존 이벤트 태그 색상 제거 - 새로운 스타일로 대체 */
 
 .status-badge--upcoming {
     background-color: var(--accent-secondary);
@@ -2501,7 +1895,7 @@ a:hover {
 .event-card__title {
     font-family: var(--font-family-bold);
     font-size: var(--font-size-2xl); /* 24px */
-    font-weight: 700;
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
     line-height: 1.4;
     color: var(--text-primary);
     letter-spacing: -0.48px;
@@ -2511,7 +1905,7 @@ a:hover {
 .event-card__date {
     font-family: var(--font-family-regular);
     font-size: var(--font-size-base); /* 16px */
-    font-weight: 400;
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
     line-height: 1.6;
     color: var(--text-primary);
     letter-spacing: -0.32px;
@@ -2534,9 +1928,8 @@ a:hover {
 /* 이모지 제거됨 - 피그마 디자인에 없음 */
 
 .meta-text {
-    font-family: var(--font-family-regular);
-    font-size: 14px;
     color: var(--text-secondary);
+    /* 나머지 스타일은 body-md 클래스에서 처리 */
 }
 
 .event-card__actions {
@@ -2586,7 +1979,7 @@ a:hover {
     border-radius: var(--border-radius-sm);
     font-family: var(--font-family-regular);
     font-size: 12px;
-    font-weight: 400;
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
 }
 
 /* press-card__content 스타일은 위에서 정의됨 */
@@ -2599,21 +1992,21 @@ a:hover {
 
 .press-card__title {
     font-family: var(--font-family-bold);
-    font-size: var(--font-size-2xl); /* 24px */
-    font-weight: 700;
-    line-height: 1.4;
+    font-size: var(--font-size-2xl); /* 24px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
+    line-height: var(--line-height-tight); /* 1.4 - 디자인 시스템 변수 */
     color: var(--text-primary);
-    letter-spacing: -0.48px;
+    letter-spacing: var(--letter-spacing-normal); /* -0.48px - 디자인 시스템 변수 */
     margin: 0;
 }
 
 .press-card__description {
     font-family: var(--font-family-regular);
-    font-size: var(--font-size-base); /* 16px */
-    font-weight: 400;
-    line-height: 1.6;
+    font-size: var(--font-size-base); /* 16px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-loose); /* 1.6 - 디자인 시스템 변수 */
     color: var(--text-primary);
-    letter-spacing: -0.32px;
+    letter-spacing: var(--letter-spacing-normal); /* -0.32px - 디자인 시스템 변수 */
     margin: 0;
 }
 
@@ -2626,11 +2019,11 @@ a:hover {
 .press-card__source,
 .press-card__date {
     font-family: var(--font-family-regular);
-    font-size: var(--font-size-base); /* 16px */
-    font-weight: 400;
-    line-height: 1.6;
+    font-size: var(--font-size-base); /* 16px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
+    line-height: var(--line-height-loose); /* 1.6 - 디자인 시스템 변수 */
     color: var(--text-primary);
-    letter-spacing: -0.32px;
+    letter-spacing: var(--letter-spacing-normal); /* -0.32px - 디자인 시스템 변수 */
     margin: 0;
 }
 
@@ -2656,7 +2049,6 @@ a:hover {
     flex-direction: column;
     gap: 16px;
     width: 100%;
-    max-width: 442px;
 }
 
 .space-card__image {
@@ -2687,7 +2079,7 @@ a:hover {
     border-radius: var(--border-radius-sm);
     font-family: var(--font-family-regular);
     font-size: 12px;
-    font-weight: 400;
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
 }
 
 .space-card__content {
@@ -2699,20 +2091,15 @@ a:hover {
 
 .space-card__title {
     font-family: var(--font-family-bold);
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.4;
+    font-size: var(--font-size-xl); /* 20px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
+    line-height: var(--line-height-tight); /* 1.4 - 디자인 시스템 변수 */
     color: var(--text-primary);
     margin: 0;
 }
 
 .space-card__description {
-    font-family: var(--font-family-regular);
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    margin: 0;
+    /* 나머지 스타일은 body-md 클래스에서 처리 */
 }
 
 .space-card__meta {
@@ -2745,267 +2132,4 @@ a:hover {
     }
 }
 
-/* ========================================
-   전시 카드 컴포넌트
-   ======================================== */
-
-/* 전시 카드 컴포넌트 스타일 - 피그마 디자인 기반 */
-.exhibition-card {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    width: 100%;
-    max-width: 442px;
-    transition: border-radius 0.3s ease;
-}
-
-/* 카드 링크 */
-.exhibition-card__link {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    text-decoration: none;
-    color: inherit;
-    width: 100%;
-}
-
-/* 이미지 영역 - 기본 상태 */
-.exhibition-card__image {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 597.333 / 845.78;
-    overflow: hidden;
-    border-radius: 0;
-    transition: border-radius 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* 호버 시 아치형 처리 - 탄력 있는 전환 */
-.exhibition-card:hover .exhibition-card__image {
-    border-radius: 999px 999px 0 0;
-    transition: border-radius 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-/* 이미지 기본 스타일 - 탄력 있는 줌 효과 */
-.exhibition-card__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    transform: scale(1);
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    outline: none;
-    border: none;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-/* 호버 시 이미지 줌 효과 - 탄력 있는 확대 */
-.exhibition-card:hover .exhibition-card__image img {
-    transform: scale(1.05);
-    transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-/* 이미지 확대 효과 제거 - 아웃라인 문제 해결 */
-/* .exhibition-card:hover .exhibition-card__image img {
-    transform: scale(1.05);
-} */
-
-/* 전시 없음 상태 이미지 - 다른 전시 카드와 동일한 간격 */
-.exhibition-card__image--empty {
-    background-color: #edebe6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.exhibition-card__empty-content {
-    text-align: center;
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* 빈 카드 내부 콘텐츠 호버 시 줌 효과 - 점프 인터랙션 제거 */
-.exhibition-card:hover .exhibition-card__empty-content {
-    transform: scale(1.05);
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* 빈 카드 전체 호버 효과 - 다른 전시 카드와 동일한 translateY 효과 제거 */
-
-/* 빈 카드는 일반 전시 카드와 완전히 동일한 스타일 사용 */
-
-.exhibition-card__empty-text {
-    font-family: "JASOSansRegular", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.64px;
-    color: #ada8a8;
-    margin: 0;
-}
-
-/* 콘텐츠 영역 */
-.exhibition-card__content {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 0 4px;
-}
-
-/* 헤더 영역 (제목 + 태그) */
-.exhibition-card__header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 16px;
-}
-
-/* 제목 */
-.exhibition-card__title {
-    font-family: "JASOSansBold", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    line-height: 1.4;
-    letter-spacing: -0.56px;
-    color: #171414;
-    margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-break: keep-all;
-    flex: 1;
-}
-
-/* 전시 카드 태그 스타일 (콘텐츠 영역에 배치) */
-.exhibition-card__tag {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    font-family: "JASOSansRegular", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.56px;
-    color: #FFFFFF;
-    width: 64px;
-    height: 64px;
-    flex-shrink: 0;
-    padding: 1rem;
-}
-
-.exhibition-card__tag--current {
-    background-color: #FF624C; /* jungeum/orange */
-}
-
-.exhibition-card__tag--upcoming {
-    background-color: #F2A32A; /* jungeum/yellow */
-}
-
-.exhibition-card__tag-text {
-    margin: 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.56px;
-    color: inherit;
-    text-align: center;
-    word-break: keep-all;
-    hyphens: auto;
-}
-
-/* 날짜 */
-.exhibition-card__date {
-    font-family: "JASOSansRegular", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: -0.36px;
-    color: #171414;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-    .exhibition-card {
-        max-width: 100%;
-        gap: 20px;
-    }
-    
-    .exhibition-card__content {
-        gap: 12px;
-    }
-    
-    .exhibition-card__header {
-        flex-direction: column;
-        gap: 12px;
-    }
-    
-    .exhibition-card__title {
-        font-size: 24px;
-        line-height: 1.3;
-        letter-spacing: -0.48px;
-    }
-    
-    .exhibition-card__date {
-        font-size: 16px;
-        line-height: 1.5;
-        letter-spacing: -0.32px;
-    }
-    
-    .exhibition-card__tag {
-        width: 56px;
-        height: 56px;
-        font-size: 12px;
-        align-self: flex-start;
-    }
-    
-    .exhibition-card__empty-text {
-        font-size: 28px;
-    }
-}
-
-@media (max-width: 480px) {
-    .exhibition-card {
-        gap: 16px;
-    }
-    
-    .exhibition-card__content {
-        gap: 10px;
-    }
-    
-    .exhibition-card__header {
-        gap: 10px;
-    }
-    
-    .exhibition-card__title {
-        font-size: 20px;
-        line-height: 1.3;
-        letter-spacing: -0.4px;
-    }
-    
-    .exhibition-card__date {
-        font-size: 14px;
-        line-height: 1.4;
-        letter-spacing: -0.28px;
-    }
-    
-    .exhibition-card__tag {
-        width: 48px;
-        height: 48px;
-        font-size: 11px;
-    }
-    
-    .exhibition-card__empty-text {
-        font-size: 24px;
-    }
-}
+/* 카드 컴포넌트 스타일은 components.css로 이동됨 */

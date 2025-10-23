@@ -21,11 +21,23 @@
   font-family: "JASOSansBold";
   src: url('../assets/fonts/JASOSansBold/font.woff2') format('woff2'), url('../assets/fonts/JASOSansBold/font.woff') format('woff');
   font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+  font-feature-settings: "kern" 1, "liga" 1, "clig" 1, "calt" 1;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  font-optical-sizing: auto;
 }
 @font-face {
   font-family: "JASOSansRegular";
   src: url('../assets/fonts/JASOSansRegular/font.woff2') format('woff2'), url('../assets/fonts/JASOSansRegular/font.woff') format('woff');
   font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+  font-feature-settings: "kern" 1, "liga" 1, "clig" 1, "calt" 1;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  font-optical-sizing: auto;
 }
 
 /*

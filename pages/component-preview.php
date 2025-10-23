@@ -11,6 +11,10 @@ require_once __DIR__ . '/../lib/helpers.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>정음 - 컴포넌트 디자인 시스템</title>
     
+    <!-- 웹폰트 preload -->
+    <link rel="preload" href="../assets/fonts/JASOSansRegular/font.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/JASOSansBold/font.woff2" as="font" type="font/woff2" crossorigin>
+    
     <!-- 웹폰트 로드 -->
     <link rel="stylesheet" href="../css/webfonts.css">
     
@@ -18,6 +22,7 @@ require_once __DIR__ . '/../lib/helpers.php';
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/utilities.css">
     <link rel="stylesheet" href="../css/design-system.css">
+    <link rel="stylesheet" href="../css/components.css">
     
     <!-- DEV-ONLY: 컴포넌트 프리뷰 전용 스타일 (운영 사이트 미포함) -->
     <link rel="stylesheet" href="../css/preview.css">
@@ -131,7 +136,7 @@ require_once __DIR__ . '/../lib/helpers.php';
                 $exhibition_cards_variants = [
                     // 1. 현재 전시 (현재일 기준 포함되는 날짜)
                     [
-                        'title' => '현재 진행 중인 전시',
+                        'title' => '현재 진행 중인 전시: 김중업과 르 코르뷔지에의 건축사진전 - 디지털 시대의 공간과 시간의 만남',
                         'date' => '2025.01.15 — 2025.03.20',
                         'image' => '../assets/images/exhibitions/exh-thumb-01.jpg',
                         'status' => 'current',
@@ -140,7 +145,7 @@ require_once __DIR__ . '/../lib/helpers.php';
                     ],
                     // 2. 예정 전시 (현재일 기준 미래)
                     [
-                        'title' => '미래의 건축 디지털 시대의 공간',
+                        'title' => '미래의 건축 디지털 시대의 공간과 시간의 만남 - 현대 건축의 새로운 패러다임과 지속가능한 도시 설계를 통한 인간 중심의 공간 창조',
                         'date' => '2025.11.15 — 2025.12.30',
                         'image' => '../assets/images/exhibitions/exh-thumb-02.jpg',
                         'status' => 'upcoming',
@@ -205,7 +210,7 @@ require_once __DIR__ . '/../lib/helpers.php';
                 ?>
             </div>
             
-            <h3>이벤트 카드</h3>
+            <h3>이벤트 카드 - 3가지 경우의 수</h3>
             <div class="component-showcase">
                 <?php
                 $event_cards = [
@@ -214,6 +219,7 @@ require_once __DIR__ . '/../lib/helpers.php';
                         'date' => '2025.10.15 — 2025.12.21',
                         'image' => '../assets/images/events/event-thumb-01.jpg',
                         'status' => 'current',
+                        'show_tag' => true,
                         'link' => '#'
                     ],
                     [
@@ -221,20 +227,15 @@ require_once __DIR__ . '/../lib/helpers.php';
                         'date' => '2025.12.01 — 2025.12.15',
                         'image' => '../assets/images/events/event-thumb-02.jpg',
                         'status' => 'upcoming',
+                        'show_tag' => true,
                         'link' => '#'
                     ],
                     [
                         'title' => '워크샵 : 나만의 건축 모형 만들기',
-                        'date' => '2025.11.20 — 2025.11.30',
+                        'date' => '2025.08.20 — 2025.08.30',
                         'image' => '../assets/images/events/event-thumb-03.jpg',
-                        'status' => 'current',
-                        'link' => '#'
-                    ],
-                    [
-                        'title' => '세미나 : 지속가능한 건축의 미래',
-                        'date' => '2025.12.10 — 2025.12.20',
-                        'image' => '../assets/images/events/event-thumb-04.jpg',
-                        'status' => 'upcoming',
+                        'status' => 'past',
+                        'show_tag' => false,
                         'link' => '#'
                     ]
                 ];
@@ -267,28 +268,22 @@ require_once __DIR__ . '/../lib/helpers.php';
                 ?>
             </div>
             
-            <h3>공간 카드</h3>
+            <h3>쿠움 공간 카드</h3>
             <div class="component-showcase">
                 <?php
                 $space_cards = [
                     [
-                        'id' => '1',
-                        'title' => '1-2층 전시실',
-                        'description' => '다양한 전시를 위한 넓은 공간',
+                        'title' => '레조네 홍대',
+                        'description' => '최고의 입지 연남동 메인 거리에 위치 · 연면적 150평 실내 공간 + 야외 공간 보유',
                         'image' => '../assets/images/space/space-1f2f-01.jpg',
-                        'floor' => '1-2층',
-                        'capacity' => '100명',
-                        'features' => ['전시', '강연', '워크샵'],
+                        'address' => '서울특별시 마포구 동교동 148-7',
                         'link' => '#'
                     ],
                     [
-                        'id' => '2',
-                        'title' => '3층 세미나실',
-                        'description' => '소규모 강연과 토론을 위한 공간',
+                        'title' => '쿠움 스페이스',
+                        'description' => '현대적인 디자인과 최첨단 시설을 갖춘 다목적 공간 · 최대 200명 수용 가능',
                         'image' => '../assets/images/space/space-3f-01.jpg',
-                        'floor' => '3층',
-                        'capacity' => '30명',
-                        'features' => ['강연', '토론', '세미나'],
+                        'address' => '서울특별시 마포구 연남동 123-45',
                         'link' => '#'
                     ]
                 ];
@@ -428,70 +423,19 @@ require_once __DIR__ . '/../lib/helpers.php';
         <section class="preview-section">
             <h2>UI 요소 (UI Elements)</h2>
             
-            <h3>알림 (Alerts)</h3>
+            <h3>알림 (Alerts) - 개발 예정</h3>
             <div class="component-showcase" style="flex-direction: column; align-items: flex-start;">
-                <?php
-                $alerts = [
-                    [
-                        'type' => 'success',
-                        'title' => '성공',
-                        'message' => '요청이 성공적으로 처리되었습니다.',
-                        'dismissible' => true
-                    ],
-                    [
-                        'type' => 'warning',
-                        'title' => '경고',
-                        'message' => '주의가 필요한 상황입니다.',
-                        'dismissible' => true
-                    ],
-                    [
-                        'type' => 'error',
-                        'title' => '오류',
-                        'message' => '문제가 발생했습니다. 다시 시도해주세요.',
-                        'dismissible' => true
-                    ],
-                    [
-                        'type' => 'info',
-                        'title' => '정보',
-                        'message' => '추가 정보를 확인해주세요.',
-                        'dismissible' => true
-                    ]
-                ];
-                
-                foreach ($alerts as $alert_data) {
-                    $data = $alert_data;
-                    include __DIR__ . '/../components/ui/alerts/alert.php';
-                }
-                ?>
+                <p class="body-md">알림 컴포넌트는 향후 개발 예정입니다.</p>
             </div>
             
-            <h3>로딩 스피너</h3>
+            <h3>로딩 스피너 - 개발 예정</h3>
             <div class="component-showcase">
-                <?php
-                $spinner_data = [
-                    'size' => 'large',
-                    'text' => '로딩 중...'
-                ];
-                $data = $spinner_data;
-                include __DIR__ . '/../components/ui/loading/spinner.php';
-                ?>
+                <p class="body-md">로딩 스피너 컴포넌트는 향후 개발 예정입니다.</p>
             </div>
             
-            <h3>태그</h3>
+            <h3>태그 (카드 내부에서 확인)</h3>
             <div class="component-showcase">
-                <?php
-                $tags = [
-                    ['type' => 'exhibition', 'state' => 'current', 'position' => 'default'],
-                    ['type' => 'exhibition', 'state' => 'upcoming', 'position' => 'default'],
-                    ['type' => 'event', 'state' => 'current', 'position' => 'default'],
-                    ['type' => 'event', 'state' => 'upcoming', 'position' => 'default']
-                ];
-                
-                foreach ($tags as $tag_data) {
-                    $data = $tag_data;
-                    include __DIR__ . '/../components/ui/tag.php';
-                }
-                ?>
+                <p class="body-md">태그는 전시 카드와 이벤트 카드 내부에서 확인할 수 있습니다.</p>
             </div>
         </section>
     </div>

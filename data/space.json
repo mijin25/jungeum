@@ -2,45 +2,27 @@
   "spaces": [
     {
       "id": 1,
-      "name": "1-2층 전시실",
-      "description": "대형 전시를 위한 넓은 공간",
-      "images": [
-        "assets/images/space/space-1f2f-01.jpg",
-        "assets/images/space/space-1f2f-02.jpg",
-        "assets/images/space/space-1f2f-03.jpg"
-      ],
-      "floor": "1-2층",
-      "capacity": 200,
-      "features": ["대형 전시", "자연 채광", "고성능 조명"],
-      "rental": true
+      "title": "레조네 홍대",
+      "description": "최고의 입지 연남동 메인 거리에 위치 · 연면적 150평 실내 공간 + 야외 공간 보유",
+      "image": "../assets/images/space/space-1f2f-01.jpg",
+      "address": "서울특별시 마포구 동교동 148-7",
+      "link": "#"
     },
     {
       "id": 2,
-      "name": "3층 세미나실",
-      "description": "강연과 토크 세션을 위한 공간",
-      "images": [
-        "assets/images/space/space-3f-01.jpg",
-        "assets/images/space/space-3f-02.jpg",
-        "assets/images/space/space-3f-03.jpg"
-      ],
-      "floor": "3층",
-      "capacity": 50,
-      "features": ["프로젝터", "음향시설", "회의용 테이블"],
-      "rental": true
+      "title": "쿠움 스페이스",
+      "description": "현대적인 디자인과 최첨단 시설을 갖춘 다목적 공간 · 최대 200명 수용 가능",
+      "image": "../assets/images/space/space-3f-01.jpg",
+      "address": "서울특별시 마포구 연남동 123-45",
+      "link": "#"
     },
     {
       "id": 3,
-      "name": "아카이브 라운지",
-      "description": "휴식과 독서를 위한 편안한 공간",
-      "images": [
-        "assets/images/space/space-ach-01.jpg",
-        "assets/images/space/space-ach-02.jpg",
-        "assets/images/space/space-ach-03.jpg"
-      ],
-      "floor": "지하 1층",
-      "capacity": 30,
-      "features": ["도서관", "카페", "휴식 공간"],
-      "rental": false
+      "title": "아카이브 라운지",
+      "description": "휴식과 독서를 위한 편안한 공간 · 조용한 환경에서 집중할 수 있는 공간",
+      "image": "../assets/images/space/space-ach-01.jpg",
+      "address": "서울특별시 마포구 연남동 456-78",
+      "link": "#"
     }
   ]
 }

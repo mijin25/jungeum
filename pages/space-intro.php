@@ -14,6 +14,7 @@ require_once '../components/helpers.php';
     
     <link rel="stylesheet" href="../css/webfonts.css">
     <link rel="stylesheet" href="../css/design-system.css">
+    <link rel="stylesheet" href="../css/components.css">
     <link rel="icon" type="image/svg+xml" href="../assets/images/common/logo-jungeum.svg">
 </head>
 <body>
@@ -36,12 +37,20 @@ require_once '../components/helpers.php';
     <!-- 메인 콘텐츠 -->
     <main class="main-content">
         <div class="container">
-            <h1 class="heading-h1">공간 소개</h1>
+            <h1 class="heading-h1">쿠움 공간</h1>
             <p class="body-lg">정음의 다양한 공간을 소개합니다.</p>
             
-            <!-- WIP: 공간 소개 구현 예정 -->
-            <div class="wip-notice">
-                <p>공간 소개 콘텐츠 구현 중...</p>
+            <!-- 공간 카드 그리드 -->
+            <div class="component-showcase" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px;">
+                <?php
+                // JSON 데이터 로드
+                $space_data = json_decode(file_get_contents('../data/space.json'), true);
+                
+                foreach ($space_data['spaces'] as $space) {
+                    $data = $space;
+                    include '../components/cards/space-card.php';
+                }
+                ?>
             </div>
         </div>
     </main>

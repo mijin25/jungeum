@@ -19,6 +19,7 @@ require_once __DIR__ . '/../lib/helpers.php';
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/utilities.css">
     <link rel="stylesheet" href="../css/design-system.css">
+    <link rel="stylesheet" href="../css/components.css">
     
     <!-- 성능 최적화: CSS 미리 로드 -->
     <link rel="preload" href="../css/design-system.css" as="style">

@@ -1,0 +1,1010 @@
+/* components.css */
+/* 정음 웹사이트 컴포넌트 스타일 - 카드, 버튼, 폼, 태그 등 */
+
+/* =================================================================
+   버튼 컴포넌트 스타일
+   ================================================================= */
+
+/* 기본 버튼 스타일 */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+    /* 나머지 스타일은 텍스트 스타일 클래스에서 처리 */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    user-select: none;
+    height: var(--btn-height-large);
+    padding: 0 var(--spacing-lg);
+    outline: none;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+/* 버튼 타입별 스타일 */
+.btn--primary {
+    background-color: var(--text-primary);
+    color: var(--text-inverse);
+    padding: 0 68px;
+}
+
+.btn--primary:hover {
+    background-color: var(--accent-primary);
+}
+
+.btn--secondary {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--text-primary);
+    color: var(--text-primary);
+    padding: 0 68px;
+}
+
+.btn--secondary:hover {
+    background-color: var(--color-warm-grey-10);
+}
+
+.btn--text {
+    background-color: transparent;
+    border: none;
+    color: var(--text-primary);
+    padding: 8px 0;
+    /* 나머지 스타일은 body-lg 클래스에서 처리 */
+    gap: 8px;
+    height: auto;
+}
+
+.btn--text:hover {
+    color: var(--accent-primary);
+}
+
+.btn--control {
+    background-color: transparent;
+    border: 1px solid var(--color-white);
+    color: var(--color-white);
+    padding: 0;
+    /* 나머지 스타일은 body-lg 클래스에서 처리 */
+    gap: 0;
+    height: auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.btn--control:hover {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    background-color: transparent;
+}
+
+/* Control 버튼 크기별 스타일 - 디자인 시스템 변수 사용 */
+.btn--control.btn--large {
+    width: 80px; /* Control 버튼 전용 크기 */
+    height: 80px;
+}
+
+.btn--control.btn--medium {
+    width: 64px; /* Control 버튼 전용 크기 */
+    height: 64px;
+}
+
+/* 버튼 크기별 스타일 - 디자인 시스템 변수 사용 */
+.btn--large {
+    height: var(--btn-height-large);
+}
+
+.btn--medium {
+    height: var(--btn-height-medium);
+    padding: 0 var(--btn-padding-medium);
+    /* 나머지 스타일은 텍스트 스타일 클래스에서 처리 */
+}
+
+.btn--small {
+    height: var(--btn-height-small);
+    padding: 0 var(--btn-padding-small);
+    gap: var(--btn-gap-small);
+    /* 나머지 스타일은 텍스트 스타일 클래스에서 처리 */
+}
+
+.btn--xl {
+    height: auto;
+    padding: var(--spacing-sm) 0;
+    /* 나머지 스타일은 display-1 클래스에서 처리 */
+    gap: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+.btn--xl:hover {
+    color: var(--accent-primary);
+}
+
+/* Small 텍스트 버튼 */
+.btn--small.btn--text {
+    height: auto;
+    padding: var(--spacing-sm) 0;
+    /* 나머지 스타일은 body-sm 클래스에서 처리 */
+    gap: var(--btn-gap-small);
+    color: var(--text-primary);
+}
+
+.btn--small.btn--text:hover {
+    color: var(--accent-primary);
+}
+
+/* 버튼 아이콘 스타일 */
+.btn__icon {
+    display: block;
+    flex-shrink: 0;
+}
+
+.btn__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+/* 버튼 아이콘 크기 - 디자인 시스템 변수 사용 */
+.btn--xl .btn__icon {
+    width: 64px; /* XL 버튼 전용 크기 */
+    height: 64px;
+}
+
+.btn--medium .btn__icon {
+    width: 16px; /* Medium 버튼 전용 크기 */
+    height: 16px;
+}
+
+.btn--text:not(.btn--xl) .btn__icon {
+    width: 24px; /* Text 버튼 전용 크기 */
+    height: 24px;
+}
+
+.btn--small .btn__icon {
+    width: 16px; /* Small 버튼 전용 크기 */
+    height: 16px;
+}
+
+/* Control 버튼 아이콘 사이즈 - 디자인 시스템 변수 사용 */
+.btn--control.btn--large .btn__icon {
+    width: 32px; /* Control Large 전용 크기 */
+    height: 32px;
+}
+
+.btn--control.btn--medium .btn__icon {
+    width: 24px; /* Control Medium 전용 크기 */
+    height: 24px;
+}
+
+/* 버튼 비활성화 */
+.btn--disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* =================================================================
+   폼 컴포넌트 스타일
+   ================================================================= */
+
+/* 폼 그룹 기본 스타일 */
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group--error {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* 폼 라벨 스타일 */
+.form-label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.form-required {
+    color: var(--accent-secondary);
+    margin-left: var(--spacing-xs);
+}
+
+/* 폼 입력 필드 스타일 */
+.form-input {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 2px solid var(--border-light);
+    border-radius: 0;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-family-regular);
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    outline: none !important;
+    border-color: var(--border-light) !important;
+    box-shadow: none !important;
+}
+
+.form-input:hover {
+    border-color: var(--border-medium);
+}
+
+.form-input--textarea {
+    min-height: 7.5rem; /* 120px */
+    resize: vertical;
+    font-family: var(--font-family-regular);
+}
+
+/* 폼 입력 필드 에러 상태 */
+.form-group--error .form-input {
+    border-color: var(--accent-secondary);
+    background-color: rgba(255, 98, 76, 0.05);
+}
+
+.form-group--error .form-input:focus {
+    outline: none !important;
+    border-color: var(--border-light) !important;
+    box-shadow: none !important;
+}
+
+/* 폼 입력 필드 비활성화 상태 */
+.form-group--disabled .form-input {
+    background-color: var(--color-warm-grey-10);
+    border-color: var(--border-light);
+    color: var(--text-tertiary);
+    cursor: not-allowed;
+}
+
+/* 폼 메시지 스타일 */
+.form-error-message {
+    color: var(--accent-secondary);
+    font-size: 0.875rem;
+    margin-top: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.form-help-text {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-top: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+/* 폼 행 스타일 */
+.form-row {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-row--half .form-group {
+    flex: 1;
+}
+
+/* 폼 액션 스타일 */
+.form-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: flex-end;
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-light);
+}
+
+/* 문의 폼 특별 스타일 */
+.contact-form {
+    max-width: 37.5rem; /* 600px */
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+    background-color: var(--bg-secondary);
+    border-radius: 0;
+}
+
+.contact-form-wrapper {
+    padding: var(--spacing-xl) 0;
+}
+
+/* 폼 제출 상태 */
+.form-submitting {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.form-submitting .btn {
+    position: relative;
+}
+
+.form-submitting .btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1rem;
+    height: 1rem;
+    margin: -0.5rem 0 0 -0.5rem;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 반응형 폼 스타일 */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .contact-form {
+        padding: var(--spacing-lg);
+        margin: 0 var(--spacing-md);
+    }
+}
+
+/* =================================================================
+   태그 컴포넌트 스타일
+   ================================================================= */
+
+/* 기본 태그 스타일 */
+.status-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-family: "JASOSansRegular", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.2;
+    letter-spacing: -0.56px;
+    text-align: center;
+    color: #FFFFFF;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+/* 전시 태그 스타일 */
+.status-tag--exhibition {
+    width: 64px;
+    height: 64px;
+    flex-direction: column;
+    gap: 4px;
+    padding: 6px 8px;
+}
+
+/* 이벤트 태그 스타일 */
+.status-tag--event {
+    min-width: auto;
+    height: auto;
+    padding: 6px 8px;
+}
+
+/* 태그 텍스트 */
+.status-tag__text {
+    margin: 0;
+    font-size: 14px;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.2;
+    letter-spacing: -0.56px;
+    color: inherit;
+}
+
+/* 이미지 오버레이 위치 */
+.status-tag--image-over {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+}
+
+/* 이벤트 카드에서 태그 위치 - 하단 */
+.event-card .status-tag--image-over {
+    top: auto;
+    bottom: 16px;
+    right: 16px;
+}
+
+/* 전시 태그 색상 */
+.status-tag--exhibition.status-tag--current {
+    background-color: #FF624C;
+}
+
+.status-tag--exhibition.status-tag--upcoming {
+    background-color: #F2A32A;
+}
+
+/* =================================================================
+   카드 컴포넌트 스타일
+   ================================================================= */
+
+/* 전시 카드 컴포넌트 스타일 - 피그마 디자인 기반 */
+.exhibition-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: border-radius 0.3s ease;
+}
+
+/* 카드 링크 */
+.exhibition-card__link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg); /* 24px - 피그마 디자인 변수 */
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+/* 이미지 영역 - 기본 상태 */
+.exhibition-card__image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 597.333 / 845.78;
+    overflow: hidden;
+    border-radius: 0;
+    transition: border-radius 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 호버 시 아치형 처리 - 탄력 있는 전환 */
+.exhibition-card:hover .exhibition-card__image {
+    border-radius: 999px 999px 0 0;
+    transition: border-radius 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 이미지 기본 스타일 - 탄력 있는 줌 효과 */
+.exhibition-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transform: scale(1);
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    outline: none;
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* 호버 시 이미지 줌 효과 - 탄력 있는 확대 */
+.exhibition-card:hover .exhibition-card__image img {
+    transform: scale(1.05);
+    transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 호버 시 아치형 처리 - 탄력 있는 전환 */
+.exhibition-card:hover .exhibition-card__image {
+    border-radius: 999px 999px 0 0;
+    transition: border-radius 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 전시 없음 상태 이미지 */
+.exhibition-card__image--empty {
+    background-color: #edebe6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exhibition-card__empty-content {
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 빈 카드 내부 콘텐츠 호버 시 줌 효과 */
+.exhibition-card:hover .exhibition-card__empty-content {
+    transform: scale(1.05);
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.exhibition-card__empty-text {
+    font-family: "JASOSansRegular", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 32px;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.2;
+    letter-spacing: -0.64px;
+    color: #ada8a8;
+    margin: 0;
+}
+
+/* 콘텐츠 영역 */
+.exhibition-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    padding: 0;
+}
+
+/* 헤더 영역 (텍스트 그룹 + 태그) */
+.exhibition-card__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+}
+
+/* 텍스트 그룹 (제목 + 날짜) */
+.exhibition-card__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    flex: 1;
+}
+
+/* 제목 */
+.exhibition-card__title {
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+    flex: 1;
+}
+
+/* 전시 카드 태그 스타일 */
+.exhibition-card__tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    font-family: "JASOSansRegular", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.2;
+    letter-spacing: -0.56px;
+    color: #FFFFFF;
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    padding: 1rem;
+}
+
+.exhibition-card__tag--current {
+    background-color: #FF624C;
+}
+
+.exhibition-card__tag--upcoming {
+    background-color: #F2A32A;
+}
+
+.exhibition-card__tag-text {
+    margin: 0;
+    font-size: 14px;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.2;
+    letter-spacing: -0.56px;
+    color: inherit;
+    text-align: center;
+    word-break: keep-all;
+    hyphens: auto;
+}
+
+/* 날짜 */
+.exhibition-card__date {
+    font-family: "JASOSansRegular", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+    letter-spacing: -0.36px;
+    color: #171414;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 이벤트 카드 컴포넌트 스타일 */
+.event-card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    transition: border-radius 0.3s ease;
+}
+
+.event-card__link {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+.event-card__image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 0;
+    transition: border-radius 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.event-card:hover .event-card__image {
+    border-radius: 999px 999px 0 0;
+    transition: border-radius 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.event-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transform: scale(1);
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    outline: none;
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.event-card:hover .event-card__image img {
+    transform: scale(1.05);
+    transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.event-card__status {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    z-index: 10;
+    transform: scale(1);
+    transition: none;
+}
+
+.event-card__tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 9999px;
+    font-family: "JASOSansRegular", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+    letter-spacing: -0.36px;
+    text-align: center;
+    color: #FFFFFF;
+    white-space: nowrap;
+}
+
+.event-card__tag--current {
+    background-color: #F2A32A;
+}
+
+.event-card__tag--upcoming {
+    background-color: #272A6D;
+}
+
+.event-card__tag-text {
+    margin: 0;
+    font-size: 18px;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+    letter-spacing: -0.36px;
+    color: inherit;
+}
+
+.event-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 4px;
+}
+
+.event-card__title {
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+    /* 나머지 스타일은 heading-h6-emphasized 클래스에서 처리 */
+}
+
+.event-card__date {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 나머지 스타일은 body-lg 클래스에서 처리 */
+}
+
+/* 보도 카드 */
+.press-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.press-card__link {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.press-card__image {
+    position: relative;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.press-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* 보도 카드 호버 인터랙션 */
+.press-card:hover .press-card__image img {
+    transform: translateZ(0) scale(1.05);
+}
+
+.press-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 4px;
+}
+
+.press-card__title {
+    margin: 0;
+    /* 나머지 스타일은 heading-h5-emphasized 클래스에서 처리 */
+}
+
+.press-card__description {
+    margin: 0;
+    /* 나머지 스타일은 body-md 클래스에서 처리 */
+}
+
+.press-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.press-card__source,
+.press-card__date {
+    margin: 0;
+    /* 나머지 스타일은 body-sm 클래스에서 처리 */
+}
+
+/* 쿠움 공간 카드 (보도 카드 베리에이션) */
+.space-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.space-card__link {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.space-card__image {
+    position: relative;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.space-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* 공간 카드 호버 인터랙션 */
+.space-card:hover .space-card__image img {
+    transform: translateZ(0) scale(1.05);
+}
+
+.space-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding: 0 4px;
+}
+
+.space-card__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.space-card__title {
+    margin: 0;
+    /* 나머지 스타일은 heading-h6-emphasized 클래스에서 처리 */
+}
+
+.space-card__description {
+    margin: 0;
+    /* 나머지 스타일은 body-md 클래스에서 처리 */
+}
+
+.space-card__meta {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.space-card__address {
+    margin: 0;
+    /* 나머지 스타일은 body-md 클래스에서 처리 */
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .exhibition-card__link {
+        gap: var(--spacing-md);
+    }
+    
+    .exhibition-card__content {
+        gap: var(--spacing-xs);
+    }
+    
+    .exhibition-card__header {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    
+    .exhibition-card__date {
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: -0.32px;
+    }
+    
+    .exhibition-card__tag {
+        width: 56px;
+        height: 56px;
+        font-size: 12px;
+        align-self: flex-start;
+    }
+    
+    .exhibition-card__empty-text {
+        font-size: 28px;
+    }
+    
+    .event-card {
+        gap: 20px;
+    }
+    
+    .event-card__content {
+        gap: 12px;
+        padding: 0;
+    }
+    
+    .event-card__title {
+        font-size: var(--font-size-xl);
+        line-height: var(--line-height-loose);
+    }
+    
+    .event-card__date {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-normal);
+        letter-spacing: var(--letter-spacing-normal);
+    }
+    
+    .event-card__status {
+        bottom: 12px;
+        right: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .exhibition-card__link {
+        gap: var(--spacing-sm);
+    }
+    
+    .exhibition-card__content {
+        gap: var(--spacing-xs);
+    }
+    
+    .exhibition-card__header {
+        gap: var(--spacing-sm);
+    }
+    
+    .exhibition-card__date {
+        font-size: 14px;
+        line-height: 1.4;
+        letter-spacing: -0.28px;
+    }
+    
+    .exhibition-card__tag {
+        width: 48px;
+        height: 48px;
+        font-size: 11px;
+    }
+    
+    .exhibition-card__empty-text {
+        font-size: 24px;
+    }
+    
+    .event-card {
+        gap: 16px;
+    }
+    
+    .event-card__content {
+        gap: 10px;
+    }
+    
+    .event-card__title {
+        font-size: var(--font-size-lg);
+        line-height: var(--line-height-normal);
+    }
+    
+    .event-card__date {
+        font-size: var(--font-size-sm);
+        line-height: var(--line-height-tight);
+        letter-spacing: var(--letter-spacing-tight);
+    }
+    
+    .event-card__status {
+        bottom: 8px;
+        right: 8px;
+    }
+}

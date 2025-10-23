@@ -19,23 +19,23 @@ $link = $data['link'] ?? '#';
         
         <div class="press-card__content">
             <div class="press-card__text">
-                <div class="press-card__title">
+                <h3 class="press-card__title heading-h5-emphasized">
                     <?php echo htmlspecialchars($title); ?>
-                </div>
-                <div class="press-card__description">
+                </h3>
+                <div class="press-card__description body-md">
                     <?php echo htmlspecialchars($description); ?>
                 </div>
             </div>
             
             <div class="press-card__meta">
                 <div class="press-card__source">
-                    <span class="meta-text"><?php echo htmlspecialchars($source); ?></span>
+                    <span class="meta-text body-md"><?php echo htmlspecialchars($source); ?></span>
                 </div>
                 <div class="press-card__separator">
                     <span class="separator-dot"></span>
                 </div>
                 <div class="press-card__date">
-                    <span class="meta-text"><?php echo htmlspecialchars($date); ?></span>
+                    <span class="meta-text body-md"><?php echo htmlspecialchars($date); ?></span>
                 </div>
             </div>
         </div>

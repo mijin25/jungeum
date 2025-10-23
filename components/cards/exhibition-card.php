@@ -24,13 +24,15 @@ $is_empty = $data['is_empty'] ?? false;
             
             <div class="exhibition-card__content">
                 <div class="exhibition-card__header">
-                    <div class="exhibition-card__title">
-                        전시 준비 중입니다
+                    <div class="exhibition-card__text">
+                        <h3 class="exhibition-card__title heading-h5-emphasized">
+                            전시 준비 중입니다
+                        </h3>
+                        <div class="exhibition-card__date body-lg">
+                            문의 바로가기
+                        </div>
                     </div>
                     <!-- 원형 태그 없음 - 일반 전시 카드와 동일 -->
-                </div>
-                <div class="exhibition-card__date">
-                    문의 바로가기
                 </div>
             </div>
         </a>
@@ -43,8 +45,13 @@ $is_empty = $data['is_empty'] ?? false;
             
             <div class="exhibition-card__content">
                 <div class="exhibition-card__header">
-                    <div class="exhibition-card__title">
-                        <?php echo htmlspecialchars($title); ?>
+                    <div class="exhibition-card__text">
+                        <h3 class="exhibition-card__title heading-h5-emphasized">
+                            <?php echo htmlspecialchars($title); ?>
+                        </h3>
+                        <div class="exhibition-card__date body-lg">
+                            <?php echo htmlspecialchars($date); ?>
+                        </div>
                     </div>
                     <?php if ($variant === 'with-tag' && $status !== 'past'): ?>
                         <div class="exhibition-card__tag exhibition-card__tag--<?php echo htmlspecialchars($status); ?>">
@@ -59,9 +66,6 @@ $is_empty = $data['is_empty'] ?? false;
                             </span>
                         </div>
                     <?php endif; ?>
-                </div>
-                <div class="exhibition-card__date">
-                    <?php echo htmlspecialchars($date); ?>
                 </div>
             </div>
         </a>

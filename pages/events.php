@@ -14,6 +14,7 @@ require_once '../lib/helpers.php';
     
     <link rel="stylesheet" href="../css/webfonts.css">
     <link rel="stylesheet" href="../css/design-system.css">
+    <link rel="stylesheet" href="../css/components.css">
     <link rel="icon" type="image/svg+xml" href="../assets/images/common/logo-jungeum.svg">
 </head>
 <body>

@@ -7,183 +7,38 @@ $title = $data['title'] ?? '팝업 스토어 : 간결한 선과 결을 통해 �
 $date = $data['date'] ?? '2025.10.15 — 2025.12.21';
 $image = $data['image'] ?? '../assets/images/events/event-thumb-01.jpg';
 $link = $data['link'] ?? '#';
-$status = $data['status'] ?? 'current'; // current, upcoming
+$status = $data['status'] ?? 'current'; // current, upcoming, past
+$show_tag = $data['show_tag'] ?? true; // 과거 이벤트는 태그 숨김
 ?>
 
 <div class="event-card">
     <a href="<?php echo htmlspecialchars($link); ?>" class="event-card__link">
         <div class="event-card__image">
             <img src="<?php echo htmlspecialchars($image); ?>" alt="<?php echo htmlspecialchars($title); ?>" loading="lazy">
-            <div class="event-card__status">
-                <?php
-                $data = [
-                    'type' => 'event',
-                    'state' => $status,
-                    'position' => 'image-over'
-                ];
-                include __DIR__ . '/../ui/tag.php';
-                ?>
-            </div>
+            <?php if ($show_tag && $status !== 'past'): ?>
+                <div class="event-card__status">
+                    <div class="event-card__tag event-card__tag--<?php echo htmlspecialchars($status); ?>">
+                        <span class="event-card__tag-text">
+                            <?php 
+                            if ($status === 'current') {
+                                echo '현재';
+                            } elseif ($status === 'upcoming') {
+                                echo '예정';
+                            }
+                            ?>
+                        </span>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
         
         <div class="event-card__content">
-            <div class="event-card__title">
+            <h3 class="event-card__title heading-h6-emphasized">
                 <?php echo htmlspecialchars($title); ?>
-            </div>
-            <div class="event-card__date">
+            </h3>
+            <div class="event-card__date body-lg">
                 <?php echo htmlspecialchars($date); ?>
             </div>
         </div>
     </a>
 </div>
-
-<style>
-/* 이벤트 카드 컴포넌트 스타일 - 피그마 디자인 기반 */
-.event-card {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    width: 100%;
-    max-width: 442px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.event-card:hover {
-    transform: translateY(-4px);
-}
-
-/* 카드 링크 */
-.event-card__link {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    text-decoration: none;
-    color: inherit;
-    width: 100%;
-}
-
-/* 이미지 영역 */
-.event-card__image {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 597.333 / 845.78;
-    overflow: hidden;
-    border-radius: 12px;
-}
-
-.event-card__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.3s ease;
-}
-
-.event-card:hover .event-card__image img {
-    transform: scale(1.05);
-}
-
-/* 상태 태그 영역 */
-.event-card__status {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    z-index: 10;
-}
-
-/* 콘텐츠 영역 */
-.event-card__content {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 0 4px;
-}
-
-/* 제목 */
-.event-card__title {
-    font-family: "JASOSansBold", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    line-height: 1.4;
-    letter-spacing: -0.56px;
-    color: #171414;
-    margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-break: keep-all;
-}
-
-/* 날짜 */
-.event-card__date {
-    font-family: "JASOSansRegular", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: -0.36px;
-    color: #171414;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-    .event-card {
-        max-width: 100%;
-        gap: 20px;
-    }
-    
-    .event-card__content {
-        gap: 12px;
-        padding: 0;
-    }
-    
-    .event-card__title {
-        font-size: 24px;
-        line-height: 1.3;
-        letter-spacing: -0.48px;
-    }
-    
-    .event-card__date {
-        font-size: 16px;
-        line-height: 1.5;
-        letter-spacing: -0.32px;
-    }
-    
-    .event-card__status {
-        top: 12px;
-        right: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    .event-card {
-        gap: 16px;
-    }
-    
-    .event-card__content {
-        gap: 10px;
-    }
-    
-    .event-card__title {
-        font-size: 20px;
-        line-height: 1.3;
-        letter-spacing: -0.4px;
-    }
-    
-    .event-card__date {
-        font-size: 14px;
-        line-height: 1.4;
-        letter-spacing: -0.28px;
-    }
-    
-    .event-card__status {
-        top: 8px;
-        right: 8px;
-    }
-}
-</style>
