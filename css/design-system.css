@@ -1,4 +1,5 @@
-/* 정음 웹사이트 메인 스타일시트 */
+/* 정음 웹사이트 디자인 시스템 */
+/* 통합된 컬러, 타이포그래피, 스페이싱, 컴포넌트 스타일 */
 
 /* 컬러 시스템 변수 */
 :root {
@@ -1348,9 +1349,9 @@ a:hover {
 }
 
 .form-input:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px rgba(242, 163, 42, 0.1);
+    outline: none !important;
+    border-color: var(--border-light) !important;
+    box-shadow: none !important;
 }
 
 .form-input:hover {
@@ -1370,8 +1371,9 @@ a:hover {
 }
 
 .form-group--error .form-input:focus {
-    border-color: var(--accent-secondary);
-    box-shadow: 0 0 0 3px rgba(255, 98, 76, 0.1);
+    outline: none !important;
+    border-color: var(--border-light) !important;
+    box-shadow: none !important;
 }
 
 /* 폼 입력 필드 비활성화 상태 */
@@ -2055,5 +2057,220 @@ a:hover {
     .preview-nav__item {
         margin-bottom: 0;
         flex-shrink: 0;
+    }
+}
+
+/* ========================================== */
+/* 컴포넌트 스타일 - 버튼 */
+/* ========================================== */
+
+/* 기본 버튼 스타일 */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+    font-family: var(--font-family-bold);
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    line-height: var(--line-height-loose);
+    letter-spacing: var(--letter-spacing-normal);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    user-select: none;
+    height: 64px;
+    padding: 0 24px;
+    outline: none;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+/* 버튼 타입별 스타일 */
+.btn--primary {
+    background-color: var(--text-primary);
+    color: var(--text-inverse);
+    padding: 0 68px;
+}
+
+.btn--primary:hover {
+    background-color: var(--accent-primary);
+}
+
+.btn--secondary {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--text-primary);
+    color: var(--text-primary);
+    padding: 0 68px;
+}
+
+.btn--secondary:hover {
+    background-color: var(--color-warm-grey-10);
+}
+
+.btn--text {
+    background-color: transparent;
+    border: none;
+    color: var(--text-primary);
+    padding: 8px 0;
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-lg);
+    font-weight: 400;
+    line-height: var(--line-height-loose);
+    letter-spacing: var(--letter-spacing-wide);
+    gap: 8px;
+    height: auto;
+}
+
+.btn--text:hover {
+    color: var(--accent-primary);
+}
+
+.btn--control {
+    background-color: transparent;
+    border: none;
+    color: var(--text-primary);
+    padding: 8px;
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-lg);
+    font-weight: 400;
+    line-height: var(--line-height-loose);
+    gap: 8px;
+    height: auto;
+}
+
+.btn--control:hover {
+    color: var(--accent-primary);
+}
+
+/* 버튼 크기별 스타일 */
+.btn--large {
+    height: 64px;
+}
+
+.btn--medium {
+    height: 52px;
+    padding: 0 32px;
+    font-size: var(--font-size-sm);
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+.btn--small {
+    height: 40px;
+    padding: 0 16px;
+    font-size: var(--font-size-sm);
+    letter-spacing: var(--letter-spacing-tight);
+    gap: 6px;
+}
+
+.btn--xl {
+    height: auto;
+    padding: 8px 0;
+    font-size: var(--font-size-6xl);
+    font-family: var(--font-family-regular);
+    font-weight: 400;
+    line-height: var(--line-height-relaxed);
+    letter-spacing: var(--letter-spacing-2xl);
+    gap: 12px;
+    color: var(--text-primary);
+}
+
+.btn--xl:hover {
+    color: var(--accent-primary);
+}
+
+/* XL 텍스트 버튼 */
+.btn--xl.btn--text {
+    height: auto;
+    padding: 8px 0;
+    font-size: var(--font-size-6xl);
+    font-family: var(--font-family-regular);
+    font-weight: 400;
+    line-height: var(--line-height-relaxed);
+    letter-spacing: var(--letter-spacing-2xl);
+    gap: 12px;
+}
+
+/* Small 텍스트 버튼 */
+.btn--small.btn--text {
+    height: auto;
+    padding: 8px 0;
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family-regular);
+    font-weight: 400;
+    line-height: var(--line-height-loose);
+    letter-spacing: var(--letter-spacing-tight);
+    gap: 6px;
+    color: var(--text-primary);
+}
+
+.btn--small.btn--text:hover {
+    color: var(--accent-primary);
+}
+
+/* 버튼 아이콘 스타일 */
+.btn__icon {
+    display: block;
+    flex-shrink: 0;
+}
+
+.btn__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+/* 버튼 아이콘 크기 */
+.btn--xl .btn__icon {
+    width: 64px;
+    height: 64px;
+}
+
+.btn--medium .btn__icon {
+    width: 16px;
+    height: 16px;
+}
+
+.btn--text:not(.btn--xl) .btn__icon {
+    width: 24px;
+    height: 24px;
+}
+
+.btn--small .btn__icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* XL 텍스트 버튼 아이콘 (가장 나중에 정의) */
+.btn--xl.btn--text .btn__icon {
+    width: 64px;
+    height: 64px;
+}
+
+/* 버튼 비활성화 */
+.btn--disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* 반응형 버튼 스타일 */
+@media (max-width: 768px) {
+    .btn--large {
+        height: 56px;
+    }
+    
+    .btn--medium {
+        height: 48px;
+        padding: 0 24px;
+        font-size: 13px;
     }
 }

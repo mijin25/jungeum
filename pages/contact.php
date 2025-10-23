@@ -2,6 +2,11 @@
 // 문의 페이지
 // PHP 8.4, UTF-8 인코딩
 
+// 서버 환경 설정 로드
+require_once '../config/server.php';
+// 컴포넌트 헬퍼 함수들 로드
+require_once '../components/helpers.php';
+
 // 폼 처리 로직
 $message = '';
 $error = '';
@@ -77,8 +82,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- 웹폰트 로드 -->
     <link rel="stylesheet" href="css/webfonts.css">
     
-    <!-- 기본 스타일시트 -->
-    <link rel="stylesheet" href="css/main.css">
+    <!-- 기본 스타일 -->
+    <link rel="stylesheet" href="css/base.css">
+    
+    <!-- 유틸리티 클래스 -->
+    <link rel="stylesheet" href="css/utilities.css">
+    
+    <!-- 디자인 시스템 -->
+    <link rel="stylesheet" href="css/design-system.css">
     
     <!-- 파비콘 -->
     <link rel="icon" type="image/svg+xml" href="assets/images/common/logo-jungeum.svg">
@@ -286,8 +297,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 .form-input:focus,
 .form-textarea:focus {
-    outline: none;
-    border-color: #333;
+    outline: none !important;
+    border-color: #e5e7eb !important;
+    box-shadow: none !important;
 }
 
 .form-textarea {

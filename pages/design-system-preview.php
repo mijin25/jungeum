@@ -1,6 +1,8 @@
 <?php
 // 서버 환경 설정 로드
-require_once 'config/server.php';
+require_once '../config/server.php';
+// 컴포넌트 헬퍼 함수들 로드
+require_once '../components/helpers.php';
 
 // 디자인 검증 도구
 ?>
@@ -12,13 +14,13 @@ require_once 'config/server.php';
     <title>정음 - 디자인 검증 도구</title>
     
     <!-- 웹폰트 로드 -->
-    <link rel="stylesheet" href="css/webfonts.css">
+    <link rel="stylesheet" href="../css/webfonts.css">
     
     <!-- 기본 스타일시트 -->
-    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="../css/design-system.css">
     
     <!-- 파비콘 -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/common/logo-jungeum.svg">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/common/logo-jungeum.svg">
     
     <style>
         /* 디자인 검증을 위한 추가 스타일 */

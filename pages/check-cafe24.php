@@ -4,6 +4,11 @@
  * 배포 전 서버 환경을 확인하는 스크립트
  */
 
+// 서버 환경 설정 로드
+require_once '../config/server.php';
+// 컴포넌트 헬퍼 함수들 로드
+require_once '../components/helpers.php';
+
 echo "<h1>카페24 서버 호환성 체크</h1>";
 
 // PHP 버전 확인

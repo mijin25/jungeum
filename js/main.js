@@ -108,10 +108,16 @@ function initScrollEffects() {
  * JSON 데이터 로딩 초기화
  */
 function initDataLoading() {
-    // 데이터 로딩 함수들
-    loadExhibitions();
-    loadEvents();
-    loadPress();
+    // 병렬 로딩으로 성능 개선
+    Promise.all([
+        loadExhibitions(),
+        loadEvents(),
+        loadPress()
+    ]).then(() => {
+        console.log('모든 데이터 로딩 완료');
+    }).catch(error => {
+        console.error('데이터 로딩 오류:', error);
+    });
 }
 
 /**
@@ -119,7 +125,7 @@ function initDataLoading() {
  */
 async function loadExhibitions() {
     try {
-        const response = await fetch('data/exhibitions.json');
+        const response = await fetch('../data/exhibitions.json');
         if (!response.ok) throw new Error('전시 데이터를 불러올 수 없습니다.');
         
         const data = await response.json();
@@ -137,7 +143,7 @@ async function loadExhibitions() {
  */
 async function loadEvents() {
     try {
-        const response = await fetch('data/events.json');
+        const response = await fetch('../data/events.json');
         if (!response.ok) throw new Error('이벤트 데이터를 불러올 수 없습니다.');
         
         const data = await response.json();
@@ -155,7 +161,7 @@ async function loadEvents() {
  */
 async function loadPress() {
     try {
-        const response = await fetch('data/press.json');
+        const response = await fetch('../data/press.json');
         if (!response.ok) throw new Error('보도 데이터를 불러올 수 없습니다.');
         
         const data = await response.json();
@@ -173,7 +179,10 @@ async function loadPress() {
  */
 function renderExhibitions(data) {
     const container = document.querySelector('.exhibitions-container');
-    if (!container) return;
+    if (!container) {
+        console.log('전시 컨테이너를 찾을 수 없습니다. 스킵합니다.');
+        return;
+    }
     
     const exhibitionsHTML = data.exhibitions.map(exhibition => `
         <div class="exhibition-card">
@@ -199,7 +208,10 @@ function renderExhibitions(data) {
  */
 function renderEvents(data) {
     const container = document.querySelector('#events-container');
-    if (!container) return;
+    if (!container) {
+        console.log('이벤트 컨테이너를 찾을 수 없습니다. 스킵합니다.');
+        return;
+    }
     
     const eventsHTML = data.events.map(event => `
         <div class="event-card">
@@ -225,7 +237,10 @@ function renderEvents(data) {
  */
 function renderPress(data) {
     const container = document.querySelector('#press-container');
-    if (!container) return;
+    if (!container) {
+        console.log('보도 컨테이너를 찾을 수 없습니다. 스킵합니다.');
+        return;
+    }
     
     const pressHTML = data.press.map(item => `
         <div class="press-card">
