@@ -1,9 +1,0 @@
-{
-  "name": "jungeum",
-  "version": "1.0.0",
-  "description": "정음 웹사이트",
-  "scripts": {
-    "build": "echo 'No build uploading files'"
-  }
-}
-
