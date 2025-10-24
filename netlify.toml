@@ -1,12 +1,20 @@
 [build]
-  command = "echo 'No build needed'"
   publish = "."
+  command = "echo 'Deploying PHP site'"
 
 [[redirects]]
   from = "/*"
-  to = "/pages/index.php"
+  to = "/index.php"
   status = 200
 
 [build.environment]
   PHP_VERSION = "8.4"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
 
