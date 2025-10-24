@@ -36,13 +36,13 @@ $press_items = array_slice($press_data['press'], 0, 3);
     <link rel="preload" href="../assets/fonts/JASOSansBold/font.woff2" as="font" type="font/woff2" crossorigin>
     
     <!-- 웹폰트 로드 -->
-    <link rel="stylesheet" href="../css/webfonts.css">
+    <link rel="stylesheet" href="../css/webfonts.css?v=<?php echo time(); ?>">
     
     <!-- 사이트 디자인 시스템 -->
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/utilities.css">
-    <link rel="stylesheet" href="../css/design-system.css">
-    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/base.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/utilities.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/design-system.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/components.css?v=<?php echo time(); ?>">
     
     <!-- 파비콘 -->
     <link rel="icon" type="image/svg+xml" href="../assets/images/common/logo-jungeum.svg">
@@ -209,6 +209,6 @@ $press_items = array_slice($press_data['press'], 0, 3);
     <?php include __DIR__ . '/../components/layout/footer.php'; ?>
     
     <!-- JavaScript -->
-    <script src="../js/main.js"></script>
+    <script src="../js/main.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>
