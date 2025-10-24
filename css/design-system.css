@@ -44,6 +44,7 @@
     --border-light: var(--color-warm-grey-20);
     --border-medium: var(--color-warm-grey-40);
     --border-dark: var(--color-warm-grey-60);
+    --border-very-dark: var(--color-warm-grey-100);
     
     /* 폰트 패밀리 변수 */
     --font-family-regular: "JASOSansRegular", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -79,16 +80,41 @@
     /* Font Weight 변수 */
     --font-weight-normal: 400;
     --font-weight-bold: 700;
+    
+    /* Line Height 변수 */
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-loose: 1.6;
+    --line-height-relaxed: 1.8;
         
-    /* 간격 시스템 */
-    --spacing-xs: 0.25rem;   /* 4px */
-    --spacing-sm: 0.5rem;    /* 8px */
-    --spacing-md: 1rem;      /* 16px */
-    --spacing-lg: 1.5rem;    /* 24px */
-    --spacing-xl: 2rem;      /* 32px */
-    --spacing-2xl: 3rem;     /* 48px */
-    --spacing-3xl: 4rem;     /* 64px */
-    --spacing-4xl: 6rem;     /* 96px */
+    /* 간격 시스템 (Tailwind CSS 스타일) */
+    --spacing-0: 0;           /* 0px */
+    --spacing-1: 0.25rem;     /* 4px */
+    --spacing-2: 0.5rem;      /* 8px */
+    --spacing-3: 0.75rem;     /* 12px */
+    --spacing-4: 1rem;        /* 16px */
+    --spacing-5: 1.25rem;     /* 20px */
+    --spacing-6: 1.5rem;      /* 24px */
+    --spacing-8: 2rem;        /* 32px */
+    --spacing-10: 2.5rem;     /* 40px */
+    --spacing-12: 3rem;       /* 48px */
+    --spacing-15: 3.75rem;    /* 60px */
+    --spacing-16: 4rem;       /* 64px */
+    --spacing-20: 5rem;       /* 80px */
+    --spacing-24: 6rem;       /* 96px */
+    --spacing-32: 8rem;       /* 128px */
+    
+    /* Legacy spacing 변수 (하위 호환성) */
+    --spacing-xs: var(--spacing-1);    /* 4px */
+    --spacing-sm: var(--spacing-2);    /* 8px */
+    --spacing-md: var(--spacing-4);    /* 16px */
+    --spacing-lg: var(--spacing-6);   /* 24px */
+    --spacing-xl: var(--spacing-8);   /* 32px */
+    --spacing-xxl: var(--spacing-10); /* 40px */
+    --spacing-2xl: var(--spacing-12); /* 48px */
+    --spacing-3xl: var(--spacing-16); /* 64px */
+    --spacing-4xl: var(--spacing-24); /* 96px */
+    --spacing-5xl: var(--spacing-32); /* 128px */
     
     /* 버튼 시스템 - rem 단위로 일관성 확보 */
     --btn-height-large: 4rem;      /* 64px */
@@ -123,7 +149,7 @@ body {
     font-family: var(--font-family-regular);
     line-height: 1.6;
     color: var(--text-primary);
-    background-color: var(--bg-primary);
+    background-color: var(--bg-primary); /* warm-white (#F7F5F0) */
 }
 
 /* 유틸리티 클래스 */
@@ -159,7 +185,7 @@ body {
 
 .heading-h2 {
     font-family: var(--font-family-regular);
-    font-size: var(--font-size-4xl); /* 64px - 디자인 시스템 변수 */
+    font-size: var(--font-size-6xl); /* 64px - 디자인 시스템 변수 */
     font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
     line-height: var(--line-height-normal); /* 1.5 - 디자인 시스템 변수 */
     letter-spacing: var(--letter-spacing-heading); /* 헤딩 전용 */
@@ -181,7 +207,7 @@ body {
 
 .heading-h5 {
     font-family: var(--font-family-regular);
-    font-size: var(--font-size-2xl); /* 24px - 디자인 시스템 변수 */
+    font-size: var(--font-size-3xl); /* 28px - 피그마 디자인 */
     font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
     line-height: var(--line-height-tight); /* 1.4 - 디자인 시스템 변수 */
 }
@@ -204,7 +230,7 @@ body {
 
 .heading-h2-emphasized {
     font-family: var(--font-family-bold);
-    font-size: var(--font-size-4xl); /* 64px - 디자인 시스템 변수 */
+    font-size: var(--font-size-6xl); /* 64px - 디자인 시스템 변수 */
     font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
     line-height: var(--line-height-normal); /* 1.5 - 디자인 시스템 변수 */
     letter-spacing: var(--letter-spacing-heading); /* 헤딩 전용 */
@@ -1247,9 +1273,9 @@ a:hover {
     color: var(--text-primary);
     text-decoration: none;
     font-family: var(--font-family-regular);
-    font-size: var(--font-size-2xl); /* 24px - 디자인 시스템 변수 */
-    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
-    line-height: 1.8; /* 피그마 디자인: 1.8 */
+    font-size: var(--font-size-2xl); /* heading-h6: 24px */
+    font-weight: var(--font-weight-normal); /* heading-h6: 400 */
+    line-height: var(--line-height-relaxed); /* heading-h6: 1.8 */
     letter-spacing: var(--letter-spacing-heading); /* 헤딩 전용 */
     transition: all 0.3s ease;
     white-space: nowrap;
@@ -1264,9 +1290,9 @@ a:hover {
 }
 
 .tab-menu__item--active {
-    font-family: var(--font-family-bold);
-    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
-    line-height: 1.8; /* 비활성과 동일한 line-height */
+    font-family: var(--font-family-bold); /* heading-h6-emphasized: Bold */
+    font-weight: var(--font-weight-bold); /* heading-h6-emphasized: 700 */
+    line-height: var(--line-height-relaxed); /* heading-h6-emphasized: 1.8 */
     opacity: 1;
 }
 
@@ -1338,10 +1364,196 @@ a:hover {
         gap: var(--spacing-sm);
     }
     
+    .floor-tab-menu__item.heading-h2 {
+        font-size: var(--font-size-3xl); /* 모바일: 28px (더 작은 크기로 조정) */
+    }
+    
     .floor-tab-menu__item {
-        font-size: var(--font-size-3xl); /* 모바일에서도 heading-h2 크기 유지 */
         padding: var(--spacing-sm) 0; /* 상하 8px 패딩 */
     }
+}
+
+/* 기존 main-navigation 스타일 (하위 호환성) */
+.main-navigation {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: var(--spacing-xl); /* 32px 간격 */
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: block;
+    padding: var(--spacing-sm) 0; /* 상하 8px 패딩 */
+    color: var(--text-primary);
+    text-decoration: none;
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-base); /* 16px */
+    font-weight: var(--font-weight-normal); /* 400 */
+    line-height: var(--line-height-normal); /* 1.5 */
+    letter-spacing: var(--letter-spacing-text);
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--text-secondary);
+}
+
+.nav-link--active {
+    color: var(--text-primary);
+    font-weight: var(--font-weight-bold); /* 700 */
+}
+
+.nav-link--active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+}
+
+/* 서브메뉴 스타일 */
+.nav-submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    list-style: none;
+    margin: 0;
+    padding: var(--spacing-xs) 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item--has-submenu:hover .nav-submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-submenu__item {
+    display: block;
+}
+
+.nav-submenu__link {
+    display: block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-normal);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-submenu__link:hover {
+    background-color: var(--bg-primary);
+    color: var(--accent-primary);
+}
+
+/* 모바일 네비게이션 */
+@media (max-width: 768px) {
+    .main-navigation {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-secondary);
+        border-top: 1px solid var(--border-light);
+        padding: var(--spacing-md) 0;
+    }
+    
+    .main-navigation.active {
+        display: block;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        gap: 0;
+        padding: 0 var(--spacing-xl);
+    }
+    
+    .nav-item {
+        border-bottom: 1px solid var(--border-light);
+    }
+    
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-link {
+        padding: var(--spacing-md) 0;
+        font-size: var(--font-size-lg); /* 18px */
+    }
+    
+    /* 모바일 서브메뉴 */
+    .nav-submenu {
+        position: static;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        padding-left: var(--spacing-md);
+        margin-top: var(--spacing-xs);
+    }
+    
+    .nav-item--has-submenu.active .nav-submenu {
+        display: block;
+    }
+    
+    .nav-submenu__link {
+        padding: var(--spacing-xs) 0;
+        font-size: var(--font-size-base);
+    }
+}
+
+/* =================================================================
+   스크롤 인디케이터 컴포넌트 스타일 (피그마 디자인 기반)
+   ================================================================= */
+
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px; /* 피그마 디자인: 얇은 인디케이터 바 */
+    z-index: 1000;
+    pointer-events: none; /* 클릭 이벤트 방지 */
+    background-color: transparent; /* 배경 없음 */
+}
+
+.scroll-indicator__track {
+    width: 100%;
+    height: 100%;
+    background-color: transparent; /* 배경 트랙 없음 */
+}
+
+.scroll-indicator__thumb {
+    height: 100%;
+    background-color: var(--color-warm-grey-100); /* warm-grey-100 컬러 */
+    transition: width 0.1s ease-out; /* 부드러운 애니메이션 */
 }
 
 /* =================================================================
@@ -1358,20 +1570,21 @@ a:hover {
 .pagination__container {
     display: flex;
     align-items: center;
-    gap: 16px; /* 피그마 디자인: 16px 간격 */
+    gap: var(--spacing-xs); /* 4px 간격 - 숫자와 아이콘 사이 */
 }
 
 .pagination__button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px; /* 피그마 디자인: 36px */
-    height: 36px; /* 피그마 디자인: 36px */
+    width: 2.25rem; /* 36px - 공백 포함 아이콘 사이즈 */
+    height: 2.25rem; /* 36px - 공백 포함 아이콘 사이즈 */
     background-color: transparent;
     border: none;
     color: var(--text-primary);
     text-decoration: none;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .pagination__button:hover:not(.pagination__button--disabled) {
@@ -1379,19 +1592,39 @@ a:hover {
 }
 
 .pagination__button--disabled {
-    opacity: 0.4; /* 피그마 디자인: 비활성 버튼 40% 불투명도 */
+    color: var(--color-warm-grey-40); /* 비활성 상태: warm-grey-40 */
     cursor: not-allowed;
     pointer-events: none;
 }
 
+.pagination__button--disabled .pagination__icon {
+    color: var(--color-warm-grey-40); /* 비활성 아이콘: warm-grey-40 */
+}
+
 .pagination__icon {
-    width: 20px; /* 피그마 디자인: 20px */
-    height: 20px; /* 피그마 디자인: 20px */
+    width: 1.5rem; /* 24px - SVG 원본 사이즈 */
+    height: 1.5rem; /* 24px - SVG 원본 사이즈 */
 }
 
 .pagination__numbers {
     display: flex;
-    gap: 6px; /* 피그마 디자인: 6px 간격 */
+    gap: var(--spacing-xs); /* 피그마 디자인: 4px 간격 */
+    align-items: center;
+}
+
+.pagination__ellipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    color: var(--color-warm-grey-40);
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-2xl); /* heading-4: 24px */
+    font-weight: var(--font-weight-normal); /* heading-4: 400 */
+    line-height: var(--line-height-tight); /* heading-4: 1.4 */
+    letter-spacing: var(--letter-spacing-heading); /* heading-4: -1% */
+    pointer-events: none; /* 클릭 불가 */
 }
 
 .pagination__number {
@@ -1400,32 +1633,35 @@ a:hover {
     justify-content: center;
     min-width: 40px;
     height: 40px;
-    padding: 0 7px; /* 피그마 디자인: 좌우 7px 패딩 */
     background-color: transparent;
     border: none;
-    color: var(--text-primary);
+    color: var(--color-warm-grey-40);
     text-decoration: none;
     font-family: var(--font-family-regular);
-    font-size: 32px; /* 피그마 디자인: 32px */
-    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
-    line-height: 1.2; /* 피그마 디자인: 1.2 */
-    letter-spacing: var(--letter-spacing-text); /* 디자인 시스템: -2% */
-    transition: opacity 0.3s ease;
+    font-size: var(--font-size-2xl); /* heading-4: 24px */
+    font-weight: var(--font-weight-normal); /* heading-4: 400 */
+    line-height: var(--line-height-tight); /* heading-4: 1.4 */
+    letter-spacing: var(--letter-spacing-heading); /* heading-4: -1% */
+    transition: all 0.3s ease;
     white-space: nowrap;
+    cursor: pointer;
 }
 
 .pagination__number:hover {
-    opacity: 0.7;
+    color: var(--color-warm-grey-100);
+    opacity: 0.8;
 }
 
 .pagination__number--current {
-    font-family: var(--font-family-bold);
-    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */ /* Bold */
-    opacity: 1;
+    background-color: transparent;
+    border: none;
+    color: var(--color-warm-grey-100);
+    font-family: var(--font-family-bold); /* heading-4-emphasized: Bold */
+    font-weight: var(--font-weight-bold); /* heading-4-emphasized: 700 */
 }
 
 .pagination__number:not(.pagination__number--current) {
-    opacity: 0.4; /* 피그마 디자인: 비활성 페이지 40% 불투명도 */
+    opacity: 0.7; /* 피그마 디자인: 비활성 페이지 70% 불투명도 */
 }
 
 /* =================================================================
@@ -1441,149 +1677,61 @@ a:hover {
 .page-indicator__numbers {
     display: flex;
     align-items: center;
-    gap: 6px; /* 피그마 디자인: 6px 간격 */
-    font-family: var(--font-family-regular);
-    font-size: 28px; /* 피그마 디자인: 28px */
-    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
-    line-height: 1.4; /* 피그마 디자인: 1.4 */
-    letter-spacing: var(--letter-spacing-text); /* 디자인 시스템: -2% */
-    color: var(--text-inverse); /* 디자인 시스템: 흰색 */
+    gap: var(--spacing-xs);
+    color: var(--text-inverse); /* 흰색 텍스트 */
     white-space: nowrap;
 }
 
 .page-indicator__current {
-    color: var(--text-inverse);
+    color: var(--text-inverse); /* 흰색 텍스트 */
+    font-weight: var(--font-weight-normal); /* 동일한 두께 */
 }
 
 .page-indicator__separator {
-    color: var(--text-inverse);
+    color: var(--text-inverse); /* 흰색 텍스트 */
+    font-weight: var(--font-weight-normal);
 }
 
 .page-indicator__total {
-    color: var(--text-inverse);
+    color: var(--text-inverse); /* 흰색 텍스트 */
+    font-weight: var(--font-weight-normal); /* 동일한 두께 */
 }
 
 .page-indicator__dots {
     display: flex;
-    gap: 6px; /* 피그마 디자인: 6px 간격 */
+    gap: 12px; /* 피그마 디자인: 12px 간격 */
+    align-items: center;
+    padding: var(--spacing-xs);
 }
 
 .page-indicator__dot {
-    width: 12px;
-    height: 12px;
-    border: none;
+    width: 12px; /* 피그마 디자인: 12px */
+    height: 12px; /* 피그마 디자인: 12px */
+    border: 1px solid var(--color-warm-grey-100); /* inactive: 1px 아웃라인 */
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.4); /* 피그마 디자인: 40% 불투명도 */
+    background-color: transparent; /* inactive: 투명 배경 */
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .page-indicator__dot:hover {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: var(--color-warm-grey-100);
+    opacity: 0.7;
 }
 
 .page-indicator__dot--active {
-    background-color: #FFFFFF; /* 피그마 디자인: 활성 상태는 100% 불투명도 */
+    background-color: var(--color-warm-grey-100); /* active: warm-grey-100 배경 */
+    border-color: var(--color-warm-grey-100);
 }
 
-/* =================================================================
-   스크롤 인디케이터 컴포넌트 스타일 (피그마 디자인 기반)
-   ================================================================= */
-
-.scroll-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px; /* 피그마 디자인: 6px 간격 */
-    color: var(--text-inverse); /* 디자인 시스템: 흰색 */
-    animation: bounce 2s infinite;
+/* 포커스 상태 (접근성) */
+.page-indicator__dot:focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
 }
 
-.scroll-indicator__text {
-    font-family: var(--font-family-regular);
-    font-size: 18px; /* 피그마 디자인: 18px */
-    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
-    line-height: 1.6; /* 피그마 디자인: 1.6 */
-    letter-spacing: var(--letter-spacing-wide); /* 디자인 시스템: -0.36px */
-    color: var(--text-inverse);
-    white-space: nowrap;
-}
-
-.scroll-indicator__icon {
-    width: 16.667px; /* 피그마 디자인: 16.667px */
-    height: 16.667px; /* 피그마 디자인: 16.667px */
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
-    }
-}
-
-/* =================================================================
-   태그 컴포넌트 스타일 (피그마 디자인 기반)
-   ================================================================= */
-
-.tag {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px 8px; /* 피그마 디자인: 6px 8px */
-    border-radius: 9999px; /* 피그마 디자인: 완전한 원형 */
-    background-color: var(--accent-primary); /* 디자인 시스템: 주황색 */
-    color: var(--text-inverse); /* 디자인 시스템: 흰색 */
-    transition: all 0.3s ease;
-}
-
-.tag--current {
-    background-color: var(--accent-primary); /* 디자인 시스템: 주황색 */
-    color: var(--text-inverse);
-}
-
-.tag--upcoming {
-    background-color: var(--color-warm-grey-20);
-    color: var(--text-primary);
-}
-
-.tag--past {
-    background-color: var(--text-tertiary);
-    color: var(--text-inverse);
-}
-
-.tag--image-over {
-    position: absolute;
-    top: var(--spacing-md);
-    right: var(--spacing-md);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: var(--text-inverse);
-    backdrop-filter: blur(4px);
-}
-
-.tag--small {
-    padding: 4px 6px;
-    font-size: 12px;
-}
-
-.tag--large {
-    padding: 8px 12px;
-    font-size: 16px;
-}
-
-.tag__text {
-    font-family: var(--font-family-regular);
-    font-size: 14px; /* 피그마 디자인: 14px */
-    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
-    line-height: 1.2; /* 피그마 디자인: 1.2 */
-    letter-spacing: var(--letter-spacing-text); /* 디자인 시스템: -2% */
-    text-align: center;
-    white-space: pre-line; /* 줄바꿈 지원 */
-}
+/* 중복 제거: 스크롤 인디케이터 스타일은 위쪽에 이미 정의됨 */
 
 /* 컴포넌트 쇼케이스 스타일 - preview.css로 이동됨 */
 
@@ -1774,7 +1922,17 @@ a:hover {
     }
     
     .page-indicator__numbers {
+        font-size: var(--font-size-lg);
         padding: var(--spacing-xs) var(--spacing-sm);
+    }
+    
+    .page-indicator__dots {
+        gap: 10px; /* 모바일에서 약간 작은 간격 */
+    }
+    
+    .page-indicator__dot {
+        width: 10px; /* 모바일에서 약간 작은 크기 */
+        height: 10px;
     }
 }
 

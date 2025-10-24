@@ -1,0 +1,38 @@
+{
+  "_comment": "줄바꿈이 필요한 경우 title에 \\n 사용 예: \"title\": \"첫 번째 줄\\n두 번째 줄\"",
+  "_category_comment": "원형 태그를 표시하려면 show_category: true 추가",
+  "slides": [
+    {
+      "id": 1,
+      "desktop_image": "../assets/images/main/main-hero-01-desktop.jpg",
+      "mobile_image": "../assets/images/main/main-hero-01-mobile.jpg",
+      "alt": "김중업 × 르 코르뷔지에 건축사진전",
+      "category": "전시",
+      "title": "김중업 × 르 코르뷔지에\n건축사진전",
+      "date": "2025. 11. 6 — 2026. 2",
+      "badge_image": "../assets/images/main/label-coree-france-white.png",
+      "show_category": true
+    },
+    {
+      "id": 2,
+      "desktop_image": "../assets/images/main/main-hero-02-desktop.jpg",
+      "mobile_image": "../assets/images/main/main-hero-02-mobile.jpg",
+      "alt": "더미 박물관 안 수선집",
+      "category": "전시",
+      "title": "박물관 안 수선집",
+      "date": "2025. 09. 30 — 10. 26",
+      "show_category": true
+      
+    },
+    {
+      "id": 3,
+      "desktop_image": "../assets/images/main/main-hero-03-desktop.jpg",
+      "mobile_image": "../assets/images/main/main-hero-03-mobile.jpg",
+      "alt": "정음 히어로 이미지 3",
+      "category": "AI 프로그램",
+      "title": "더미 JE 정물의 온도 흙과 꽃이 전하는 연희동의 안부",
+      "date": "2025.10.15 — 2025.12.21"
+    }
+  ]
+}
+
