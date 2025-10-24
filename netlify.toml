@@ -1,6 +1,6 @@
 [build]
   publish = "."
-  command = "echo 'Deploying PHP site'"
+  command = "npm run build"
 
 [[redirects]]
   from = "/*"
