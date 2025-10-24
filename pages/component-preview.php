@@ -109,20 +109,22 @@ require_once __DIR__ . '/../lib/helpers.php';
             </div>
             
             <h3>Control 버튼</h3>
-            <div class="component-showcase">
-                <?php
-                $control_buttons = [
-                    ['text' => '', 'type' => 'control', 'size' => 'large', 'icon' => 'arrow-left-large'],
-                    ['text' => '', 'type' => 'control', 'size' => 'large', 'icon' => 'arrow-right-large'],
-                    ['text' => '', 'type' => 'control', 'size' => 'medium', 'icon' => 'arrow-left-large'],
-                    ['text' => '', 'type' => 'control', 'size' => 'medium', 'icon' => 'arrow-right-large']
-                ];
-                
-                foreach ($control_buttons as $button_data) {
-                    $data = $button_data;
-                    include __DIR__ . '/../components/ui/buttons/button.php';
-                }
-                ?>
+            <div class="component-showcase" style="background-color: #171414; padding: 2rem;">
+                <div style="display: flex; gap: 1rem; align-items: center;">
+                    <?php
+                    $control_buttons = [
+                        ['text' => '', 'type' => 'control', 'size' => 'large', 'icon' => 'arrow-left-large'],
+                        ['text' => '', 'type' => 'control', 'size' => 'large', 'icon' => 'arrow-right-large'],
+                        ['text' => '', 'type' => 'control', 'size' => 'medium', 'icon' => 'arrow-left-large'],
+                        ['text' => '', 'type' => 'control', 'size' => 'medium', 'icon' => 'arrow-right-large']
+                    ];
+                    
+                    foreach ($control_buttons as $button_data) {
+                        $data = $button_data;
+                        include __DIR__ . '/../components/ui/buttons/button.php';
+                    }
+                    ?>
+                </div>
             </div>
         </section>
 
@@ -382,13 +384,38 @@ require_once __DIR__ . '/../lib/helpers.php';
                 $tab_data = [
                     'tabs' => [
                         ['label' => '현재 & 예정 전시', 'url' => '#current'],
-                        ['label' => '과거 전시', 'url' => '#past'],
-                        ['label' => '특별 전시', 'url' => '#special']
+                        ['label' => '과거 전시', 'url' => '#past']
                     ],
                     'active_tab' => 0
                 ];
                 $data = $tab_data;
                 include __DIR__ . '/../components/layout/navigation/tab-menu.php';
+                ?>
+            </div>
+            
+            <h3>층별 안내 탭 메뉴</h3>
+            <div class="component-showcase">
+                <?php
+                $floor_tab_data = [
+                    'floors' => [
+                        [
+                            'label' => '3F',
+                            'url' => '#3f'
+                        ],
+                        [
+                            'label' => '1F — 2F',
+                            'url' => '#1f2f'
+                        ],
+                        [
+                            'label' => 'B1',
+                            'url' => '#b1'
+                        ]
+                    ],
+                    'active_floor' => 0,
+                    'hide_if_empty' => false
+                ];
+                $data = $floor_tab_data;
+                include __DIR__ . '/../components/layout/navigation/floor-tab-menu.php';
                 ?>
             </div>
             
@@ -417,27 +444,12 @@ require_once __DIR__ . '/../lib/helpers.php';
                 include __DIR__ . '/../components/layout/navigation/pagination.php';
                 ?>
             </div>
+            
         </section>
 
-        <!-- UI 컴포넌트 -->
-        <section class="preview-section">
-            <h2>UI 요소 (UI Elements)</h2>
-            
-            <h3>알림 (Alerts) - 개발 예정</h3>
-            <div class="component-showcase" style="flex-direction: column; align-items: flex-start;">
-                <p class="body-md">알림 컴포넌트는 향후 개발 예정입니다.</p>
-            </div>
-            
-            <h3>로딩 스피너 - 개발 예정</h3>
-            <div class="component-showcase">
-                <p class="body-md">로딩 스피너 컴포넌트는 향후 개발 예정입니다.</p>
-            </div>
-            
-            <h3>태그 (카드 내부에서 확인)</h3>
-            <div class="component-showcase">
-                <p class="body-md">태그는 전시 카드와 이벤트 카드 내부에서 확인할 수 있습니다.</p>
-            </div>
-        </section>
     </div>
+    
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
 </body>
 </html>

@@ -18,6 +18,7 @@
     /* 웜 그레이 컬러 */
     --color-warm-grey-10: #F7F3F2;
     --color-warm-grey-20: #E5E0DF;
+    --color-warm-grey-30: #CAC5C4;
     --color-warm-grey-40: #ADA8A8;
     --color-warm-grey-60: #726E6E;
     --color-warm-grey-70: #565151;
@@ -63,25 +64,22 @@
     --font-size-8xl: 6.25rem; /* 100px */
     --font-size-9xl: 20rem;  /* 320px */
     
-    /* Letter Spacing 변수 */
-    --letter-spacing-tight: -0.28px;
-    --letter-spacing-normal: -0.32px;
-    --letter-spacing-wide: -0.36px;
+    /* Letter Spacing 변수 - Tailwind CSS 스타일 체계 */
+    --letter-spacing-tighter: -0.05em;  /* 매우 좁음 - 작은 텍스트 */
+    --letter-spacing-tight: -0.025em;   /* 좁음 - 일반 텍스트 */
+    --letter-spacing-normal: 0em;        /* 기본 - 표준 텍스트 */
+    --letter-spacing-wide: 0.025em;      /* 넓음 - 강조 텍스트 */
+    --letter-spacing-wider: 0.05em;      /* 매우 넓음 - 대형 텍스트 */
+    --letter-spacing-widest: 0.1em;      /* 가장 넓음 - Display 텍스트 */
     
-    /* 피그마 디자인 기반 Letter Spacing */
-    --letter-spacing-display: -3%; /* Display 텍스트용 */
-    --letter-spacing-text: -2%; /* 헤딩, 바디, 라벨용 */
+    /* 특수 용도 */
+    --letter-spacing-display: -0.02em;   /* Display 전용 */
+    --letter-spacing-heading: -0.01em;  /* 헤딩 전용 */
     
     /* Font Weight 변수 */
     --font-weight-normal: 400;
     --font-weight-bold: 700;
-    --letter-spacing-wider: -0.48px;
-    --letter-spacing-widest: -0.56px;
-    --letter-spacing-xl: -0.64px;
-    --letter-spacing-2xl: -1.28px;
-    
-    /* 그림자 시스템 제거 - 사이트에서 사용하지 않음 */
-    
+        
     /* 간격 시스템 */
     --spacing-xs: 0.25rem;   /* 4px */
     --spacing-sm: 0.5rem;    /* 8px */
@@ -92,13 +90,13 @@
     --spacing-3xl: 4rem;     /* 64px */
     --spacing-4xl: 6rem;     /* 96px */
     
-    /* 버튼 시스템 */
-    --btn-height-large: 64px;
-    --btn-height-medium: 52px;
-    --btn-height-small: 40px;
-    --btn-padding-medium: 32px;
-    --btn-padding-small: 16px;
-    --btn-gap-small: 6px;
+    /* 버튼 시스템 - rem 단위로 일관성 확보 */
+    --btn-height-large: 4rem;      /* 64px */
+    --btn-height-medium: 3.25rem;  /* 52px */
+    --btn-height-small: 2.5rem;    /* 40px */
+    --btn-padding-medium: 2rem;    /* 32px */
+    --btn-padding-small: 1rem;     /* 16px */
+    --btn-gap-small: 0.375rem;     /* 6px */
     
     /* 둥근 모서리 */
     --radius-sm: 0.25rem;    /* 4px */
@@ -156,7 +154,7 @@ body {
     font-size: var(--font-size-5xl); /* 80px - 디자인 시스템 변수 */
     font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
     line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
-    letter-spacing: var(--letter-spacing-text); /* -2% - 피그마 디자인 변수 */
+    letter-spacing: var(--letter-spacing-heading); /* 헤딩 전용 */
 }
 
 .heading-h2 {
@@ -164,7 +162,7 @@ body {
     font-size: var(--font-size-4xl); /* 64px - 디자인 시스템 변수 */
     font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
     line-height: var(--line-height-normal); /* 1.5 - 디자인 시스템 변수 */
-    letter-spacing: var(--letter-spacing-text); /* -2% - 피그마 디자인 변수 */
+    letter-spacing: var(--letter-spacing-heading); /* 헤딩 전용 */
 }
 
 .heading-h3 {
@@ -201,7 +199,7 @@ body {
     font-size: var(--font-size-5xl); /* 80px - 디자인 시스템 변수 */
     font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
     line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
-    letter-spacing: var(--letter-spacing-text); /* -2% - 피그마 디자인 변수 */
+    letter-spacing: var(--letter-spacing-heading); /* 헤딩 전용 */
 }
 
 .heading-h2-emphasized {
@@ -209,7 +207,7 @@ body {
     font-size: var(--font-size-4xl); /* 64px - 디자인 시스템 변수 */
     font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
     line-height: var(--line-height-normal); /* 1.5 - 디자인 시스템 변수 */
-    letter-spacing: var(--letter-spacing-text); /* -2% - 피그마 디자인 변수 */
+    letter-spacing: var(--letter-spacing-heading); /* 헤딩 전용 */
 }
 
 .heading-h3-emphasized {
@@ -327,7 +325,7 @@ h3.heading-h6-emphasized {
     font-size: var(--font-size-8xl); /* 100px - 디자인 시스템 변수 */
     font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
     line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
-    letter-spacing: var(--letter-spacing-display); /* -3% - 피그마 디자인 변수 */
+    letter-spacing: var(--letter-spacing-display); /* Display 전용 */
 }
 
 /* NOTE: 20rem(320px)은 매우 큽니다. 실제 사용이 드문 경우 주석 처리 고려 */
@@ -336,7 +334,7 @@ h3.heading-h6-emphasized {
     font-size: var(--font-size-9xl); /* 320px - 디자인 시스템 변수 */
     font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
     line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
-    letter-spacing: var(--letter-spacing-display); /* -3% - 피그마 디자인 변수 */
+    letter-spacing: var(--letter-spacing-display); /* Display 전용 */
 }
 
 /* 바디 텍스트 스타일 */
@@ -410,7 +408,7 @@ h3.heading-h6-emphasized {
     font-size: var(--font-size-8xl); /* 100px - 디자인 시스템 변수 */
     font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
     line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
-    letter-spacing: var(--letter-spacing-display); /* -3% - 피그마 디자인 변수 */
+    letter-spacing: var(--letter-spacing-display); /* Display 전용 */
 }
 
 .display-2 {
@@ -418,7 +416,7 @@ h3.heading-h6-emphasized {
     font-size: var(--font-size-9xl); /* 320px - 디자인 시스템 변수 */
     font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
     line-height: var(--line-height-tight); /* 1.2 - 디자인 시스템 변수 */
-    letter-spacing: var(--letter-spacing-display); /* -3% - 피그마 디자인 변수 */
+    letter-spacing: var(--letter-spacing-display); /* Display 전용 */
 }
 
 /* 기존 HTML 태그 스타일 (하위 호환성) */
@@ -439,37 +437,7 @@ a:hover {
     color: var(--text-secondary);
 }
 
-/* 기존 버튼 스타일 - 주석 처리 (새로운 버튼 스타일과 충돌 방지) */
-/*
-.btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border: 2px solid var(--text-primary);
-    background-color: transparent;
-    color: var(--text-primary);
-    text-decoration: none;
-    font-family: var(--font-family-bold);
-    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: var(--text-primary);
-    color: var(--text-inverse);
-}
-
-.btn-primary {
-    background-color: var(--accent-primary);
-    border-color: var(--accent-primary);
-    color: var(--text-inverse);
-}
-
-.btn-primary:hover {
-    background-color: var(--accent-secondary);
-    border-color: var(--accent-secondary);
-}
-*/
+/* 기존 버튼 스타일 제거됨 - 새로운 버튼 스타일과 충돌 방지 */
 
 /* 히어로 섹션 */
 .hero-section {
@@ -587,9 +555,7 @@ a:hover {
     transition: border-radius 0.3s ease; /* 이미지 둥글게 변하는 효과만 유지 */
 }
 
-.event-card:hover {
-    /* transform 제거 - 점프 효과 제거 */
-}
+/* event-card:hover 스타일 제거됨 - 점프 효과 제거 */
 
 .event-image img {
     width: 100%;
@@ -641,9 +607,7 @@ a:hover {
     transition: border-radius 0.3s ease; /* 이미지 둥글게 변하는 효과만 유지 */
 }
 
-.space-card:hover {
-    /* transform 제거 - 점프 효과 제거 */
-}
+/* space-card:hover 스타일 제거됨 - 점프 효과 제거 */
 
 .space-image img {
     width: 100%;
@@ -685,9 +649,7 @@ a:hover {
     transition: border-radius 0.3s ease; /* 이미지 둥글게 변하는 효과만 유지 */
 }
 
-.press-card:hover {
-    /* transform 제거 - 점프 효과 제거 */
-}
+/* press-card:hover 스타일 제거됨 - 점프 효과 제거 */
 
 .press-image img {
     width: 100%;
@@ -1037,7 +999,7 @@ a:hover {
     font-family: var(--font-family-regular); /* 피그마 디자인: Regular */
     font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
     line-height: 1.5; /* 피그마 디자인: 1.5 */
-    letter-spacing: var(--letter-spacing-2xl); /* 디자인 시스템: -1.28px */
+    letter-spacing: var(--letter-spacing-display); /* 디자인 시스템: -3% */
     gap: 0.75rem; /* XL 텍스트 버튼에 적절한 간격 (12px) */
     color: var(--text-primary); /* 디자인 시스템: 검은색 */
 }
@@ -1083,7 +1045,7 @@ a:hover {
     font-family: var(--font-family-regular); /* 피그마 디자인: Regular */
     font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
     line-height: 1.2; /* h2 스타일: 1.2 */
-    letter-spacing: var(--letter-spacing-2xl); /* 디자인 시스템: -1.28px */
+    letter-spacing: var(--letter-spacing-display); /* 디자인 시스템: -3% */
     gap: 1rem; /* XL 텍스트와 아이콘 간격 (16px) */
     color: var(--text-primary); /* 디자인 시스템: 검은색 */
 }
@@ -1271,23 +1233,30 @@ a:hover {
 
 .tab-menu__container {
     display: flex;
-    gap: 24px; /* 피그마 디자인: 24px 간격 */
+    gap: 1.5rem; /* 피그마 디자인: 24px 간격 (1.5rem) */
     align-items: center;
+    flex-wrap: wrap; /* 모바일에서 줄바꿈 지원 */
 }
 
 .tab-menu__item {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: none;
+    border: none;
     color: var(--text-primary);
     text-decoration: none;
     font-family: var(--font-family-regular);
-    font-size: 24px; /* 피그마 디자인: 24px */
-    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
+    font-size: var(--font-size-2xl); /* 24px - 디자인 시스템 변수 */
+    font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */
     line-height: 1.8; /* 피그마 디자인: 1.8 */
-    letter-spacing: var(--letter-spacing-wider); /* 디자인 시스템: -0.48px */
-    transition: opacity 0.3s ease;
+    letter-spacing: var(--letter-spacing-heading); /* 헤딩 전용 */
+    transition: all 0.3s ease;
     white-space: nowrap;
+    cursor: pointer;
+    padding: var(--spacing-sm) 0; /* 상하 패딩 추가 */
+    position: relative;
+    min-height: 2.5rem; /* 고정 높이로 레이아웃 안정화 */
 }
 
 .tab-menu__item:hover {
@@ -1296,13 +1265,83 @@ a:hover {
 
 .tab-menu__item--active {
     font-family: var(--font-family-bold);
-    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */ /* Bold */
-    line-height: 1.4; /* 피그마 디자인: 1.4 */
+    font-weight: var(--font-weight-bold); /* 700 - 디자인 시스템 변수 */
+    line-height: 1.8; /* 비활성과 동일한 line-height */
     opacity: 1;
 }
 
 .tab-menu__item:not(.tab-menu__item--active) {
     opacity: 0.4; /* 피그마 디자인: 비활성 탭은 40% 불투명도 */
+}
+
+/* 탭 포커스 상태 (접근성) */
+.tab-menu__item:focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+/* 탭 활성 상태 표시 - 언더라인 제거 (피그마 디자인에 없음) */
+
+/* =================================================================
+   층별 안내 탭 메뉴 컴포넌트 스타일 (피그마 디자인 기반)
+   ================================================================= */
+
+.floor-tab-menu {
+    margin-bottom: var(--spacing-xl);
+}
+
+.floor-tab-menu__container {
+    display: flex;
+    flex-direction: column; /* 세로 배열 */
+    gap: 0; /* 탭 메뉴간 간격 0 */
+    align-items: flex-start;
+}
+
+.floor-tab-menu__item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: none;
+    border: none;
+    color: var(--color-warm-grey-30); /* 비활성 탭 색상 */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    cursor: pointer;
+    padding: var(--spacing-sm) 0; /* 상하 8px 패딩 */
+    position: relative;
+    text-align: left;
+}
+
+
+.floor-tab-menu__item:hover {
+    color: var(--color-warm-grey-100); /* 호버 시 활성 색상 */
+}
+
+.floor-tab-menu__item--active {
+    color: var(--color-warm-grey-100); /* 활성 탭 색상 */
+}
+
+.floor-tab-menu__item:not(.floor-tab-menu__item--active) {
+    color: var(--color-warm-grey-30); /* 비활성 탭 색상 */
+}
+
+/* 층별 안내 탭 포커스 상태 (접근성) */
+.floor-tab-menu__item:focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .floor-tab-menu__container {
+        gap: var(--spacing-sm);
+    }
+    
+    .floor-tab-menu__item {
+        font-size: var(--font-size-3xl); /* 모바일에서도 heading-h2 크기 유지 */
+        padding: var(--spacing-sm) 0; /* 상하 8px 패딩 */
+    }
 }
 
 /* =================================================================
@@ -1370,7 +1409,7 @@ a:hover {
     font-size: 32px; /* 피그마 디자인: 32px */
     font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
     line-height: 1.2; /* 피그마 디자인: 1.2 */
-    letter-spacing: var(--letter-spacing-xl); /* 디자인 시스템: -0.64px */
+    letter-spacing: var(--letter-spacing-text); /* 디자인 시스템: -2% */
     transition: opacity 0.3s ease;
     white-space: nowrap;
 }
@@ -1407,7 +1446,7 @@ a:hover {
     font-size: 28px; /* 피그마 디자인: 28px */
     font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
     line-height: 1.4; /* 피그마 디자인: 1.4 */
-    letter-spacing: var(--letter-spacing-widest); /* 디자인 시스템: -0.56px */
+    letter-spacing: var(--letter-spacing-text); /* 디자인 시스템: -2% */
     color: var(--text-inverse); /* 디자인 시스템: 흰색 */
     white-space: nowrap;
 }
@@ -1541,7 +1580,7 @@ a:hover {
     font-size: 14px; /* 피그마 디자인: 14px */
     font-weight: var(--font-weight-normal); /* 400 - 디자인 시스템 변수 */ /* Regular */
     line-height: 1.2; /* 피그마 디자인: 1.2 */
-    letter-spacing: var(--letter-spacing-widest); /* 디자인 시스템: -0.56px */
+    letter-spacing: var(--letter-spacing-text); /* 디자인 시스템: -2% */
     text-align: center;
     white-space: pre-line; /* 줄바꿈 지원 */
 }
@@ -1713,14 +1752,14 @@ a:hover {
         gap: var(--spacing-md);
     }
     
-    .tab-menu__list {
+    .tab-menu__container {
+        gap: var(--spacing-sm);
         flex-wrap: wrap;
-        gap: var(--spacing-xs);
     }
     
     .tab-menu__item {
         padding: var(--spacing-xs) var(--spacing-sm);
-        font-size: 0.875rem;
+        font-size: var(--font-size-lg); /* 18px - 모바일에서 적절한 크기 */
     }
     
     .pagination__container {
@@ -2098,9 +2137,7 @@ a:hover {
     margin: 0;
 }
 
-.space-card__description {
-    /* 나머지 스타일은 body-md 클래스에서 처리 */
-}
+/* space-card__description 스타일은 body-md 클래스에서 처리됨 */
 
 .space-card__meta {
     display: flex;

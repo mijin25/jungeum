@@ -1,14 +1,14 @@
 <?php
-// components/layout/navigation/tab-menu.php
-// 피그마 디자인 기반 탭 메뉴 컴포넌트 (jungeum-project-rules.mdc 준수)
+// components/layout/navigation/floor-tab-menu.php
+// 층별 안내용 탭 메뉴 컴포넌트 (피그마 디자인 기반)
 
 // 데이터 중심 접근: $data 배열에서 모든 값 추출
-$tabs = $data['tabs'] ?? [];
-$active_tab = $data['active_tab'] ?? 0; // 0부터 시작하는 인덱스
-$hide_if_empty = $data['hide_if_empty'] ?? false; // 과거 데이터가 없을 때 탭 UI 숨김
+$floors = $data['floors'] ?? [];
+$active_floor = $data['active_floor'] ?? 0; // 0부터 시작하는 인덱스
+$hide_if_empty = $data['hide_if_empty'] ?? false;
 
-if (empty($tabs)) {
-    return; // 탭이 없으면 아무것도 렌더링하지 않음
+if (empty($floors)) {
+    return; // 층이 없으면 아무것도 렌더링하지 않음
 }
 
 // 과거 데이터가 없을 때 탭 UI 숨김 로직
@@ -17,22 +17,22 @@ if ($hide_if_empty && isset($data['has_past_items']) && !$data['has_past_items']
 }
 ?>
 
-<nav class="tab-menu" role="tablist" aria-label="콘텐츠 필터">
-    <div class="tab-menu__container">
-        <?php foreach ($tabs as $index => $tab): ?>
+<nav class="floor-tab-menu" role="tablist" aria-label="층별 안내">
+    <div class="floor-tab-menu__container">
+        <?php foreach ($floors as $index => $floor): ?>
             <button
                 type="button"
                 role="tab"
-                class="tab-menu__item <?php echo $index === $active_tab ? 'tab-menu__item--active' : ''; ?>"
-                aria-selected="<?php echo $index === $active_tab ? 'true' : 'false'; ?>"
-                aria-controls="tab-panel-<?php echo $index; ?>"
-                id="tab-<?php echo $index; ?>"
-                data-tab-index="<?php echo $index; ?>"
-                <?php if (isset($tab['url'])): ?>
-                    data-url="<?php echo htmlspecialchars($tab['url']); ?>"
+                class="floor-tab-menu__item heading-h2 <?php echo $index === $active_floor ? 'floor-tab-menu__item--active' : ''; ?>"
+                aria-selected="<?php echo $index === $active_floor ? 'true' : 'false'; ?>"
+                aria-controls="floor-panel-<?php echo $index; ?>"
+                id="floor-tab-<?php echo $index; ?>"
+                data-floor-index="<?php echo $index; ?>"
+                <?php if (isset($floor['url'])): ?>
+                    data-url="<?php echo htmlspecialchars($floor['url']); ?>"
                 <?php endif; ?>
             >
-                <?php echo htmlspecialchars($tab['label']); ?>
+                <?php echo htmlspecialchars($floor['label']); ?>
             </button>
         <?php endforeach; ?>
     </div>
@@ -40,16 +40,16 @@ if ($hide_if_empty && isset($data['has_past_items']) && !$data['has_past_items']
 
 <script>
 /**
- * 탭 메뉴 JavaScript (jungeum-project-rules.mdc 준수)
- * 피그마 디자인 기반 탭 메뉴 인터랙션
+ * 층별 안내 탭 메뉴 JavaScript (jungeum-project-rules.mdc 준수)
+ * 피그마 디자인 기반 층별 안내 탭 메뉴 인터랙션
  */
 
-class TabMenu {
+class FloorTabMenu {
     constructor(container) {
         this.container = container;
-        this.tabs = container.querySelectorAll('.tab-menu__item');
-        this.activeTab = container.querySelector('.tab-menu__item--active');
-        this.activeIndex = this.activeTab ? parseInt(this.activeTab.dataset.tabIndex) : 0;
+        this.tabs = container.querySelectorAll('.floor-tab-menu__item');
+        this.activeTab = container.querySelector('.floor-tab-menu__item--active');
+        this.activeIndex = this.activeTab ? parseInt(this.activeTab.dataset.floorIndex) : 0;
         
         this.init();
     }
@@ -65,10 +65,14 @@ class TabMenu {
                 e.preventDefault();
                 this.switchTab(index);
                 
-                // 전시 탭은 페이지 이동 없이 필터링만 처리
-                // URL 업데이트는 하되 페이지 이동은 하지 않음
-                if (tab.dataset.url) {
+                // URL이 #로 시작하는 경우 (테스트용) - 페이지 이동하지 않음
+                if (tab.dataset.url && tab.dataset.url.startsWith('#')) {
+                    // URL 업데이트만 하고 페이지 이동은 하지 않음
                     window.history.pushState(null, null, tab.dataset.url);
+                }
+                // 실제 URL인 경우에만 페이지 이동
+                else if (tab.dataset.url && !tab.dataset.url.startsWith('#')) {
+                    window.location.href = tab.dataset.url;
                 }
             });
         });
@@ -101,18 +105,18 @@ class TabMenu {
         if (index < 0 || index >= this.tabs.length) return;
         
         // 이전 활성 탭 비활성화
-        this.tabs[this.activeIndex].classList.remove('tab-menu__item--active');
+        this.tabs[this.activeIndex].classList.remove('floor-tab-menu__item--active');
         this.tabs[this.activeIndex].setAttribute('aria-selected', 'false');
         
         // 새 활성 탭 활성화
-        this.tabs[index].classList.add('tab-menu__item--active');
+        this.tabs[index].classList.add('floor-tab-menu__item--active');
         this.tabs[index].setAttribute('aria-selected', 'true');
         this.tabs[index].focus();
         
         this.activeIndex = index;
         
         // 커스텀 이벤트 발생
-        this.container.dispatchEvent(new CustomEvent('tabChanged', {
+        this.container.dispatchEvent(new CustomEvent('floorTabChanged', {
             detail: {
                 activeIndex: index,
                 activeTab: this.tabs[index]
@@ -134,15 +138,15 @@ class TabMenu {
     }
 }
 
-// DOM 로드 완료 후 탭 메뉴 초기화
+// DOM 로드 완료 후 층별 안내 탭 메뉴 초기화
 document.addEventListener('DOMContentLoaded', function() {
-    const tabMenus = document.querySelectorAll('.tab-menu');
+    const floorTabMenus = document.querySelectorAll('.floor-tab-menu');
     
-    tabMenus.forEach(menu => {
-        new TabMenu(menu);
+    floorTabMenus.forEach(menu => {
+        new FloorTabMenu(menu);
     });
 });
 
 // 전역 접근을 위한 export (필요시)
-window.TabMenu = TabMenu;
+window.FloorTabMenu = FloorTabMenu;
 </script>
