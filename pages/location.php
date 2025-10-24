@@ -19,19 +19,9 @@ require_once '../components/helpers.php';
 </head>
 <body>
     <!-- 헤더 -->
-    <?php
-    $header_data = [
-        'logo' => '../assets/images/common/logo-jungeum.svg',
-        'menu_items' => [
-            '전시' => 'exhibitions',
-            '이벤트' => 'events',
-            '공간' => 'space',
-            '소개' => 'about',
-            '문의' => 'contact'
-        ],
-        'current_page' => 'location'
-    ];
-    include '../components/layout/header.php';
+    <?php 
+    $current_page = 'location'; // 네비게이션 활성 상태용
+    include __DIR__ . '/../components/layout/header.php'; 
     ?>
     
     <!-- 메인 콘텐츠 -->

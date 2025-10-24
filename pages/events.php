@@ -3,6 +3,8 @@
 require_once __DIR__ . '/../config/server.php';
 // 컴포넌트 헬퍼 함수들 로드
 require_once __DIR__ . '/../lib/helpers.php';
+// 페이지네이션 헬퍼 함수 로드
+require_once __DIR__ . '/../lib/pagination_helper.php';
 
 // 현재 날짜 기준으로 이벤트 필터링
 $current_date = date('Y-m-d');
@@ -36,6 +38,23 @@ $tab_data = [
 
 // 필터에 따른 이벤트 데이터 선택
 $display_events = isset($_GET['filter']) && $_GET['filter'] === 'past' ? $past_events : $current_events;
+
+// 페이지네이션 설정
+$current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$items_per_page = 12; // 페이지당 12개 이벤트
+
+// 페이지네이션 계산
+$pagination_info = calculatePagination($display_events, $current_page, $items_per_page);
+$paginated_events = $pagination_info['current_page_data'];
+
+// 페이지네이션 컴포넌트 데이터 준비
+$base_url = 'events.php';
+$additional_params = [];
+if (isset($_GET['filter'])) {
+    $additional_params['filter'] = $_GET['filter'];
+}
+
+$pagination_data = preparePaginationData($pagination_info, $base_url, $additional_params);
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -62,7 +81,10 @@ $display_events = isset($_GET['filter']) && $_GET['filter'] === 'past' ? $past_e
 </head>
 <body>
     <!-- 헤더 -->
-    <?php include __DIR__ . '/../components/layout/header.php'; ?>
+    <?php 
+    $current_page = 'events'; // 네비게이션 활성 상태용
+    include __DIR__ . '/../components/layout/header.php'; 
+    ?>
     
     <main class="main-content">
         <div class="container">
@@ -87,12 +109,19 @@ $display_events = isset($_GET['filter']) && $_GET['filter'] === 'past' ? $past_e
                     </div>
                 <?php else: ?>
                     <div class="events-grid">
-                        <?php foreach ($display_events as $event): ?>
+                        <?php foreach ($paginated_events as $event): ?>
                             <div class="event-card">
                                 <?php $data = $event; include __DIR__ . '/../components/cards/event-card.php'; ?>
                             </div>
                         <?php endforeach; ?>
                     </div>
+                    
+                    <!-- 페이지네이션 -->
+                    <?php if ($pagination_info['total_pages'] > 1): ?>
+                        <div class="pagination-section">
+                            <?php $data = $pagination_data; include __DIR__ . '/../components/layout/navigation/pagination.php'; ?>
+                        </div>
+                    <?php endif; ?>
                 <?php endif; ?>
             </section>
         </div>

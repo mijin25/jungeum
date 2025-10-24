@@ -421,27 +421,90 @@ require_once __DIR__ . '/../lib/helpers.php';
             
             <h3>페이지 인디케이터</h3>
             <div class="component-showcase">
-                <?php
-                $page_indicator_data = [
-                    'current_page' => 2,
-                    'total_pages' => 5,
-                    'base_url' => 'exhibitions.php'
-                ];
-                $data = $page_indicator_data;
-                include __DIR__ . '/../components/layout/navigation/page-indicator.php';
-                ?>
+                <div style="display: flex; flex-direction: column; gap: 2rem; align-items: center;">
+                    <!-- 숫자형 인디케이터 -->
+                    <div>
+                        <h4 style="margin-bottom: 1rem; font-size: 1rem; color: var(--text-secondary);">숫자형</h4>
+                        <?php
+                        $page_indicator_data = [
+                            'current_page' => 3,
+                            'total_pages' => 5,
+                            'type' => 'numbers'
+                        ];
+                        $data = $page_indicator_data;
+                        include __DIR__ . '/../components/layout/navigation/page-indicator.php';
+                        ?>
+                    </div>
+                    
+                    <!-- Dot형 인디케이터 -->
+                    <div>
+                        <h4 style="margin-bottom: 1rem; font-size: 1rem; color: var(--text-secondary);">Dot형</h4>
+                        <?php
+                        $page_indicator_data = [
+                            'current_page' => 2,
+                            'total_pages' => 5,
+                            'type' => 'dots'
+                        ];
+                        $data = $page_indicator_data;
+                        include __DIR__ . '/../components/layout/navigation/page-indicator.php';
+                        ?>
+                    </div>
+                </div>
             </div>
             
-            <h3>페이지네이션</h3>
+            <h3>페이지네이션 - 페이지당 12개 카드</h3>
             <div class="component-showcase">
+                <div style="display: flex; flex-direction: column; gap: 2rem; align-items: center;">
+                    <!-- 예시 1: 현재 페이지 1 (10페이지 중) -->
+                    <div>
+                        <?php
+                        $pagination_data = [
+                            'current_page' => 1,
+                            'total_pages' => 10,
+                            'base_url' => '#'
+                        ];
+                        $data = $pagination_data;
+                        include __DIR__ . '/../components/layout/navigation/pagination.php';
+                        ?>
+                    </div>
+                    <!-- 예시 2: 현재 페이지 중간 (10페이지 중) -->
+                    <div>
+                        <?php
+                        $pagination_data = [
+                            'current_page' => 5,
+                            'total_pages' => 10,
+                            'base_url' => '#'
+                        ];
+                        $data = $pagination_data;
+                        include __DIR__ . '/../components/layout/navigation/pagination.php';
+                        ?>
+                    </div>
+                    <!-- 예시 3: 현재 페이지 끝 (10페이지 중) -->
+                    <div>
+                        <?php
+                        $pagination_data = [
+                            'current_page' => 10,
+                            'total_pages' => 10,
+                            'base_url' => '#'
+                        ];
+                        $data = $pagination_data;
+                        include __DIR__ . '/../components/layout/navigation/pagination.php';
+                        ?>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 스크롤 인디케이터 -->
+            <h3>스크롤 인디케이터</h3>
+            <div class="component-showcase">
+                <p class="body-md" style="margin-bottom: 2rem;">페이지 상단에 고정되어 스크롤 진행 상황을 표시합니다. 각 페이지에서 스크롤하여 테스트해주세요.</p>
                 <?php
-                $pagination_data = [
-                    'current_page' => 3,
-                    'total_pages' => 10,
-                    'base_url' => 'exhibitions.php'
+                $scroll_indicator_data = [
+                    'current_position' => 0,
+                    'is_visible' => true
                 ];
-                $data = $pagination_data;
-                include __DIR__ . '/../components/layout/navigation/pagination.php';
+                $data = $scroll_indicator_data;
+                include __DIR__ . '/../components/layout/navigation/scroll-indicator.php';
                 ?>
             </div>
             

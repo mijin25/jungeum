@@ -14,7 +14,7 @@ if ($total_pages <= 1) {
 
 <div class="page-indicator" aria-label="페이지 인디케이터">
     <?php if ($type === 'numbers'): ?>
-        <div class="page-indicator__numbers">
+        <div class="page-indicator__numbers heading-h5">
             <span class="page-indicator__current"><?php echo str_pad($current_page, 2, '0', STR_PAD_LEFT); ?></span>
             <span class="page-indicator__separator">/</span>
             <span class="page-indicator__total"><?php echo str_pad($total_pages, 2, '0', STR_PAD_LEFT); ?></span>

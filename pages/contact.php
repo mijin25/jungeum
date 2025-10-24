@@ -96,8 +96,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="icon" type="image/svg+xml" href="assets/images/common/logo-jungeum.svg">
 </head>
 <body>
-    <!-- 헤더 컴포넌트 -->
-    <?php include 'components/header.php'; ?>
+    <!-- 헤더 -->
+    <?php 
+    $current_page = 'contact'; // 네비게이션 활성 상태용
+    include __DIR__ . '/../components/layout/header.php'; 
+    ?>
     
     <!-- 메인 콘텐츠 영역 -->
     <main class="main-content">

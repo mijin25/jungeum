@@ -1,54 +1,129 @@
 <?php
-// components/navigation/pagination.php
-// 피그마 디자인에 맞는 페이지네이션 컴포넌트
+// components/layout/navigation/pagination.php
+// 화면설계서 기반 접근 가능한 윈도우 페이지네이션 컴포넌트
+
+// SVGCache 클래스 로드
+require_once __DIR__ . '/../../../lib/SVGCache.php';
 
 // 데이터 중심 접근: $data 배열에서 모든 값 추출
-$current_page = $data['current_page'] ?? 1;
-$total_pages = $data['total_pages'] ?? 1;
-$base_url = $data['base_url'] ?? '?page='; // 예: 'exhibitions.php?page='
+$current = max(1, (int)($data['current_page'] ?? 1));
+$total = max(1, (int)($data['total_pages'] ?? 1));
+$base_url = (string)($data['base_url'] ?? '?page=');
+$window = max(3, (int)($data['window'] ?? 5)); // 기본 5개 페이지 표시
 
-if ($total_pages <= 1) {
-    return; // 페이지가 1개 이하면 페이지네이션을 표시하지 않음
+// URL 생성 함수
+function page_url(string $base, int $n): string {
+    $sep = (strpos($base, '?') === false) ? '?' : '&';
+    return $base . $sep . 'page=' . $n;
 }
 
-$max_visible_pages = 3; // 피그마 디자인: 최대 3개 페이지 번호 표시
-$start_page = max(1, $current_page - floor($max_visible_pages / 2));
-$end_page = min($total_pages, $start_page + $max_visible_pages - 1);
-
-// 시작 페이지 조정 (끝 페이지가 max_visible_pages보다 작을 경우)
-if ($end_page - $start_page + 1 < $max_visible_pages) {
-    $start_page = max(1, $end_page - $max_visible_pages + 1);
+/**
+ * 윈도우된 페이지 리스트 생성 (ellipsis 포함)
+ * @return array [['type'=>'page'|'ellipsis', 'num'=>int|null]]
+ */
+function build_windowed_pages(int $current, int $total, int $window): array {
+    $items = [];
+    
+    // 전체 페이지가 윈도우 이하이면 모든 페이지 표시
+    if ($total <= $window) {
+        for ($i = 1; $i <= $total; $i++) {
+            $items[] = ['type' => 'page', 'num' => $i];
+        }
+        return $items;
+    }
+    
+    $half = (int)floor($window / 2);
+    $start = max(1, $current - $half);
+    $end = min($total, $start + $window - 1);
+    
+    // 끝에 가까울 때 윈도우 조정
+    if ($end - $start + 1 < $window) {
+        $start = max(1, $end - $window + 1);
+    }
+    
+    // 첫 페이지 항상 포함 (ellipsis 필요시 추가)
+    if ($start > 1) {
+        $items[] = ['type' => 'page', 'num' => 1];
+        if ($start > 2) {
+            $items[] = ['type' => 'ellipsis', 'num' => null];
+        }
+    }
+    
+    // 중간 페이지들 표시
+    for ($i = $start; $i <= $end; $i++) {
+        $items[] = ['type' => 'page', 'num' => $i];
+    }
+    
+    // 마지막 페이지 항상 포함 (ellipsis 필요시 추가)
+    if ($end < $total) {
+        if ($end < $total - 1) {
+            $items[] = ['type' => 'ellipsis', 'num' => null];
+        }
+        $items[] = ['type' => 'page', 'num' => $total];
+    }
+    
+    return $items;
 }
+
+$items = build_windowed_pages($current, $total, $window);
+
+// Prev/Next 상태
+$has_prev = $current > 1;
+$has_next = $current < $total;
+
+// 아이콘 로드
+$chev_left = SVGCache::get('common/icon-arrow-left.svg', ['class' => 'pagination__icon']);
+$chev_right = SVGCache::get('common/icon-arrow-right.svg', ['class' => 'pagination__icon']);
 ?>
 
 <nav class="pagination" aria-label="페이지네이션">
     <div class="pagination__container">
-        <a
-            href="<?php echo htmlspecialchars($base_url . max(1, $current_page - 1)); ?>"
-            class="pagination__button <?php echo $current_page === 1 ? 'pagination__button--disabled' : ''; ?>"
-            aria-label="이전 페이지"
-        >
-            <img src="assets/images/icons/arrow-left-small.svg" alt="이전" class="pagination__icon">
-        </a>
-
+        <!-- 이전 버튼 -->
+        <?php if ($has_prev): ?>
+            <a class="pagination__button"
+               href="<?php echo htmlspecialchars(page_url($base_url, $current - 1)); ?>"
+               rel="prev"
+               aria-label="이전 페이지">
+                <?php echo $chev_left; ?>
+            </a>
+        <?php else: ?>
+            <span class="pagination__button pagination__button--disabled" aria-disabled="true" aria-label="이전 페이지 없음">
+                <?php echo $chev_left; ?>
+            </span>
+        <?php endif; ?>
+        
+        <!-- 페이지 번호 -->
         <div class="pagination__numbers">
-            <?php for ($i = $start_page; $i <= $end_page; $i++): ?>
-                <a
-                    href="<?php echo htmlspecialchars($base_url . $i); ?>"
-                    class="pagination__number <?php echo $i === $current_page ? 'pagination__number--current' : ''; ?>"
-                    aria-current="<?php echo $i === $current_page ? 'page' : 'false'; ?>"
-                >
-                    <?php echo $i; ?>
-                </a>
-            <?php endfor; ?>
+            <?php foreach ($items as $item): ?>
+                <?php if ($item['type'] === 'ellipsis'): ?>
+                    <span class="pagination__ellipsis" aria-hidden="true">…</span>
+                <?php else:
+                    $n = (int)$item['num'];
+                    if ($n === $current): ?>
+                        <span class="pagination__number pagination__number--current" aria-current="page"><?php echo $n; ?></span>
+                    <?php else: ?>
+                        <a class="pagination__number"
+                           href="<?php echo htmlspecialchars(page_url($base_url, $n)); ?>"
+                           aria-label="<?php echo $n; ?> 페이지">
+                            <?php echo $n; ?>
+                        </a>
+                    <?php endif; ?>
+                <?php endif; ?>
+            <?php endforeach; ?>
         </div>
-
-        <a
-            href="<?php echo htmlspecialchars($base_url . min($total_pages, $current_page + 1)); ?>"
-            class="pagination__button <?php echo $current_page === $total_pages ? 'pagination__button--disabled' : ''; ?>"
-            aria-label="다음 페이지"
-        >
-            <img src="assets/images/icons/arrow-right-small.svg" alt="다음" class="pagination__icon">
-        </a>
+        
+        <!-- 다음 버튼 -->
+        <?php if ($has_next): ?>
+            <a class="pagination__button"
+               href="<?php echo htmlspecialchars(page_url($base_url, $current + 1)); ?>"
+               rel="next"
+               aria-label="다음 페이지">
+                <?php echo $chev_right; ?>
+            </a>
+        <?php else: ?>
+            <span class="pagination__button pagination__button--disabled" aria-disabled="true" aria-label="다음 페이지 없음">
+                <?php echo $chev_right; ?>
+            </span>
+        <?php endif; ?>
     </div>
 </nav>

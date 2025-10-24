@@ -3,6 +3,8 @@
 require_once __DIR__ . '/../config/server.php';
 // 컴포넌트 헬퍼 함수들 로드
 require_once __DIR__ . '/../lib/helpers.php';
+// 페이지네이션 헬퍼 함수 로드
+require_once __DIR__ . '/../lib/pagination_helper.php';
 
 // 현재 날짜 기준으로 전시 필터링
 $current_date = date('Y-m-d');
@@ -36,6 +38,23 @@ $tab_data = [
 
 // 필터에 따른 전시 데이터 선택
 $display_exhibitions = isset($_GET['filter']) && $_GET['filter'] === 'past' ? $past_exhibitions : $current_exhibitions;
+
+// 페이지네이션 설정
+$current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$items_per_page = 12; // 페이지당 12개 전시
+
+// 페이지네이션 계산
+$pagination_info = calculatePagination($display_exhibitions, $current_page, $items_per_page);
+$paginated_exhibitions = $pagination_info['current_page_data'];
+
+// 페이지네이션 컴포넌트 데이터 준비
+$base_url = 'exhibitions.php';
+$additional_params = [];
+if (isset($_GET['filter'])) {
+    $additional_params['filter'] = $_GET['filter'];
+}
+
+$pagination_data = preparePaginationData($pagination_info, $base_url, $additional_params);
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -61,8 +80,21 @@ $display_exhibitions = isset($_GET['filter']) && $_GET['filter'] === 'past' ? $p
     <link rel="icon" type="image/svg+xml" href="../assets/images/common/logo-jungeum.svg">
 </head>
 <body>
+    <!-- 스크롤 인디케이터 -->
+    <?php
+    $scroll_indicator_data = [
+        'current_position' => 0,
+        'is_visible' => true
+    ];
+    $data = $scroll_indicator_data;
+    include __DIR__ . '/../components/layout/navigation/scroll-indicator.php';
+    ?>
+    
     <!-- 헤더 -->
-    <?php include __DIR__ . '/../components/layout/header.php'; ?>
+    <?php 
+    $current_page = 'exhibitions'; // 네비게이션 활성 상태용
+    include __DIR__ . '/../components/layout/header.php'; 
+    ?>
     
     <main class="main-content">
         <div class="container">
@@ -87,12 +119,19 @@ $display_exhibitions = isset($_GET['filter']) && $_GET['filter'] === 'past' ? $p
                     </div>
                 <?php else: ?>
                     <div class="exhibitions-grid">
-                        <?php foreach ($display_exhibitions as $exhibition): ?>
+                        <?php foreach ($paginated_exhibitions as $exhibition): ?>
                             <div class="exhibition-card">
                                 <?php $data = $exhibition; include __DIR__ . '/../components/cards/exhibition-card.php'; ?>
                             </div>
                         <?php endforeach; ?>
                     </div>
+                    
+                    <!-- 페이지네이션 -->
+                    <?php if ($pagination_info['total_pages'] > 1): ?>
+                        <div class="pagination-section">
+                            <?php $data = $pagination_data; include __DIR__ . '/../components/layout/navigation/pagination.php'; ?>
+                        </div>
+                    <?php endif; ?>
                 <?php endif; ?>
             </section>
         </div>

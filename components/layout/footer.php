@@ -1,6 +1,13 @@
 <?php
 // 푸터 컴포넌트
 // 사이트 정보, 연락처, 소셜 미디어 링크를 포함한 사이트 푸터
+
+// 컴포넌트 헬퍼 함수들 로드
+require_once __DIR__ . '/../../lib/helpers.php';
+
+// 현재 페이지가 pages 폴더 안에 있는지 확인
+$is_pages_folder = strpos(__DIR__, DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR) !== false;
+$base_path = $is_pages_folder ? '../' : '';
 ?>
 <footer class="site-footer">
     <div class="container">
@@ -9,7 +16,7 @@
             <div class="footer-top">
                 <div class="footer-info">
                     <div class="footer-logo">
-                        <img src="assets/images/common/logo-jungeum.svg" alt="정음" class="footer-logo-image">
+                        <img src="<?php echo $base_path; ?>assets/images/common/logo-jungeum.svg" alt="정음" class="footer-logo-image">
                     </div>
                     <p class="footer-description">
                         문화와 예술의 공간, 정음에서 만나는 특별한 경험
@@ -64,16 +71,18 @@
                 </div>
                 
                 <div class="footer-social">
-                    <h4 class="social-title">소셜 미디어</h4>
                     <div class="social-links">
+                        <?php
+                        require_once __DIR__ . '/../../lib/SVGCache.php';
+                        ?>
                         <a href="#" class="social-link" aria-label="페이스북">
-                            <img src="assets/images/common/icon-social-facebook.svg" alt="페이스북" class="social-icon">
+                            <?php echo SVGCache::get('common/icon-social-facebook.svg', ['width' => '20', 'height' => '20']); ?>
                         </a>
                         <a href="#" class="social-link" aria-label="인스타그램">
-                            <img src="assets/images/common/icon-social-instagram.svg" alt="인스타그램" class="social-icon">
+                            <?php echo SVGCache::get('common/icon-social-instagram.svg', ['width' => '20', 'height' => '20']); ?>
                         </a>
                         <a href="#" class="social-link" aria-label="유튜브">
-                            <img src="assets/images/common/icon-social-youtube.svg" alt="유튜브" class="social-icon">
+                            <?php echo SVGCache::get('common/icon-social-youtube.svg', ['width' => '20', 'height' => '20']); ?>
                         </a>
                     </div>
                 </div>
@@ -85,7 +94,7 @@
 <style>
 /* 푸터 스타일 */
 .site-footer {
-    background-color: #f8f8f8;
+    background-color: var(--color-jungeum-warm-white); /* warm-white */
     border-top: 1px solid #e0e0e0;
     padding: 3rem 0 1rem;
     margin-top: 4rem;
@@ -118,9 +127,9 @@
 }
 
 .footer-description {
-    color: #666;
-    line-height: 1.6;
-    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: var(--line-height-loose);
+    font-size: var(--font-size-base);
 }
 
 .footer-links {
@@ -135,11 +144,11 @@
 }
 
 .footer-title {
-    font-family: "JASOSansBold", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    color: #333;
+    font-family: var(--font-family-bold);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
 }
 
 .footer-list {
@@ -153,14 +162,14 @@
 }
 
 .footer-link {
-    color: #666;
+    color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: var(--font-size-sm);
     transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-    color: #333;
+    color: var(--text-primary);
 }
 
 .contact-info {
@@ -172,20 +181,20 @@
 .contact-item {
     display: flex;
     align-items: flex-start;
-    gap: 0.5rem;
-    font-size: 0.95rem;
-    color: #666;
-    margin-bottom: 0.5rem;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
 }
 
 .contact-label {
-    font-weight: 600;
-    color: #333;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
     min-width: 50px;
 }
 
 .contact-value {
-    color: #666;
+    color: var(--text-secondary);
 }
 
 .footer-bottom {
@@ -197,8 +206,8 @@
 }
 
 .footer-copyright {
-    color: #999;
-    font-size: 0.9rem;
+    color: var(--text-tertiary);
+    font-size: var(--font-size-sm);
 }
 
 .footer-social {
@@ -208,10 +217,10 @@
 }
 
 .social-title {
-    font-family: "JASOSansBold", "Pretendard Variable", -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    color: #333;
+    font-family: var(--font-family-bold);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
     margin: 0;
 }
 
@@ -226,26 +235,27 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
+    background-color: var(--color-white);
+    border: 1px solid var(--border-light);
     border-radius: 50%;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .social-link:hover {
-    background-color: #333;
-    border-color: #333;
+    background-color: var(--text-primary);
+    border-color: var(--text-primary);
     transform: translateY(-2px);
 }
 
-.social-icon {
+.social-link svg {
     width: 20px;
     height: 20px;
     transition: filter 0.3s ease;
+    fill: var(--text-primary);
 }
 
-.social-link:hover .social-icon {
+.social-link:hover svg {
     filter: brightness(0) invert(1);
 }
 

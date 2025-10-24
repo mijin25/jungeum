@@ -10,12 +10,18 @@ http://localhost/check-cafe24.php
 
 ### 2. 필수 파일 확인
 - [ ] `index.php` - 메인 페이지
+- [ ] `pages/index.php` - 실제 메인 페이지
 - [ ] `css/design-system.css` - 디자인 시스템
+- [ ] `css/components.css` - 컴포넌트 스타일
 - [ ] `css/webfonts.css` - 웹폰트
 - [ ] `js/main.js` - JavaScript
-- [ ] `data/*.json` - 데이터 파일들
-- [ ] `components/*.php` - 컴포넌트들
-- [ ] `assets/` - 이미지 및 폰트 파일들
+- [ ] `data/*.json` - 데이터 파일들 (hero.json 포함)
+- [ ] `components/layout/hero-slider.php` - 히어로 슬라이더 컴포넌트
+- [ ] `components/layout/navigation/page-indicator.php` - 페이지 인디케이터
+- [ ] `components/layout/navigation/navbar.php` - 네비게이션 바
+- [ ] `assets/images/main/*.jpg` - 히어로 슬라이더 이미지 (필수!)
+- [ ] `assets/images/main/label-coree-france-white.png` - 배지 이미지
+- [ ] `lib/SVGCache.php` - SVG 캐시 라이브러리
 
 ### 3. 카페24 서버 설정
 
